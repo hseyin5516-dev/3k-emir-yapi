@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modüler Ofis & Şantiye Yapıları | 3K Emir Yapı Group</title>
+  <meta name="description" content="3K Emir Yapı modüler ofis, satış ofisi ve şantiye binaları üretim rehberi. Hızlı kurulum, yüksek ısı yalıtımı, taşınabilir ve büyütülebilir ofis çözümleri.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/modern-theme.css">
+
+  <style>
+    .ba-hero {
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      color: #FFFFFF;
+      padding: 72px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ba-hero::after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: radial-gradient(circle at 80% 30%, rgba(217, 119, 6, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .ba-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 20px;
+    }
+    .ba-breadcrumb a {
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .ba-breadcrumb a:hover {
+      color: var(--color-accent);
+    }
+    .ba-hero-title {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: #FFFFFF;
+    }
+    .ba-hero-desc {
+      font-size: 16.5px;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 780px;
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+    .ba-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .ba-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      color: #F8FAFC;
+    }
+    .what-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .what-card {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    .what-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(217, 119, 6, 0.3);
+    }
+    .what-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(217, 119, 6, 0.1);
+      color: var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .what-card h3 {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+    }
+    .what-card p {
+      font-size: 14.5px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-top: 48px;
+      position: relative;
+    }
+    .steps-container::before {
+      content: "";
+      position: absolute;
+      top: 32px;
+      bottom: 32px;
+      left: 31px;
+      width: 2px;
+      background: var(--color-border);
+      display: none;
+    }
+    @media (min-width: 768px) {
+      .steps-container::before {
+        display: block;
+      }
+    }
+    .step-card {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: all 0.3s;
+      position: relative;
+    }
+    @media (min-width: 768px) {
+      .step-card {
+        flex-direction: row;
+        gap: 32px;
+        align-items: flex-start;
+      }
+    }
+    .step-card:hover {
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-md);
+    }
+    .step-number-box {
+      flex-shrink: 0;
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--color-primary) 0%, #1E293B 100%);
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+      z-index: 1;
+    }
+    .step-num {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: #FBBF24;
+      line-height: 1;
+    }
+    .step-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.8;
+      margin-top: 2px;
+    }
+    .step-content {
+      flex: 1;
+    }
+    .step-content h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 10px;
+    }
+    .step-content p {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .step-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .step-hl-tag {
+      font-size: 12px;
+      font-weight: 600;
+      background: #F1F5F9;
+      color: var(--color-primary);
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cta-models-box {
+      margin-top: 60px;
+      background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+      border: 2px dashed rgba(217, 119, 6, 0.35);
+      border-radius: var(--radius-xl);
+      padding: 48px 36px;
+      text-align: center;
+    }
+    .cta-models-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+    }
+    .cta-models-desc {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      max-width: 640px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+    .cta-models-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    /* Prominent Category Photo Gallery */
+    .cat-gallery-section {
+      background: #F8FAFC;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: 56px 0;
+    }
+    .cat-gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .cat-gallery-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FDE68A;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 13.5px;
+      font-weight: 700;
+    }
+    .cat-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 20px;
+    }
+    .cat-photo-item {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #0F172A;
+      position: relative;
+      cursor: pointer;
+      aspect-ratio: 4/3;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .cat-photo-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.15);
+    }
+    .cat-photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .cat-photo-item:hover img {
+      transform: scale(1.05);
+    }
+    .cat-photo-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.6) 65%, transparent 100%);
+      color: #FFFFFF;
+      padding: 24px 16px 14px;
+      pointer-events: none;
+    }
+    .cat-photo-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #FBBF24;
+      margin-bottom: 4px;
+    }
+    .cat-photo-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+    .cat-photo-desc {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .cat-photo-zoom-icon {
+      position: absolute;
+      top: 12px; right: 12px;
+      width: 34px; height: 34px;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(4px);
+      border-radius: 50%;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .cat-photo-item:hover .cat-photo-zoom-icon {
+      opacity: 1;
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.94);
+      z-index: 999999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(8px);
+    }
+    .lightbox-modal.active { display: flex; }
+    .lightbox-box {
+      position: relative;
+      max-width: 92vw;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lightbox-box img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: var(--radius-md);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      object-fit: contain;
+    }
+    .lightbox-caption {
+      color: #FFFFFF;
+      margin-top: 14px;
+      font-size: 15px;
+      font-weight: 600;
+      text-align: center;
+      max-width: 800px;
+      line-height: 1.4;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -44px; right: 0;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      color: #FFFFFF;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- TOP INFO BAR -->
+  <div class="mp-topbar">
+    <div class="mp-topbar-inner">
+      <div class="mp-topbar-msg">Ege Bölgesi ve Türkiye genelinde anahtar teslim üretim & mühendislik.</div>
+      <div class="mp-topbar-links">
+        <span>📍 Menderes / İzmir</span>
+        <a href="mailto:info@3kemiryapi.com">✉️ info@3kemiryapi.com</a>
+        <a href="tel:05314558585" style="font-weight: 700; color: #FFFFFF;">📞 0531 455 85 85</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="mp-header">
+    <div class="mp-header-inner">
+      <a href="index.html" class="mp-logo">
+        <img src="images/logo.png" alt="3K Emir Yapı Group" class="mp-logo-img">
+        <div class="mp-logo-text">
+          <span>3K EMİR YAPI GROUP</span>
+          <span class="mp-logo-sub">Prefabrik & Çelik Mimarlık</span>
+        </div>
+      </a>
+      <nav class="mp-nav">
+        <a href="index.html" class="mp-nav-link">Anasayfa</a>
+        <a href="kurumsal.html" class="mp-nav-link">Kurumsal</a>
+        
+        <!-- Products Mega Menu Wrapper -->
+        <div class="mega-menu-wrapper">
+          <a href="urunler.html" class="mp-nav-link active">
+            Ürünlerimiz
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="mega-menu-dropdown">
+            <div class="mega-grid">
+              <!-- Col 1: Prefabrik -->
+              <div>
+                <a href="urunler.html?kategori=prefabrik" class="mega-col-title">
+                  <span class="mega-col-icon">🏠</span>
+                  Prefabrik ve Ahşap Yapı (28 Model)
+                </a>
+                <p class="mega-col-desc">Masif ahşap kütük villalar, A-frame dağ evleri ve yüksek yalıtımlı prefabrik panel konut çözümleri.</p>
+                <ul class="mega-list">
+                  <li><a href="urunler.html?kategori=tek-kat-prefabrik">● Tek Kat Prefabrik Evler</a></li>
+                  <li><a href="urunler.html?kategori=cift-kat-prefabrik">● Çift Kat Prefabrik Evler</a></li>
+                </ul>
+              </div>
+
+              <!-- Col 2: Çelik -->
+              <div>
+                <a href="urunler.html?kategori=celik-konut" class="mega-col-title">
+                  <span class="mega-col-icon">🏛️</span>
+                  Çelik Konut (22 Model)
+                </a>
+                <p class="mega-col-desc">Hafif çelik karkas taşıyıcı sistemle üretilen, deprem yönetmeliğine tam uyumlu kalıcı lüks villalar.</p>
+                <ul class="mega-list">
+                  <li><a href="urunler.html?kategori=tek-kat-celik">● Tek Kat Çelik Villalar</a></li>
+                  <li><a href="urunler.html?kategori=cift-kat-celik">● Çift Kat Çelik Villalar</a></li>
+                </ul>
+              </div>
+
+              <!-- Col 3: Ofis & Endüstriyel -->
+              <div>
+                <a href="urunler.html?kategori=ofis-yapilari" class="mega-col-title" style="color: var(--color-accent); font-weight: 700;">
+                  <span class="mega-col-icon">🏢</span>
+                  Ofis & Şantiye Yapıları
+                </a>
+                <p class="mega-col-desc">Satış ofisi, şantiye idari bina ve modüler çalışma birimleri.</p>
+              </div>
+
+              <div>
+                <a href="betonarme-yapilar.html" class="mega-col-title">
+                  <span class="mega-col-icon">🏗️</span>
+                  Betonarme Yapılar
+                </a>
+                <p class="mega-col-desc">Arsanıza özel mimari statik projelendirme, C30/C35 betonarme karkas ve anahtar teslim inşaat rehberi.</p>
+              </div>
+            </div>
+
+            <!-- Mega Menu CTA Card -->
+            <div class="mega-cta-card">
+              <div>
+                <span class="mega-cta-tag">Ücretsiz Keşif</span>
+                <h4 class="mega-cta-title">Arsanıza en uygun modeli belirlemek için mimarımızla görüşün.</h4>
+              </div>
+              <a href="https://wa.me/905314558585?text=Merhaba,%20arsam%20için%20ücretsiz%20keşif%20ve%20model%20önerisi%20almak%20istiyorum." target="_blank" class="btn-hero-primary" style="padding: 10px 18px; font-size: 13px;">
+                Mimarımızla WhatsApp'tan Konuşun →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="projeler.html" class="mp-nav-link">Projelerimiz</a>
+        <a href="rehber.html" class="mp-nav-link">Rehber</a>
+        <a href="sss.html" class="mp-nav-link">S.S.S.</a>
+        <a href="iletisim.html" class="mp-nav-link">İletişim</a>
+      </nav>
+      <div class="mp-header-actions">
+        <a href="tel:05314558585" class="btn-call">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0531 455 85 85
+        </a>
+        <a href="https://wa.me/905314558585?text=Merhaba,%20ofis%20ve%20şantiye%20yapıları%20hakkında%20bilgi%20ve%20fiyat%20almak%20istiyorum." target="_blank" class="btn-whatsapp-header" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.08C8.94 7.08 8.66 7.15 8.42 7.41C8.18 7.66 7.5 8.3 7.5 9.61C7.5 10.92 8.45 12.18 8.59 12.36C8.73 12.53 10.45 15.19 13.1 16.33C13.73 16.6 14.22 16.76 14.6 16.88C15.23 17.08 15.8 17.05 16.26 16.98C16.77 16.9 17.83 16.34 18.05 15.71C18.28 15.08 18.28 14.54 18.21 14.43C18.14 14.32 17.97 14.25 17.71 14.12C17.46 14 16.2 13.38 15.97 13.3C15.74 13.21 15.57 13.17 15.41 13.42C15.24 13.67 14.76 14.25 14.61 14.42C14.47 14.59 14.33 14.61 14.07 14.48C13.82 14.36 13.01 14.09 12.04 13.23C11.29 12.56 10.78 11.73 10.63 11.48C10.49 11.23 10.62 11.09 10.74 10.97C10.86 10.86 11 10.68 11.13 10.54C11.26 10.4 11.3 10.3 11.39 10.13C11.47 9.96 11.43 9.81 11.37 9.69C11.31 9.56 10.82 8.35 10.61 7.86C10.41 7.37 10.21 7.44 10.05 7.43C9.91 7.43 9.74 7.42 9.57 7.42C9.4 7.42 9.11 7.08 9.11 7.08Z"/></svg><span>WhatsApp Teklifi</span></a>
+        <button id="mobile-menu-toggle" style="background: none; border: 1px solid var(--color-border); border-radius: 50%; width: 40px; height: 40px; display: none;" aria-label="Menü">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="ba-hero">
+    <div class="container">
+      <div class="ba-breadcrumb">
+        <a href="index.html">Anasayfa</a>
+        <span>›</span>
+        <span>Yapı Sistemleri</span>
+        <span>›</span>
+        <span style="color: #FFFFFF;">Ofis Yapıları</span>
+      </div>
+
+      <h1 class="ba-hero-title">Modüler Ofis & Şantiye Yapı Sistemleri</h1>
+      <p class="ba-hero-desc">
+        Hızlı kurulumu, modern mimarisi ve yüksek enerji verimliliğiyle satış ofislerinden dev şantiye kamplarına, idari yönetim binalarından ticari birimlere kadar iş dünyasına özel anahtar teslim modüler çözümler sunuyoruz.
+      </p>
+
+      <div class="ba-badges-row">
+        <div class="ba-badge">⚡ 7-15 Günde Hızlı Montaj</div>
+        <div class="ba-badge">📐 Modüler & Büyütülebilir Mimari</div>
+        <div class="ba-badge">🛡️ Yüksek Isı & Ses İzolasyonu</div>
+        <div class="ba-badge">🚚 Demonte & Taşınabilir Yapı</div>
+        <div class="ba-badge">🏗️ TBDY 2018 Statik Güvencesi</div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- SECTION 1: NE YAPIYORUZ -->
+    <section class="section" style="background: #FFFFFF;">
+      <div class="container">
+        <div style="text-align: center; max-width: 720px; margin: 0 auto 36px;">
+          <span class="section-tag" style="color: var(--color-accent); justify-content: center;">Hizmet Kapsamı</span>
+          <h2 class="section-title">Ofis & Ticari Yapılarda Ne Yapıyoruz?</h2>
+          <p class="section-subtitle" style="margin: 0 auto;">
+            İşletmenizin kurumsal kimliğine ve saha gereksinimlerine göre özel projelendirilen estetik, dayanıklı ve ergonomik çalışma mekanları tasarlıyoruz.
+          </p>
+        </div>
+
+        <div class="what-grid">
+          <div class="what-card">
+            <div class="what-icon-box">🏢</div>
+            <h3>Satış Ofisleri & Showroom</h3>
+            <p>
+              Konut ve gayrimenkul projeleri için şık cephe kaplamalı, geniş cam vitrinli, prestijli ve kurumsal kimliğinizi yansıtan modern satış ofisleri.
+            </p>
+          </div>
+
+          <div class="what-card">
+            <div class="what-icon-box">🏗️</div>
+            <h3>Şantiye & İdari Binalar</h3>
+            <p>
+              Büyük şantiye sahaları için mühendis ofisleri, toplantı salonları, yemekhane, yatakhane ve sosyal tesis kompleksleri.
+            </p>
+          </div>
+
+          <div class="what-card">
+            <div class="what-icon-box">🛡️</div>
+            <h3>Güvenlik & Karşılama Kabinleri</h3>
+            <p>
+              Site, fabrika ve tesis girişleri için yüksek yalıtımlı, estetik, elektrik ve iklimlendirme altyapısı hazır güvenlik üniteleri.
+            </p>
+          </div>
+
+          <div class="what-card">
+            <div class="what-icon-box">☕</div>
+            <h3>Klinik, Kafe & Ticari Birimler</h3>
+            <p>
+              Veteriner klinikleri, butik kafeler, eğitim salonları ve satış mağazaları için hızlı ruhsatlanan, taşınabilir ve büyütülebilir alanlar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: NASIL YAPIYORUZ (6 AŞAMALI SÜREÇ) -->
+    <section class="section" style="background: var(--color-bg);">
+      <div class="container">
+        <div style="text-align: center; max-width: 720px; margin: 0 auto 36px;">
+          <span class="section-tag" style="color: var(--color-accent); justify-content: center;">Üretim ve Montaj Rehberi</span>
+          <h2 class="section-title">Modüler Ofisleri Nasıl Yapıyoruz?</h2>
+          <p class="section-subtitle" style="margin: 0 auto;">
+            Menderes fabrikamızdaki hassas robotik imalat teknolojisinden sahada hızlı kuruluma kadar 6 adımlı profesyonel süreç.
+          </p>
+        </div>
+
+        <div class="steps-container">
+          <!-- 1 -->
+          <div class="step-card">
+            <div class="step-number-box">
+              <span class="step-num">01</span>
+              <span class="step-label">Tasarım</span>
+            </div>
+            <div class="step-content">
+              <h3>Fonksiyonel Mimari & Alan Optimizasyonu</h3>
+              <p>
+                Ofisinizin çalışan kapasitesi, departman dağılımı, ıslak hacim ve toplantı odası ihtiyaçları mimarlarımız tarafından 3D modelleme ile çizilir. Maksimum gün ışığı ve çalışma konforu hedeflenir.
+              </p>
+              <div class="step-highlights">
+                <span class="step-hl-tag">✓ 3D Kat Planı Modellemesi</span>
+                <span class="step-hl-tag">✓ Çalışma Alanı Optimizasyonu</span>
+                <span class="step-hl-tag">✓ Kurumsal Renk & Cephe Tasarımı</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="step-card">
+            <div class="step-number-box">
+              <span class="step-num">02</span>
+              <span class="step-label">Mühendislik</span>
+            </div>
+            <div class="step-content">
+              <h3>Statik Hesaplar & Fabrika Ön Üretimi</h3>
+              <p>
+                Rüzgar, kar yükü ve deprem katsayılarına göre statik hesaplar tamamlanır. Taşıyıcı çelik şase ve sandviç panel duvar bileşenleri Menderes tesisimizde milimetrik toleransla hazırlanır.
+              </p>
+              <div class="step-highlights">
+                <span class="step-hl-tag">✓ Galvanizli Çelik Şase</span>
+                <span class="step-hl-tag">✓ CNC Büküm & Kesim</span>
+                <span class="step-hl-tag">✓ Fabrika Kalite Kontrolü</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="step-card">
+            <div class="step-number-box">
+              <span class="step-num">03</span>
+              <span class="step-label">Altyapı</span>
+            </div>
+            <div class="step-content">
+              <h3>Zemin Hazırlığı & Temel Bağlantıları</h3>
+              <p>
+                Müşterimize teslim ettiğimiz zemin aplikasyon planına göre tesviye betonu veya kilitli parke/çelik ayak sistemi hazırlanır. Taşıyıcı ankraj noktaları belirlenerek montaja hazır hale getirilir.
+              </p>
+              <div class="step-highlights">
+                <span class="step-hl-tag">✓ Net Zemin Planı Teslimi</span>
+                <span class="step-hl-tag">✓ Hızlı Zemin Entegrasyonu</span>
+                <span class="step-hl-tag">✓ Esnek Kurulum Seçenekleri</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="step-card">
+            <div class="step-number-box">
+              <span class="step-num">04</span>
+              <span class="step-label">Montaj</span>
+            </div>
+            <div class="step-content">
+              <h3>Hızlı Sahada Çelik Montaj & Panel Giydirme</h3>
+              <p>
+                Uzman montaj ekiplerimiz modüler çelik şaseyi ve yüksek dansiteli poliüretan/taşyünü yalıtımlı panel duvarları cıvatalı sistemle birleştirir. Kaynaksız montaj sayesinde yapılar dilediğinizde sökülüp taşınabilir.
+              </p>
+              <div class="step-highlights">
+                <span class="step-hl-tag">✓ Cıvatalı Demonte Sistem</span>
+                <span class="step-hl-tag">✓ 7-15 Günde Kurulum</span>
+                <span class="step-hl-tag">✓ Taşınabilir & Büyütülebilir</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="step-card">
+            <div class="step-number-box">
+              <span class="step-num">05</span>
+              <span class="step-label">Tesisat</span>
+            </div>
+            <div class="step-content">
+              <h3>Elektrik, Data Ağı & İklimlendirme Altyapısı</h3>
+              <p>
+                Ofis içi çalışma alanlarına uygun kablo kanalları, network/data prizleri, LED aydınlatmalar, klima altyapıları ve yangın güvenliği standartlarına uygun sıva altı tesisat çekilir.
+              </p>
+              <div class="step-highlights">
+                <span class="step-hl-tag">✓ Ofis Data & UPS Altyapısı</span>
+                <span class="step-hl-tag">✓ Enerji Tasarruflu LED Aydınlatma</span>
+                <span class="step-hl-tag">✓ Sıhhi Tesisat & Mutfak Teçhizatı</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="step-card">
+            <div class="step-number-box">
+              <span class="step-num">06</span>
+              <span class="step-label">Teslim</span>
+            </div>
+            <div class="step-content">
+              <h3>İç Dekorasyon, Zemin Kaplamaları & Anahtar Teslim</h3>
+              <p>
+                Islak hacimlerde seramik ve armatür montajı, ana çalışma alanlarında aşınmaya dayanıklı ticari laminat parke veya mineflo kaplama uygulanarak ofisiniz çalışmaya hazır olarak teslim edilir.
+              </p>
+              <div class="step-highlights">
+                <span class="step-hl-tag">✓ Ticari Sınıf Aşınmaz Zemin</span>
+                <span class="step-hl-tag">✓ Anahtar Teslim Kullanıma Hazır</span>
+                <span class="step-hl-tag">✓ Yazılı Fabrika Garantisi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODELLERE GİDEN BUTON -->
+        <div class="cta-models-box">
+          <span class="section-tag" style="color: var(--color-accent); justify-content: center; margin-bottom: 12px;">Modelleri Keşfedin</span>
+          <h2 class="cta-models-title">Ofis ve Şantiye Modellerimizi İnceleyin</h2>
+          <p class="cta-models-desc">
+            Tek ve çok bölmeli modüler ofis planlarımızı, şantiye yemekhane/yatakhane ünitelerimizi ve hazır satış ofis modellerimizi inceleyebilirsiniz.
+          </p>
+          <div class="cta-models-buttons">
+            <a href="urunler.html?kategori=ofis" class="btn-hero-primary" style="padding: 14px 32px; font-size: 15px;">
+              📋 Ofis & Ticari Modellerimizi İnceleyin →
+            </a>
+            <a href="https://wa.me/905314558585?text=Merhaba,%20modüler%20ofis%20ve%20şantiye%20yapılarınız%20hakkında%20bilgi%20ve%20teklif%20almak%20istiyorum." target="_blank" class="btn-call" style="background: #FFFFFF; color: var(--color-primary); padding: 14px 28px; font-size: 15px; border: 1px solid var(--color-border);">
+              💬 WhatsApp'tan Proje Teklifi İsteyin
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mp-footer">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" style="display: inline-block; margin-bottom: 12px;">
+          <img src="images/logo.png" alt="3K Emir Yapı Group" style="height: 46px; width: auto; display: block;">
+        </a>
+        <div class="footer-brand-title">3K EMİR YAPI GROUP</div>
+        <p class="footer-desc">İzmir / Menderes tesislerimizde kaliteli prefabrik, çelik konut ve modüler ofis yapıları üretiyoruz.</p>
+        <a href="tel:05314558585" class="btn-call">0531 455 85 85</a>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Modeller</h4>
+        <ul class="footer-links">
+          <li><a href="prefabrik-konut.html">Prefabrik ve Ahşap Yapı</a></li>
+          <li><a href="celik-konut.html">Hafif Çelik Villa</a></li>
+          <li><a href="ofis-yapilari.html">Ofis Yapıları</a></li>
+          <li><a href="betonarme-yapilar.html">Betonarme Yapılar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Kurumsal</h4>
+        <ul class="footer-links">
+          <li><a href="kurumsal.html">Hakkımızda</a></li>
+          <li><a href="projeler.html">Projelerimiz</a></li>
+          <li><a href="rehber.html">Rehber</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">İletişim</h4>
+        <div class="footer-contact-block">
+          <a href="tel:05314558585" class="footer-phone-big">0531 455 85 85</a>
+          <p class="footer-address">Menderes / İzmir • Pazartesi - Pazar: 09:00 - 19:30</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 3K EMİR YAPI GROUP. Tüm hakları saklıdır.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="photoLightbox" class="lightbox-modal" onclick="closeLightbox(event)">
+    <div class="lightbox-box">
+      <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+      <img id="lightboxImg" src="" alt="Büyük Görsel">
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <script>
+    function openPhoto(src, title, desc) {
+      var m = document.getElementById('photoLightbox');
+      var img = document.getElementById('lightboxImg');
+      var cap = document.getElementById('lightboxCaption');
+      if (m && img) {
+        img.src = src;
+        cap.innerHTML = '<strong>' + title + '</strong><br><span style="font-size:13px; opacity:0.85; font-weight:normal;">' + (desc || '') + '</span>';
+        m.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function closeLightbox(e) {
+      if (e.target.id === 'photoLightbox' || e.target.classList.contains('lightbox-close') || e.target.closest('.lightbox-close')) {
+        var m = document.getElementById('photoLightbox');
+        if (m) {
+          m.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        var m = document.getElementById('photoLightbox');
+        if (m) {
+          m.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+    });
+  </script>
+
+  <!-- FLOATING MOBILE WHATSAPP ICON -->
+  <div class="floating-mobile-bar">
+    <a href="https://wa.me/905314558585?text=Merhaba,%20bilgi%20ve%20fiyat%20teklifi%20almak%20istiyorum." target="_blank" class="mobile-bar-btn wa" aria-label="WhatsApp">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.08C8.94 7.08 8.66 7.15 8.42 7.41C8.18 7.66 7.5 8.3 7.5 9.61C7.5 10.92 8.45 12.18 8.59 12.36C8.73 12.53 10.45 15.19 13.1 16.33C13.73 16.6 14.22 16.76 14.6 16.88C15.23 17.08 15.8 17.05 16.26 16.98C16.77 16.9 17.83 16.34 18.05 15.71C18.28 15.08 18.28 14.54 18.21 14.43C18.14 14.32 17.97 14.25 17.71 14.12C17.46 14 16.2 13.38 15.97 13.3C15.74 13.21 15.57 13.17 15.41 13.42C15.24 13.67 14.76 14.25 14.61 14.42C14.47 14.59 14.33 14.61 14.07 14.48C13.82 14.36 13.01 14.09 12.04 13.23C11.29 12.56 10.78 11.73 10.63 11.48C10.49 11.23 10.62 11.09 10.74 10.97C10.86 10.86 11 10.68 11.13 10.54C11.26 10.4 11.3 10.3 11.39 10.13C11.47 9.96 11.43 9.81 11.37 9.69C11.31 9.56 10.82 8.35 10.61 7.86C10.41 7.37 10.21 7.44 10.05 7.43C9.91 7.43 9.74 7.42 9.57 7.42C9.4 7.42 9.11 7.08 9.11 7.08Z"/></svg>
+    </a>
+  </div>
+</body>
+</html>

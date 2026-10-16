@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3K EMİR YAPI — Arsanızdan Anahtar Teslime Mimari Timelapse | Prefabrik & Çelik Villa</title>
+  <meta name="description" content="3K Emir Yapı. Boş arsanızdan 60 günde anahtar teslim hafif çelik prefabrik villaya mimari timelapse dönüşüm. Ege ve İzmir'de güvenli, yalıtımlı müstakil yaşam.">
+  
+  <!-- Google Fonts: Cinzel, Plus Jakarta Sans, Syne -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       3K EMİR YAPI — ARCHITECTURAL CAD TIMELAPSE SCROLLYTELLING ENGINE
+       ========================================================================== */
+    :root {
+      --bg-base: #f6f4ee;
+      --bg-dark: #121315;
+      --text-primary: #151515;
+      --text-secondary: #5a564d;
+      --text-muted: #8e887c;
+      --accent-warm: #9e7542;
+      --accent-warm-dark: #7a582c;
+      --accent-gold: #c29d63;
+      --cad-cyan: #00d2ff;
+      --cad-gold: #d4af37;
+      --border-subtle: rgba(21, 21, 21, 0.08);
+      --font-display: 'Cinzel', serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-accent: 'Syne', sans-serif;
+      --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--text-primary);
+      color: var(--bg-base);
+    }
+
+    html, body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Fixed Fullscreen Architectural Canvas */
+    #timelapse-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      pointer-events: none;
+      object-fit: cover;
+    }
+
+    /* Vignette & Atmospheric Overlay */
+    .timelapse-vignette {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 2;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 50%, rgba(246, 244, 238, 0) 42%, rgba(246, 244, 238, 0.42) 100%);
+      transition: background 0.6s ease;
+    }
+
+    body.night-mode .timelapse-vignette {
+      background: radial-gradient(circle at 50% 50%, rgba(18, 19, 21, 0) 38%, rgba(18, 19, 21, 0.65) 100%);
+    }
+
+    /* --- PRELOADER --- */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #121315;
+      color: #f6f4ee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+    }
+
+    #preloader.loaded {
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .preloader-emblem {
+      width: 58px;
+      height: 58px;
+      border: 1.5px solid var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--accent-gold);
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      animation: pulseSymbol 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseSymbol {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.06); opacity: 1; }
+    }
+
+    .preloader-title {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 3.2vw, 32px);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .preloader-sub {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #8c887e;
+      margin-bottom: 30px;
+    }
+
+    .preloader-track {
+      width: 170px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .preloader-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0%;
+      background: var(--accent-gold);
+      transition: width 0.35s ease;
+    }
+
+    /* --- HEADER (ERA RESIDENCE MINIMALIST) --- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 88px;
+      padding: 0 4.5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(246, 244, 238, 0.92) 0%, rgba(246, 244, 238, 0) 100%);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: background 0.4s ease;
+    }
+
+    body.night-mode header {
+      background: linear-gradient(180deg, rgba(18, 19, 21, 0.92) 0%, rgba(18, 19, 21, 0) 100%);
+    }
+
+    .brand-group {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-badge {
+      width: 40px;
+      height: 40px;
+      border: 1.5px solid var(--accent-warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--accent-warm);
+      background: rgba(255, 255, 255, 0.75);
+    }
+
+    .brand-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      transition: color 0.4s ease;
+    }
+
+    body.night-mode .brand-name {
+      color: #ffffff;
+    }
+
+    .brand-sub {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .header-actions {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .phone-pill {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--border-subtle);
+      padding: 9px 18px;
+      border-radius: 100px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+
+    body.night-mode .phone-pill {
+      background: rgba(25, 26, 29, 0.85);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .phone-pill:hover {
+      border-color: var(--accent-warm);
+      color: var(--accent-warm);
+      transform: translateY(-1px);
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #27ae60;
+      box-shadow: 0 0 8px rgba(39, 174, 96, 0.6);
+    }
+
+    .btn-cta-pill {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--accent-warm);
+      color: #ffffff;
+      border: none;
+      border-radius: 100px;
+      padding: 12px 24px;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s var(--ease-smooth);
+      box-shadow: 0 6px 18px rgba(158, 117, 66, 0.25);
+    }
+
+    .btn-cta-pill:hover {
+      background: var(--accent-warm-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(158, 117, 66, 0.35);
+    }
+
+    /* --- SIDE TIMELAPSE PROGRESS RAIL --- */
+    .timelapse-side-rail {
+      position: fixed;
+      right: 4.5vw;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: flex-end;
+      pointer-events: auto;
+    }
+
+    .rail-step {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      opacity: 0.35;
+      transition: all 0.3s ease;
+    }
+
+    .rail-step:hover {
+      opacity: 0.85;
+      transform: translateX(-4px);
+    }
+
+    .rail-step.active {
+      opacity: 1;
+    }
+
+    .rail-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      transition: color 0.4s ease;
+    }
+
+    body.night-mode .rail-label {
+      color: #ffffff;
+    }
+
+    .rail-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1.5px solid var(--text-primary);
+      background: transparent;
+      transition: all 0.3s var(--ease-smooth);
+    }
+
+    body.night-mode .rail-dot {
+      border-color: #ffffff;
+    }
+
+    .rail-step.active .rail-dot {
+      background: var(--accent-warm);
+      border-color: var(--accent-warm);
+      transform: scale(1.6);
+      box-shadow: 0 0 10px var(--accent-gold);
+    }
+
+    /* --- LIVE HUD COORDINATES (ERA CAD REALISM) --- */
+    .cad-hud-badge {
+      position: fixed;
+      bottom: 36px;
+      left: 4.5vw;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: rgba(246, 244, 238, 0.85);
+      backdrop-filter: blur(14px);
+      padding: 10px 20px;
+      border-radius: 100px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      pointer-events: none;
+      transition: all 0.4s ease;
+    }
+
+    body.night-mode .cad-hud-badge {
+      background: rgba(25, 26, 29, 0.85);
+      border-color: rgba(255, 255, 255, 0.12);
+      color: #a8a49b;
+    }
+
+    .hud-live-tag {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-warm);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+    }
+
+    .hud-pulse {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cad-cyan);
+      box-shadow: 0 0 8px var(--cad-cyan);
+      animation: hudBlink 1.8s infinite ease-in-out;
+    }
+
+    @keyframes hudBlink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+    }
+
+    /* --- SCROLLYTELLING STORY TRACK --- */
+    .timelapse-story-track {
+      position: relative;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    .timelapse-slide {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 9vw;
+      position: relative;
+    }
+
+    .timelapse-card-glass {
+      max-width: 530px;
+      pointer-events: auto;
+      background: rgba(246, 244, 238, 0.82);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      padding: 42px 48px;
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+    }
+
+    body.night-mode .timelapse-card-glass {
+      background: rgba(25, 26, 29, 0.82);
+      border-color: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .timelapse-slide.right {
+      justify-content: flex-end;
+    }
+
+    .timelapse-slide.center {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .card-timeline-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 14px;
+    }
+
+    .card-timeline-badge::before {
+      content: "";
+      width: 18px;
+      height: 1.5px;
+      background: var(--accent-warm);
+    }
+
+    .card-heading {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.2vw, 42px);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin-bottom: 18px;
+      transition: color 0.4s ease;
+    }
+
+    body.night-mode .card-heading {
+      color: #ffffff;
+    }
+
+    .card-body {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--text-secondary);
+      margin-bottom: 26px;
+      transition: color 0.4s ease;
+    }
+
+    body.night-mode .card-body {
+      color: #a29e94;
+    }
+
+    .card-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+      transition: border-color 0.4s ease;
+    }
+
+    body.night-mode .card-pills-row {
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .tech-pill {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--accent-warm);
+      background: rgba(158, 117, 66, 0.08);
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 1px solid rgba(158, 117, 66, 0.2);
+    }
+
+    /* ERA Day / Night Switch (on Stage 5) */
+    .night-toggle-group {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--border-subtle);
+      border-radius: 100px;
+      padding: 4px;
+      gap: 4px;
+      margin-bottom: 22px;
+    }
+
+    body.night-mode .night-toggle-group {
+      background: rgba(35, 37, 41, 0.9);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .mode-btn {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      border-radius: 100px;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    body.night-mode .mode-btn {
+      color: #a09d94;
+    }
+
+    .mode-btn.active {
+      background: var(--accent-warm);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(158, 117, 66, 0.3);
+    }
+
+    /* Scroll Prompt */
+    .scroll-down-hint {
+      position: absolute;
+      bottom: 38px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      animation: floatHint 2.2s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    .mouse-icon {
+      width: 22px;
+      height: 34px;
+      border: 1.5px solid var(--text-muted);
+      border-radius: 14px;
+      position: relative;
+    }
+
+    .mouse-icon::after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 7px;
+      background: var(--accent-warm);
+      border-radius: 2px;
+      animation: wheelMove 1.5s infinite ease-in-out;
+    }
+
+    @keyframes wheelMove {
+      0% { transform: translate(-50%, 0); opacity: 1; }
+      100% { transform: translate(-50%, 12px); opacity: 0; }
+    }
+
+    @keyframes floatHint {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, 8px); }
+    }
+
+    /* --- SECTION: UNIT COLLECTION (ERA RESIDENCE STYLE) --- */
+    .collection-section {
+      position: relative;
+      z-index: 25;
+      background: #ffffff;
+      padding: 120px 4.5vw;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .collection-title-wrap {
+      max-width: 760px;
+      margin: 0 auto 64px;
+      text-align: center;
+    }
+
+    .collection-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 14px;
+    }
+
+    .collection-heading {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 3.8vw, 48px);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 18px;
+    }
+
+    .collection-desc {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .units-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .unit-card {
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--bg-base);
+      transition: all 0.4s var(--ease-smooth);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .unit-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.08);
+      border-color: rgba(158, 117, 66, 0.4);
+    }
+
+    .unit-img-box {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .unit-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease-smooth);
+    }
+
+    .unit-card:hover .unit-img-box img {
+      transform: scale(1.06);
+    }
+
+    .unit-tag {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: rgba(246, 244, 238, 0.92);
+      backdrop-filter: blur(10px);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      color: var(--accent-warm);
+    }
+
+    .unit-body {
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .unit-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .unit-p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .unit-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 12px;
+      margin-bottom: 24px;
+    }
+
+    .unit-row span.lbl {
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .unit-row span.val {
+      color: var(--text-primary);
+      font-family: var(--font-display);
+      font-weight: 700;
+    }
+
+    .unit-link-btn {
+      width: 100%;
+      text-align: center;
+      padding: 12px 20px;
+      border-radius: 100px;
+      background: transparent;
+      border: 1.5px solid var(--accent-warm);
+      color: var(--accent-warm);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      display: block;
+    }
+
+    .unit-link-btn:hover {
+      background: var(--accent-warm);
+      color: #ffffff;
+    }
+
+    /* --- FOOTER (ERA RESIDENCE MINIMALIST) --- */
+    footer {
+      position: relative;
+      z-index: 25;
+      background: #0f1011;
+      color: #8c867a;
+      padding: 100px 4.5vw 48px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    .footer-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-brand-title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand-desc {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #8c867a;
+      max-width: 380px;
+    }
+
+    .footer-contact-block {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-contact-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 4px;
+    }
+
+    .footer-phone-big {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: color 0.25s ease;
+    }
+
+    .footer-phone-big:hover {
+      color: var(--accent-gold);
+    }
+
+    .footer-bottom-row {
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* --- RESPONSIVE ADJUSTMENTS --- */
+    @media (max-width: 1024px) {
+      .units-grid {
+        grid-template-columns: 1fr;
+      }
+      .timelapse-side-rail {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 0 16px;
+        height: 64px;
+      }
+      .brand-badge {
+        width: 34px;
+        height: 34px;
+        font-size: 13px;
+      }
+      .brand-name {
+        font-size: 14px;
+      }
+      .brand-sub {
+        font-size: 9px;
+      }
+      .btn-cta-pill {
+        padding: 8px 16px;
+        font-size: 11px;
+      }
+      .phone-pill {
+        display: none;
+      }
+
+      /* Move cards to bottom as elegant compact glass sheet so house is 100% visible */
+      .timelapse-slide {
+        align-items: flex-end !important;
+        justify-content: center !important;
+        padding: 0 14px 68px 14px !important;
+      }
+      .timelapse-slide.right,
+      .timelapse-slide.center {
+        justify-content: center !important;
+      }
+
+      .timelapse-card-glass {
+        width: 100%;
+        max-width: 100% !important;
+        padding: 15px 16px 13px 16px !important;
+        border-radius: 20px !important;
+        background: rgba(246, 244, 238, 0.82) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12) !important;
+        border: 1px solid rgba(255, 255, 255, 0.85) !important;
+      }
+
+      .card-timeline-badge {
+        font-size: 9px !important;
+        margin-bottom: 3px !important;
+        letter-spacing: 0.14em !important;
+      }
+      .card-timeline-badge::before {
+        width: 12px !important;
+      }
+
+      .card-heading {
+        font-size: 16px !important;
+        line-height: 1.2 !important;
+        margin-bottom: 5px !important;
+        letter-spacing: 0 !important;
+      }
+
+      .card-body {
+        font-size: 11.5px !important;
+        line-height: 1.45 !important;
+        margin-bottom: 8px !important;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .card-pills-row {
+        padding-top: 8px !important;
+        gap: 6px !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .card-pills-row::-webkit-scrollbar {
+        display: none;
+      }
+
+      .tech-pill {
+        font-size: 9.5px !important;
+        padding: 3px 9px !important;
+        white-space: nowrap !important;
+        flex-shrink: 0;
+      }
+
+      .timelapse-card-glass::before {
+        content: "";
+        display: block;
+        width: 32px;
+        height: 3px;
+        background: rgba(0, 0, 0, 0.16);
+        border-radius: 3px;
+        margin: 0 auto 8px auto;
+      }
+
+      .scroll-down-hint {
+        bottom: 74px !important;
+        font-size: 9px !important;
+        opacity: 0.7;
+      }
+      .scroll-down-hint .mouse-icon {
+        display: none !important;
+      }
+
+      /* Compact Floating Bottom HUD on mobile */
+      .cad-hud-badge {
+        display: flex !important;
+        position: fixed !important;
+        bottom: 12px !important;
+        left: 14px !important;
+        right: 14px !important;
+        width: auto !important;
+        padding: 6px 14px !important;
+        font-size: 10px !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        border-radius: 100px !important;
+        background: rgba(246, 244, 238, 0.94) !important;
+        backdrop-filter: blur(14px) !important;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1) !important;
+        z-index: 45 !important;
+        pointer-events: auto !important;
+      }
+
+      .cad-hud-badge > span:not(#hud-status) {
+        display: none !important;
+      }
+
+      #hud-status {
+        max-width: 170px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 10px !important;
+        font-weight: 700 !important;
+      }
+
+      #btn-autoplay {
+        padding: 5px 12px !important;
+        font-size: 10px !important;
+      }
+
+      #slide-4 .timelapse-card-glass > div {
+        gap: 8px !important;
+        flex-direction: column !important;
+      }
+      #slide-4 .btn-cta-pill {
+        padding: 10px 16px !important;
+        font-size: 11px !important;
+        width: 100% !important;
+        text-align: center !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FIXED FULLSCREEN ARCHITECTURAL CANVAS -->
+  <canvas id="timelapse-canvas"></canvas>
+  <div class="timelapse-vignette"></div>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="preloader-emblem">3K</div>
+    <div class="preloader-title">3K Emir Yapı</div>
+    <div class="preloader-sub">Mimari Timelapse İnşaat Sistemi • Ege & İzmir</div>
+    <div class="preloader-track">
+      <div class="preloader-fill" id="preloader-fill"></div>
+    </div>
+    <div id="preloader-count" style="margin-top: 14px; font-size: 11px; letter-spacing: 0.16em; color: var(--accent-gold); font-family: monospace;">YÜKLENİYOR %0</div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <a href="#" class="brand-group">
+      <div class="brand-badge">3K</div>
+      <div class="brand-meta">
+        <span class="brand-name">3K EMİR YAPI</span>
+        <span class="brand-sub">Müstakil Yaşam • Menderes</span>
+      </div>
+    </a>
+
+    <div class="header-actions">
+      <a href="demo2.html" class="phone-pill" style="border-color: rgba(212, 175, 55, 0.4); color: var(--accent-gold); text-decoration: none;">
+        <span>Demo 2 (Lüks Atölye) →</span>
+      </a>
+      <a href="tel:05314558585" class="phone-pill">
+        <span class="live-dot"></span>
+        <span>0531 455 85 85</span>
+      </a>
+      <a href="https://wa.me/905314558585?text=Merhaba,%20arsama%20120%20m2%20prefabrik%20çelik%20villa%20yaptırmak%20istiyorum." target="_blank" class="btn-cta-pill">
+        WhatsApp'tan Fiyat Al
+      </a>
+    </div>
+  </header>
+
+  <!-- LIVE CAD HUD COORDINATES BADGE & AUTOPLAY -->
+  <div class="cad-hud-badge">
+    <div class="hud-live-tag">
+      <div class="hud-pulse"></div>
+      <span>CANLI TİMELAPSE</span>
+    </div>
+    <span>•</span>
+    <span id="hud-status">FAZ 01: ARSA KEŞFİ & KOTLAMA</span>
+    <span>•</span>
+    <span id="hud-frame" style="color: var(--accent-warm); font-weight: 700;">KARE 01 / 64</span>
+    <span>•</span>
+    <span id="hud-day">GÜN 01 / 60</span>
+    <span>•</span>
+    <span>38.2541° K, 27.1284° D</span>
+    <button id="btn-autoplay" onclick="toggleAutoPlay()" style="background: var(--accent-warm); color: #fff; border: none; padding: 4px 12px; border-radius: 100px; font-size: 10px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; margin-left: 6px; font-family: inherit;">
+      <svg id="play-icon" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      <span id="play-text">OYNAT</span>
+    </button>
+  </div>
+
+  <!-- TIMELAPSE SIDE PROGRESS RAIL -->
+  <div class="timelapse-side-rail" id="timelapse-rail">
+    <div class="rail-step active" onclick="jumpToPhase(0)">
+      <span class="rail-label">01 Arsa Keşfi</span>
+      <div class="rail-dot"></div>
+    </div>
+    <div class="rail-step" onclick="jumpToPhase(1)">
+      <span class="rail-label">02 Taş İstinat</span>
+      <div class="rail-dot"></div>
+    </div>
+    <div class="rail-step" onclick="jumpToPhase(2)">
+      <span class="rail-label">03 Ahşap/Çelik Karkas</span>
+      <div class="rail-dot"></div>
+    </div>
+    <div class="rail-step" onclick="jumpToPhase(3)">
+      <span class="rail-label">04 Siding & Çatı</span>
+      <div class="rail-dot"></div>
+    </div>
+    <div class="rail-step" onclick="jumpToPhase(4)">
+      <span class="rail-label">05 Anahtar Teslim</span>
+      <div class="rail-dot"></div>
+    </div>
+  </div>
+
+  <!-- TIMELAPSE SCROLLYTELLING STORY TRACK -->
+  <div class="timelapse-story-track">
+
+    <!-- Slide 0: Arsa Keşfi & Lazer Kotlama -->
+    <section class="timelapse-slide" id="slide-0">
+      <div class="timelapse-card-glass">
+        <div class="card-timeline-badge">FAZ 01 / GÜN 01 — 08</div>
+        <h1 class="card-heading">Arsa Keşfi & Mimari Lazer Kotlama</h1>
+        <p class="card-body">
+          Arsanızın topoğrafyası, rüzgar koridoru ve güneş rotası taranır. Doğal zemin teraziye alınır, şantiye aksları ve bina sınır kazıkları yerleştirilerek temel kazısına hazırlanır.
+        </p>
+        <div class="card-pills-row">
+          <span class="tech-pill">Lazer Nivo Taraması</span>
+          <span class="tech-pill">Zemin Statik Analizi</span>
+          <span class="tech-pill">Şantiye Aks Kurulumu</span>
+        </div>
+      </div>
+
+      <div class="scroll-down-hint">
+        <span>AŞAĞI KAYDIRIN VEYA 'OYNAT'A BASIN</span>
+        <div class="mouse-icon"></div>
+      </div>
+    </section>
+
+    <!-- Slide 1: Taş İstinat & Subasman Platformu -->
+    <section class="timelapse-slide right" id="slide-1">
+      <div class="timelapse-card-glass">
+        <div class="card-timeline-badge">FAZ 02 / GÜN 09 — 20</div>
+        <h2 class="card-heading">Taş İstinat & C30 Betonarme Subasman</h2>
+        <p class="card-body">
+          Eğimli Ege arazisine tam uyumlu doğal taş istinat duvarı örülür. Üzerine +0.80 m kot yüksekliğinde teraziye alınmış, demirli C30 betonarme subasman platformu ve veranda tabanı dökülür.
+        </p>
+        <div class="card-pills-row">
+          <span class="tech-pill">Doğal Taş Teraslama</span>
+          <span class="tech-pill">C30 Hazır Beton</span>
+          <span class="tech-pill">Nem & Su Yalıtımı</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 2: Ahşap & Hafif Çelik Karkas İskelet Montajı -->
+    <section class="timelapse-slide" id="slide-2">
+      <div class="timelapse-card-glass">
+        <div class="card-timeline-badge">FAZ 03 / GÜN 21 — 35</div>
+        <h2 class="card-heading">Ahşap & Hafif Çelik Karkas İskelet</h2>
+        <p class="card-body">
+          Fabrikada CNC makinelerde milimetrik üretilen taşıyıcı dikmeler, ara kat döşemesi ve kırma çatı makasları sahada cıvatalı montajla yükselir. 2 katlı depreme dayanıklı karkas 7 günde kilitlenir.
+        </p>
+        <div class="card-pills-row">
+          <span class="tech-pill">%100 Deprem Dayanımı</span>
+          <span class="tech-pill">Modüler Taşıyıcı İskelet</span>
+          <span class="tech-pill">Çift Katlı Strüktür</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3: Dış Cephe Siding, Yalıtım & Çatı Kaplaması -->
+    <section class="timelapse-slide right" id="slide-3">
+      <div class="timelapse-card-glass">
+        <div class="card-timeline-badge">FAZ 04 / GÜN 36 — 50</div>
+        <h2 class="card-heading">Dış Cephe Siding, Yalıtım & Çatı</h2>
+        <p class="card-body">
+          Çift cidarlı 10 cm taşyünü ısı ve ses izolasyonu, buhar dengeleyici membran ve krem rengi ahşap dokulu cephe panelleri uygulanır. Antrasit çatı kaplaması ve ısıcamlı pencereler takılarak kabuk kapatılır.
+        </p>
+        <div class="card-pills-row">
+          <span class="tech-pill">10 cm Taşyünü Yalıtım</span>
+          <span class="tech-pill">Krem Ahşap Siding</span>
+          <span class="tech-pill">Antrasit Isıcam & Çatı</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4: Anahtar Teslim Yaşam & Çiçekli Balkon -->
+    <section class="timelapse-slide center" id="slide-4">
+      <div class="timelapse-card-glass" style="max-width: 640px;">
+        <div class="card-timeline-badge">FAZ 05 / GÜN 51 — 60 • TESLİMAT</div>
+        <h2 class="card-heading">2 Katlı Balkonlu Kır Evi — Anahtar Teslim</h2>
+
+        <p class="card-body">
+          Üst kat çiçeklikli ahşap balkon, geniş veranda, doğal taş yürüyüş yolları ve çevre düzenlemesiyle eviniz 60 günde eksiksiz oturuma hazır. Sıfır sürpriz maliyet, sözleşmeli sabit fiyat garantisi.
+        </p>
+
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://wa.me/905314558585?text=Merhaba,%20video%20timelapse'teki%202%20katlı%20balkonlu%20kır%20evi%20için%20fiyat%20ve%20kurulum%20süresi%20öğrenmek%20istiyorum." target="_blank" class="btn-cta-pill" style="font-size: 12px; padding: 14px 32px;">
+            WhatsApp'tan Fiyat Teklifi Al
+          </a>
+          <a href="tel:05314558585" class="btn-cta-pill" style="background: transparent; color: var(--text-primary); border: 1.5px solid var(--text-primary); box-shadow: none;">
+            Hemen Ara (0531 455 85 85)
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- SECTION: UNITS COLLECTION (ERA RESIDENCE ARCHITECTURAL PORTFOLIO) -->
+  <section class="collection-section" id="koleksiyon">
+    <div class="collection-title-wrap">
+      <div class="collection-eyebrow">3K Emir Yapı Ürün Gamı</div>
+      <h2 class="collection-heading">Tüm Prefabrik & Ahşap Modellerimiz</h2>
+      <p class="collection-desc">
+        Arsanızın büyüklüğüne ve bütçenize göre özenle tasarlanan müstakil konut koleksiyonumuz.
+      </p>
+    </div>
+
+    <div class="units-grid">
+      <!-- Card 1 -->
+      <div class="unit-card">
+        <div class="unit-img-box">
+          <img src="era_prefab_day.jpg" alt="120 m2 Prefabrik Çelik Villa">
+          <div class="unit-tag">Tek Katlı Seri</div>
+        </div>
+        <div class="unit-body">
+          <div>
+            <h3 class="unit-title">120 m² 2+1 Çelik Villa</h3>
+            <p class="unit-p">
+              Amiral gemisi modelimiz. Ahşap desenli siding, doğal taş kolonlar, 22 m² veranda, ada mutfak, ebeveyn süiti ve kiler.
+            </p>
+          </div>
+          <div>
+            <div class="unit-row">
+              <span class="lbl">Brüt Alan</span>
+              <span class="val">120 m² • 2+1</span>
+            </div>
+            <a href="https://wa.me/905314558585?text=Merhaba,%20120%20m2%20Prefabrik%20Villa%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="unit-link-btn">Teklif İste</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="unit-card">
+        <div class="unit-img-box">
+          <img src="timelapse_frames/frame_064.webp" alt="90 m2 2 Katlı Balkonlu Kır Evi">
+          <div class="unit-tag">Timelapse Projesi</div>
+        </div>
+        <div class="unit-body">
+          <div>
+            <h3 class="unit-title">90 m² 2 Katlı Ahşap Balkonlu Kır Evi</h3>
+            <p class="unit-p">
+              Yukarıdaki mimari timelapse'te inşa edilen evimiz. Zemin kat geniş salon-mutfak ve veranda, üst kat 2 yatak odası ve çiçeklikli ahşap seyir balkonu.
+            </p>
+          </div>
+          <div>
+            <div class="unit-row">
+              <span class="lbl">Brüt Alan</span>
+              <span class="val">90 m² • 2 Katlı</span>
+            </div>
+            <a href="https://wa.me/905314558585?text=Merhaba,%20timelapse'teki%2090%20m2%20Ahşap%20Balkonlu%20Kır%20Evi%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="unit-link-btn">Teklif İste</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="unit-card">
+        <div class="unit-img-box">
+          <img src="era_tinyhouse_37m2.jpg" alt="37.5 m2 Teraslı Tiny House">
+          <div class="unit-tag">Modüler Tiny House</div>
+        </div>
+        <div class="unit-body">
+          <div>
+            <h3 class="unit-title">37.5 m² Teraslı Çelik Ev</h3>
+            <p class="unit-p">
+              560.000 TL'den başlayan ekonomik seri. Çelik konstrüksiyon, alt katta salon-mutfak, üst katta yatak odası ve 18 m² çatı terası.
+            </p>
+          </div>
+          <div>
+            <div class="unit-row">
+              <span class="lbl">Brüt Alan</span>
+              <span class="val">37.5 m² • 1+1</span>
+            </div>
+            <a href="https://wa.me/905314558585?text=Merhaba,%2037.5%20m2%20Teraslı%20Tiny%20House%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="unit-link-btn">Teklif İste</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top-row">
+        <div>
+          <div class="footer-brand-title">3K EMİR YAPI</div>
+          <p class="footer-brand-desc">
+            Ege Bölgesi ve İzmir genelinde modern hafif çelik prefabrik konutlar, ahşap karkas kır evleri ve modüler yaşam çözümleri.
+          </p>
+        </div>
+
+        <div class="footer-contact-block">
+          <span class="footer-contact-title">Doğrudan İletişim & WhatsApp Hattı</span>
+          <a href="tel:05314558585" class="footer-phone-big">0531 455 85 85</a>
+          <span style="font-size: 13px; color: #8c867a;">Ofis & Üretim: Menderes / İzmir</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <div>© 2026 3K EMİR YAPI. Tüm hakları saklıdır.</div>
+        <div>
+          <a href="demo2.html" style="color: var(--accent-gold); text-decoration: none; margin-right: 18px; font-weight: 600;">Demo 2 (Lüks Atölye Görünümü) →</a>
+          <a href="https://www.instagram.com/3k_emir_yapi" target="_blank" style="color: #c9c3b8; text-decoration: none; margin-right: 18px;">Instagram: @3k_emir_yapi</a>
+          <a href="https://wa.me/905314558585" target="_blank" style="color: #ffffff; text-decoration: none;">WhatsApp Danışma</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       3K EMİR YAPI — 64-FRAME PHOTOREALISTIC WEBP TIMELAPSE SCROLL ENGINE
+       ========================================================================= -->
+  <script>
+    const TOTAL_FRAMES = 64;
+    const frames = new Array(TOTAL_FRAMES);
+    let loadedCount = 0;
+    let targetScrollProgress = 0;
+    let currentScrollProgress = 0;
+    let hasDrawn = false;
+    let isAutoPlaying = false;
+    let autoPlayStartTime = 0;
+    let autoPlayStartProgress = 0;
+    const AUTOPLAY_DURATION = 9000;
+
+    const preloader = document.getElementById('preloader');
+    const preloaderFill = document.getElementById('preloader-fill');
+    const preloaderCount = document.getElementById('preloader-count');
+
+    const canvas = document.getElementById('timelapse-canvas');
+    const ctx = canvas.getContext('2d');
+
+    /* Find Best Loaded Frame */
+    function getBestFrame(idx) {
+      if (frames[idx] && frames[idx].loaded) return frames[idx].img;
+      for (let r = 1; r < TOTAL_FRAMES; r++) {
+        if (idx - r >= 0 && frames[idx - r]?.loaded) return frames[idx - r].img;
+        if (idx + r < TOTAL_FRAMES && frames[idx + r]?.loaded) return frames[idx + r].img;
+      }
+      return null;
+    }
+
+    /* Draw Timelapse Frame (Cover projection) */
+    function drawTimelapse() {
+      const cw = canvas.width;
+      const ch = canvas.height;
+      if (!cw || !ch) return false;
+
+      const targetIdx = Math.min(TOTAL_FRAMES - 1, Math.max(0, Math.floor(currentScrollProgress * (TOTAL_FRAMES - 1))));
+      const img = getBestFrame(targetIdx);
+      if (!img || !img.naturalWidth) return false;
+
+      const iw = img.naturalWidth || 1920;
+      const ih = img.naturalHeight || 1080;
+      const canvasRatio = cw / ch;
+      const imgRatio = iw / ih;
+
+      let dw, dh;
+      if (imgRatio > canvasRatio) {
+        dh = ch;
+        dw = ch * imgRatio;
+      } else {
+        dw = cw;
+        dh = cw / imgRatio;
+      }
+      const dx = (cw - dw) / 2;
+      const dy = (ch - dh) / 2;
+
+      ctx.clearRect(0, 0, cw, ch);
+      ctx.drawImage(img, dx, dy, dw, dh);
+      hasDrawn = true;
+      return true;
+    }
+
+    /* Canvas Sizing */
+    function resizeCanvas() {
+      canvas.width = window.innerWidth * (window.devicePixelRatio || 1);
+      canvas.height = window.innerHeight * (window.devicePixelRatio || 1);
+      drawTimelapse();
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Preload 64 WebP frames
+    for (let i = 1; i <= TOTAL_FRAMES; i++) {
+      const img = new Image();
+      const numStr = i.toString().padStart(3, '0');
+      img.src = `timelapse_frames/frame_${numStr}.webp`;
+      
+      img.onload = () => {
+        frames[i - 1] = { loaded: true, img };
+        loadedCount++;
+        const percent = Math.floor((loadedCount / TOTAL_FRAMES) * 100);
+        
+        if (preloaderFill) preloaderFill.style.width = percent + '%';
+        if (preloaderCount) preloaderCount.textContent = `YÜKLENİYOR %${percent} (${loadedCount}/${TOTAL_FRAMES})`;
+        
+        if (!hasDrawn || (i === 1 && currentScrollProgress === 0)) {
+          drawTimelapse();
+        }
+
+        if (loadedCount >= TOTAL_FRAMES) {
+          setTimeout(() => {
+            if (preloader) preloader.classList.add('loaded');
+            drawTimelapse();
+          }, 200);
+        }
+      };
+
+      img.onerror = () => {
+        loadedCount++;
+        if (loadedCount >= TOTAL_FRAMES) {
+          setTimeout(() => {
+            if (preloader) preloader.classList.add('loaded');
+            drawTimelapse();
+          }, 200);
+        }
+      };
+    }
+
+    // Safety timeout: dismiss preloader after 2.5s if at least 10 frames loaded
+    setTimeout(() => {
+      if (preloader && !preloader.classList.contains('loaded')) {
+        preloader.classList.add('loaded');
+        drawTimelapse();
+      }
+    }, 2500);
+
+    /* Track metrics & scroll listener */
+    function getTrackMetrics() {
+      const track = document.querySelector('.timelapse-story-track');
+      if (!track) return { top: 0, height: window.innerHeight };
+      const top = track.offsetTop;
+      const height = track.scrollHeight - window.innerHeight;
+      return { top, height: Math.max(1, height) };
+    }
+
+    window.addEventListener('scroll', () => {
+      if (isAutoPlaying) return;
+      const { top, height } = getTrackMetrics();
+      const scrollY = window.scrollY - top;
+      targetScrollProgress = Math.max(0, Math.min(1, scrollY / height));
+      updateRailSteps();
+      updateHudStatus();
+    }, { passive: true });
+
+    function updateRailSteps() {
+      const steps = 5;
+      const activeIdx = Math.min(steps - 1, Math.floor(targetScrollProgress * (steps - 1) + 0.35));
+      const railDots = document.querySelectorAll('.rail-step');
+      railDots.forEach((el, idx) => {
+        if (idx === activeIdx) el.classList.add('active');
+        else el.classList.remove('active');
+      });
+    }
+
+    function updateHudStatus() {
+      const frameIdx = Math.min(TOTAL_FRAMES - 1, Math.max(0, Math.floor(currentScrollProgress * (TOTAL_FRAMES - 1))));
+      const hudStatus = document.getElementById('hud-status');
+      const hudFrame = document.getElementById('hud-frame');
+      const hudDay = document.getElementById('hud-day');
+
+      if (hudStatus) {
+        if (frameIdx < 12) {
+          hudStatus.textContent = 'FAZ 01: ARSA KEŞFİ & KOTLAMA';
+        } else if (frameIdx < 26) {
+          hudStatus.textContent = 'FAZ 02: DOĞAL TAŞ İSTİNAT & C30 SUBASMAN';
+        } else if (frameIdx < 42) {
+          hudStatus.textContent = 'FAZ 03: AHŞAP & ÇELİK KARKAS İSKELET';
+        } else if (frameIdx < 54) {
+          hudStatus.textContent = 'FAZ 04: DIŞ CEPHE SİDİNG & ÇATI KAPLAMASI';
+        } else {
+          hudStatus.textContent = 'FAZ 05: TAMAMLANMIŞ ANAHTAR TESLİM YAŞAM';
+        }
+      }
+
+      if (hudFrame) {
+        hudFrame.textContent = `KARE ${(frameIdx + 1).toString().padStart(2, '0')} / 64`;
+      }
+
+      if (hudDay) {
+        const day = Math.min(60, Math.max(1, Math.floor(currentScrollProgress * 59) + 1));
+        hudDay.textContent = `GÜN ${day.toString().padStart(2, '0')} / 60`;
+      }
+    }
+
+    function jumpToPhase(index) {
+      if (isAutoPlaying) stopAutoPlay();
+      const { top, height } = getTrackMetrics();
+      const targetY = top + (index / 4) * height;
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
+    }
+
+    /* Autoplay Feature */
+    function toggleAutoPlay() {
+      if (isAutoPlaying) {
+        stopAutoPlay();
+      } else {
+        startAutoPlay();
+      }
+    }
+
+    function startAutoPlay() {
+      isAutoPlaying = true;
+      autoPlayStartTime = performance.now();
+      autoPlayStartProgress = targetScrollProgress >= 0.98 ? 0 : targetScrollProgress;
+      
+      const playText = document.getElementById('play-text');
+      const playIcon = document.getElementById('play-icon');
+      if (playText) playText.textContent = 'DURDUR';
+      if (playIcon) playIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+
+      function autoPlayStep(now) {
+        if (!isAutoPlaying) return;
+        const elapsed = now - autoPlayStartTime;
+        const p = Math.min(1, autoPlayStartProgress + (elapsed / AUTOPLAY_DURATION) * (1 - autoPlayStartProgress));
+        
+        targetScrollProgress = p;
+        const { top, height } = getTrackMetrics();
+        window.scrollTo(0, top + p * height);
+
+        if (p >= 1) {
+          stopAutoPlay();
+        } else {
+          requestAnimationFrame(autoPlayStep);
+        }
+      }
+      requestAnimationFrame(autoPlayStep);
+    }
+
+    function stopAutoPlay() {
+      isAutoPlaying = false;
+      const playText = document.getElementById('play-text');
+      const playIcon = document.getElementById('play-icon');
+      if (playText) playText.textContent = 'OYNAT';
+      if (playIcon) playIcon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"/>';
+    }
+
+    window.addEventListener('wheel', () => {
+      if (isAutoPlaying) stopAutoPlay();
+    }, { passive: true });
+
+    window.addEventListener('touchmove', () => {
+      if (isAutoPlaying) stopAutoPlay();
+    }, { passive: true });
+
+    /* 60 FPS Smooth Render Loop */
+    function renderLoop() {
+      const diff = targetScrollProgress - currentScrollProgress;
+      if (Math.abs(diff) > 0.0002) {
+        currentScrollProgress += diff * 0.12;
+        drawTimelapse();
+        updateHudStatus();
+      } else if (!hasDrawn) {
+        drawTimelapse();
+      }
+      requestAnimationFrame(renderLoop);
+    }
+    renderLoop();
+  </script>
+
+</body>
+</html>

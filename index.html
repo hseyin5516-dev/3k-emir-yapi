@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>3K EMİR YAPI — Müşteri Tasarım Sunumu (Demo 1 & Demo 2)</title>
+  <meta name="description" content="3K Emir Yapı Müşteri Tasarım ve Konsept Sunumu. Demo 1: 3D İnşaat Simülasyonu & Scrollytelling, Demo 2: Obsidian Lüks Atölye, Kat Planları ve Maliyet Hesaplayıcı.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0a0b0d;
+      --bg-surface: #121418;
+      --bg-surface-elevated: #1a1e24;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-gold: rgba(212, 175, 55, 0.35);
+      --accent-gold: #d4af37;
+      --accent-gold-hover: #e5c358;
+      --accent-gold-glow: rgba(212, 175, 55, 0.22);
+      --text-main: #f0ede6;
+      --text-muted: #8e95a0;
+      --header-h: 68px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    }
+
+    /* TOP PRESENTATION BAR */
+    .pres-header {
+      width: 100%;
+      height: var(--header-h);
+      background: rgba(14, 16, 20, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1000;
+      gap: 16px;
+    }
+
+    /* BRAND LOGO */
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      min-width: 200px;
+    }
+
+    .brand-logo-pill {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #1c1813, #0d0c0a);
+      border: 1px solid var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      box-shadow: 0 0 16px var(--accent-gold-glow);
+    }
+
+    .brand-texts {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #ffffff;
+      font-family: 'Cinzel', serif;
+    }
+
+    .brand-badge {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--accent-gold);
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* CENTER DEMO SEGMENTED SELECTOR */
+    .demo-segmented {
+      display: flex;
+      align-items: center;
+      background: rgba(22, 26, 32, 0.95);
+      border: 1px solid var(--border-subtle);
+      padding: 4px;
+      border-radius: 40px;
+      gap: 4px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .demo-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      border-radius: 30px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .demo-btn:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .demo-btn.active {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.08));
+      color: #ffffff;
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 2px 14px var(--accent-gold-glow);
+    }
+
+    .demo-btn .badge-pill {
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-family: 'Space Mono', monospace;
+    }
+
+    .demo-btn.active .badge-pill {
+      background: var(--accent-gold);
+      color: #0b0c0e;
+    }
+
+    .demo-btn:not(.active) .badge-pill {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+    }
+
+    /* RIGHT ACTIONS (Device view, Direct Link, WhatsApp) */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 200px;
+      justify-content: flex-end;
+    }
+
+    /* Device Preview Toggle */
+    .device-group {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 2px;
+    }
+
+    .device-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 6px 10px;
+      font-size: 11px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .device-btn.active {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+    }
+
+    .device-btn svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    /* External direct link */
+    .action-icon-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .action-icon-btn:hover {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .action-icon-btn svg {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+    }
+
+    /* WhatsApp Approve Button */
+    .btn-approve-wa {
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+      white-space: nowrap;
+    }
+
+    .btn-approve-wa:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    .btn-approve-wa svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+    }
+
+    /* MAIN VIEWPORT STAGE */
+    .stage-container {
+      width: 100%;
+      height: calc(100vh - var(--header-h));
+      position: relative;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: background 0.3s ease;
+    }
+
+    /* DESKTOP FULL-SCREEN IFRAME */
+    .demo-iframe-wrap {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      background: #000000;
+    }
+
+    /* MOBILE DEVICE MOCKUP FRAME */
+    .stage-container.mobile-mode {
+      background: radial-gradient(circle at center, #181d24 0%, #0a0c0e 80%);
+      padding: 24px;
+    }
+
+    .stage-container.mobile-mode .demo-iframe-wrap {
+      position: relative;
+      inset: auto;
+      width: 390px;
+      height: 844px;
+      max-height: calc(100vh - var(--header-h) - 48px);
+      border-radius: 52px;
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.8),
+                  0 0 0 12px #262a30,
+                  0 0 0 14px #1b1e23,
+                  0 0 35px rgba(212, 175, 55, 0.15);
+      overflow: hidden;
+      background: #000000;
+    }
+
+    /* Dynamic Island Notch on Mobile Mockup */
+    .phone-notch {
+      display: none;
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 26px;
+      background: #000000;
+      border-radius: 20px;
+      z-index: 500;
+      pointer-events: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+
+    .stage-container.mobile-mode .phone-notch {
+      display: block;
+    }
+
+    /* FLOATING BOTTOM BAR HINT */
+    .floating-hint-bar {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(18, 22, 28, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-gold);
+      border-radius: 40px;
+      padding: 8px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 11.5px;
+      color: var(--text-main);
+      z-index: 999;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+      pointer-events: auto;
+      transition: opacity 0.3s;
+    }
+
+    .floating-hint-bar strong {
+      color: var(--accent-gold);
+    }
+
+    .hint-close-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1;
+      padding: 2px 4px;
+    }
+    .hint-close-btn:hover {
+      color: #fff;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 992px) {
+      .pres-header {
+        height: auto;
+        padding: 10px 14px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .brand-wrap {
+        min-width: auto;
+      }
+      .header-actions {
+        min-width: auto;
+      }
+      .device-group {
+        display: none;
+      }
+      .stage-container {
+        height: calc(100vh - 110px);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .demo-segmented {
+        width: 100%;
+        order: 3;
+        justify-content: center;
+      }
+      .stage-container {
+        height: calc(100vh - 130px);
+      }
+      .brand-texts .brand-badge {
+        display: none;
+      }
+      .floating-hint-bar {
+        display: none;
+      }
+      .btn-approve-wa span {
+        display: none;
+      }
+      .btn-approve-wa {
+        padding: 8px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================================
+       MASTER PRESENTATION HEADER
+       ========================================================================= -->
+  <header class="pres-header">
+    <!-- Brand Info -->
+    <a href="#" class="brand-wrap">
+      <div class="brand-logo-pill">3K</div>
+      <div class="brand-texts">
+        <span class="brand-title">3K EMİR YAPI</span>
+        <span class="brand-badge"><span class="live-dot"></span> Müşteri Sunum Modu</span>
+      </div>
+    </a>
+
+    <!-- Center Demo Segmented Switcher -->
+    <div class="demo-segmented">
+      <button class="demo-btn active" id="btn-demo-1" onclick="switchDemo(1)">
+        <span class="badge-pill">DEMO 1</span>
+        <span>3D Timelapse</span>
+      </button>
+
+      <button class="demo-btn" id="btn-demo-2" onclick="switchDemo(2)">
+        <span class="badge-pill">DEMO 2</span>
+        <span>Lüks Atölye</span>
+      </button>
+
+      <button class="demo-btn" id="btn-demo-3" onclick="switchDemo(3)">
+        <span class="badge-pill" style="background: #E0A11C; color: #0E1116;">DEMO 3</span>
+        <span>Modern Prefabrik (Yeni)</span>
+      </button>
+    </div>
+
+    <!-- Right Controls -->
+    <div class="header-actions">
+      <!-- Device Mode Toggle -->
+      <div class="device-group">
+        <button class="device-btn active" id="btn-dev-desk" onclick="setDeviceMode('desktop')" title="Masaüstü Görünümü">
+          <svg viewBox="0 0 24 24"><path d="M20 3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h7v2H8v2h8v-2h-3v-2h7c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H4V5h16v11z"/></svg>
+          Masaüstü
+        </button>
+        <button class="device-btn" id="btn-dev-mob" onclick="setDeviceMode('mobile')" title="Mobil Cihaz Görünümü">
+          <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
+          Mobil
+        </button>
+      </div>
+
+      <!-- Direct Fullscreen Link -->
+      <a href="demo1.html" id="link-direct-open" target="_blank" class="action-icon-btn" title="Çerçevesiz Tam Ekran Aç">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+      </a>
+
+      <!-- WhatsApp Selection Action -->
+      <a href="https://wa.me/905314558585?text=Merhaba,%203K%20Emir%20Yapı%20sunumundaki%20Demo%201%20tasarımını%20beğendim,%20detayları%20görüşmek%20istiyorum." id="btn-wa-select" target="_blank" class="btn-approve-wa">
+        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        <span id="wa-text-label">Bu Tasarımı Onayla</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       VIEWPORT STAGE WITH EMBEDDED IFRAME
+       ========================================================================= -->
+  <main class="stage-container" id="stage">
+    <div class="demo-iframe-wrap">
+      <div class="phone-notch"></div>
+      <iframe id="main-frame" src="demo1.html" title="3K Emir Yapı Canlı Sunum"></iframe>
+    </div>
+  </main>
+
+  <!-- FLOATING BOTTOM CLIENT HELPER -->
+  <div class="floating-hint-bar" id="hint-bar">
+    <span>💡 <strong>Sunum İpucu:</strong> Yukarıdan <strong>Demo 1</strong> ve <strong>Demo 2</strong> arasında geçiş yaparak müşterinize iki farklı vizyonu canlı olarak sunabilirsiniz.</span>
+    <button class="hint-close-btn" onclick="document.getElementById('hint-bar').style.display='none'" title="Kapat">✕</button>
+  </div>
+
+  <!-- JAVASCRIPT CONTROLLER -->
+  <script>
+    let activeDemo = 1;
+    let activeDevice = 'desktop';
+
+    const btnDemo1 = document.getElementById('btn-demo-1');
+    const btnDemo2 = document.getElementById('btn-demo-2');
+    const btnDemo3 = document.getElementById('btn-demo-3');
+    const iframe = document.getElementById('main-frame');
+    const directLink = document.getElementById('link-direct-open');
+    const waBtn = document.getElementById('btn-wa-select');
+    const waLabel = document.getElementById('wa-text-label');
+    const stage = document.getElementById('stage');
+    const btnDevDesk = document.getElementById('btn-dev-desk');
+    const btnDevMob = document.getElementById('btn-dev-mob');
+
+    function switchDemo(num) {
+      activeDemo = num;
+      btnDemo1.classList.remove('active');
+      btnDemo2.classList.remove('active');
+      btnDemo3.classList.remove('active');
+
+      if (num === 1) {
+        btnDemo1.classList.add('active');
+        iframe.src = 'demo1.html';
+        directLink.href = 'demo1.html';
+        waBtn.href = 'https://wa.me/905314558585?text=' + encodeURIComponent('Merhaba, 3K Emir Yapı sunumundaki Demo 1 (3D Timelapse) tasarımını beğendim, detayları görüşmek istiyorum.');
+        waLabel.textContent = 'Demo 1\'i Onayla';
+        window.location.hash = 'demo=1';
+      } else if (num === 2) {
+        btnDemo2.classList.add('active');
+        iframe.src = 'demo2.html';
+        directLink.href = 'demo2.html';
+        waBtn.href = 'https://wa.me/905314558585?text=' + encodeURIComponent('Merhaba, 3K Emir Yapı sunumundaki Demo 2 (Lüks Atölye & Kat Planları) tasarımını beğendim, detayları görüşmek istiyorum.');
+        waLabel.textContent = 'Demo 2\'yi Onayla';
+        window.location.hash = 'demo=2';
+      } else if (num === 3) {
+        btnDemo3.classList.add('active');
+        iframe.src = '3k-modern/index.html';
+        directLink.href = '3k-modern/index.html';
+        waBtn.href = 'https://wa.me/905314558585?text=' + encodeURIComponent('Merhaba, 3K Emir Yapı sunumundaki Demo 3 (Modern Prefabrik Kurumsal) tasarımını beğendim, detayları görüşmek istiyorum.');
+        waLabel.textContent = 'Demo 3\'ü Onayla';
+        window.location.hash = 'demo=3';
+      }
+    }
+
+    function setDeviceMode(mode) {
+      activeDevice = mode;
+      if (mode === 'mobile') {
+        stage.classList.add('mobile-mode');
+        btnDevMob.classList.add('active');
+        btnDevDesk.classList.remove('active');
+      } else {
+        stage.classList.remove('mobile-mode');
+        btnDevDesk.classList.add('active');
+        btnDevMob.classList.remove('active');
+      }
+    }
+
+    /* URL Hash detection on load */
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash.includes('demo=3') || hash.includes('demo3')) {
+        switchDemo(3);
+      } else if (hash.includes('demo=2') || hash.includes('demo2')) {
+        switchDemo(2);
+      } else {
+        switchDemo(1);
+      }
+    });
+
+    /* Auto hide hint bar after 10s */
+    setTimeout(() => {
+      const hb = document.getElementById('hint-bar');
+      if (hb) {
+        hb.style.opacity = '0';
+        setTimeout(() => hb.style.display = 'none', 300);
+      }
+    }, 10000);
+  </script>
+
+</body>
+</html>

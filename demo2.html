@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3K EMİR YAPI — Koyu Lüks Mimarlık Stüdyosu | Prefabrik & Çelik Villa Atölyesi</title>
+  <meta name="description" content="3K Emir Yapı. Ege ve İzmir'de arsanıza özel hafif çelik ve ahşap karkas lüks müstakil villalar. İnteraktif arsa dönüşüm simülatörü, kat planı turu ve maliyet hesaplayıcı.">
+  
+  <!-- Google Fonts: Cormorant Garamond, Plus Jakarta Sans, Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       3K EMİR YAPI — ATELIER ARCHITECTURAL STUDIO DESIGN SYSTEM
+       Obsidian Charcoal, Champagne Gold, Brushed Bronze & Technical Precision
+       ========================================================================== */
+    :root {
+      --bg-deep: #0a0b0d;
+      --bg-surface: #121418;
+      --bg-card: rgba(22, 25, 30, 0.75);
+      --bg-card-hover: rgba(28, 32, 38, 0.9);
+      --text-main: #f5f5f7;
+      --text-muted: #8e8d89;
+      --text-dim: #5c5b56;
+      --accent-gold: #c8a261;
+      --accent-gold-light: #dfba7e;
+      --accent-gold-glow: rgba(200, 162, 97, 0.25);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-gold: rgba(200, 162, 97, 0.3);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'Space Grotesk', monospace;
+      --ease-lux: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background: var(--accent-gold);
+      color: #0a0b0d;
+    }
+
+    html, body {
+      background-color: var(--bg-deep);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Subtle Architectural Grid Background */
+    .grid-backdrop {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity: 0.7;
+    }
+
+    /* Ambient Gold Light Cone */
+    .ambient-glow {
+      position: fixed;
+      top: -150px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 500px;
+      background: radial-gradient(ellipse at center, rgba(200, 162, 97, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* --- NAVIGATION HEADER --- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 84px;
+      padding: 0 4.5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+      background: rgba(10, 11, 13, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .nav-monogram {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: var(--accent-gold);
+      letter-spacing: 1px;
+      background: rgba(200, 162, 97, 0.05);
+    }
+
+    .nav-brand-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .nav-brand-sub {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+      color: var(--accent-gold-light);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-gold-pill {
+      background: linear-gradient(135deg, #c8a261 0%, #a8813f 100%);
+      color: #0a0b0d;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 11px 22px;
+      border-radius: 100px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s var(--ease-lux);
+      box-shadow: 0 4px 20px rgba(200, 162, 97, 0.25);
+    }
+
+    .btn-gold-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(200, 162, 97, 0.4);
+      background: linear-gradient(135deg, #dfba7e 0%, #b88f4b 100%);
+    }
+
+    .btn-ghost-pill {
+      background: transparent;
+      color: var(--text-main);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 11px 22px;
+      border-radius: 100px;
+      text-decoration: none;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.3s ease;
+    }
+
+    .btn-ghost-pill:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    /* --- HERO EDITORIAL SECTION --- */
+    .hero-editorial {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      padding: 160px 4.5vw 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 24px;
+      background: rgba(200, 162, 97, 0.08);
+      border: 1px solid var(--border-gold);
+      padding: 6px 18px;
+      border-radius: 100px;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(42px, 6.5vw, 84px);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      max-width: 1050px;
+      margin-bottom: 28px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent-gold-light);
+      font-family: var(--font-serif);
+    }
+
+    .hero-desc {
+      font-size: clamp(14px, 1.2vw, 17px);
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-bottom: 44px;
+    }
+
+    .hero-metrics-row {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      margin-top: 36px;
+      padding-top: 36px;
+      border-top: 1px solid var(--border-subtle);
+      width: 100%;
+      max-width: 880px;
+    }
+
+    .hero-metric-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-metric-val {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .hero-metric-lbl {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* --- SECTION 1: INTERACTIVE BEFORE & AFTER SLIDER (HAM ARSA VS. BİTMİŞ VİLLA) --- */
+    .section-wrap {
+      position: relative;
+      z-index: 10;
+      padding: 120px 4.5vw;
+      max-width: 1380px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4vw, 54px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .section-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin-bottom: 48px;
+    }
+
+    /* Split Slider Container */
+    .compare-container {
+      position: relative;
+      width: 100%;
+      height: 620px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: pan-y;
+      cursor: ew-resize;
+    }
+
+    .compare-img-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .compare-img-layer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* The overlay layer that gets clipped */
+    .compare-overlay-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 50%;
+      overflow: hidden;
+      border-right: 2px solid var(--accent-gold);
+      box-shadow: 4px 0 24px rgba(200, 162, 97, 0.4);
+    }
+
+    .compare-overlay-layer img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100vw;
+      max-width: 1380px;
+      object-fit: cover;
+    }
+
+    /* Slider Handle */
+    .compare-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--bg-deep);
+      border: 2px solid var(--accent-gold);
+      box-shadow: 0 0 25px rgba(200, 162, 97, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 30;
+      transition: transform 0.15s ease;
+    }
+
+    .compare-handle svg {
+      width: 22px;
+      height: 22px;
+      color: var(--accent-gold);
+    }
+
+    .compare-badge {
+      position: absolute;
+      top: 24px;
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      z-index: 25;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .compare-badge.left {
+      left: 24px;
+      background: rgba(10, 11, 13, 0.85);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+    }
+
+    .compare-badge.right {
+      right: 24px;
+      background: rgba(200, 162, 97, 0.18);
+      border: 1px solid var(--border-gold);
+      color: var(--accent-gold-light);
+    }
+
+    .compare-instruction {
+      margin-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* --- SECTION 2: INTERACTIVE ARCHITECTURAL FLOOR PLAN EXPLORER --- */
+    .plan-explorer-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 28px;
+      padding: 56px 48px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .plan-visual-box {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .plan-visual-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.5s ease, transform 0.6s var(--ease-lux);
+    }
+
+    .plan-tag-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: rgba(10, 11, 13, 0.88);
+      backdrop-filter: blur(14px);
+      padding: 10px 20px;
+      border-radius: 100px;
+      border: 1px solid var(--border-gold);
+      font-size: 11px;
+      color: var(--accent-gold);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .plan-info-box {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .floor-tabs {
+      display: flex;
+      gap: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 16px;
+    }
+
+    .floor-tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .floor-tab-btn.active {
+      background: var(--accent-gold);
+      color: #0a0b0d;
+      box-shadow: 0 4px 15px rgba(200, 162, 97, 0.3);
+    }
+
+    .room-spots-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .room-spot-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .room-spot-item:hover, .room-spot-item.active {
+      background: rgba(200, 162, 97, 0.08);
+      border-color: var(--accent-gold);
+      transform: translateX(6px);
+    }
+
+    .room-name-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .room-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+
+    .room-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .room-area {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* --- SECTION 3: REAL-TIME ARCHITECTURAL COST ESTIMATOR --- */
+    .calculator-card {
+      background: linear-gradient(180deg, rgba(18, 20, 24, 0.95) 0%, rgba(12, 13, 16, 0.98) 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: 32px;
+      padding: 64px 54px;
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .calculator-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle at top right, rgba(200, 162, 97, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .calc-steps-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 56px;
+      margin-top: 40px;
+    }
+
+    .calc-inputs-col {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .calc-group-title {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 14px;
+      font-family: var(--font-mono);
+    }
+
+    .option-cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .opt-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 18px 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .opt-card:hover {
+      border-color: rgba(200, 162, 97, 0.5);
+    }
+
+    .opt-card.selected {
+      border-color: var(--accent-gold);
+      background: rgba(200, 162, 97, 0.1);
+      box-shadow: 0 0 20px rgba(200, 162, 97, 0.15);
+    }
+
+    .opt-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .opt-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Summary & Price Column */
+    .calc-summary-col {
+      background: rgba(10, 11, 13, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .summary-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .summary-big-price {
+      font-family: var(--font-serif);
+      font-size: 44px;
+      font-weight: 600;
+      color: var(--accent-gold-light);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .summary-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .summary-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 28px;
+      font-size: 12px;
+      color: var(--text-main);
+    }
+
+    .summary-features-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .summary-features-list li svg {
+      color: var(--accent-gold);
+      flex-shrink: 0;
+    }
+
+    /* --- SECTION 4: CURATED MODELS PORTFOLIO --- */
+    .models-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .model-atelier-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: all 0.4s var(--ease-lux);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .model-atelier-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent-gold);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .model-thumb-wrap {
+      width: 100%;
+      height: 290px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .model-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease-lux);
+    }
+
+    .model-atelier-card:hover .model-thumb-wrap img {
+      transform: scale(1.06);
+    }
+
+    .model-pill-tag {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: rgba(10, 11, 13, 0.85);
+      border: 1px solid var(--border-gold);
+      color: var(--accent-gold);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      backdrop-filter: blur(10px);
+    }
+
+    .model-body {
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .model-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    .model-desc {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .model-spec-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding: 16px 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 24px;
+      font-size: 11px;
+    }
+
+    .spec-item span.k {
+      color: var(--text-dim);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .spec-item span.v {
+      color: var(--text-main);
+      font-weight: 600;
+      font-family: var(--font-mono);
+    }
+
+    /* --- FOOTER ATELIER --- */
+    footer {
+      position: relative;
+      z-index: 10;
+      background: #08090a;
+      border-top: 1px solid var(--border-subtle);
+      padding: 100px 4.5vw 48px;
+    }
+
+    .footer-content {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-brand h2 {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 380px;
+      line-height: 1.7;
+    }
+
+    .footer-phone-huge {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--accent-gold-light);
+      text-decoration: none;
+      display: block;
+      margin: 10px 0;
+      letter-spacing: 0.05em;
+      transition: color 0.3s ease;
+    }
+
+    .footer-phone-huge:hover {
+      color: #ffffff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* --- RESPONSIVE ADJUSTMENTS --- */
+    @media (max-width: 1024px) {
+      .calc-steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .plan-explorer-wrap {
+        grid-template-columns: 1fr;
+      }
+      .models-grid {
+        grid-template-columns: 1fr;
+      }
+      .compare-container {
+        height: 480px;
+      }
+      .nav-menu {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 16px;
+        height: 70px;
+      }
+      .hero-editorial {
+        padding: 130px 16px 60px;
+      }
+      .section-wrap {
+        padding: 70px 16px;
+      }
+      .compare-container {
+        height: 380px;
+      }
+      .calculator-card {
+        padding: 36px 20px;
+      }
+      .option-cards-row {
+        grid-template-columns: 1fr;
+      }
+      .plan-explorer-wrap {
+        padding: 32px 18px;
+      }
+      .plan-visual-box {
+        height: 300px;
+      }
+      .hero-metrics-row {
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid-backdrop"></div>
+  <div class="ambient-glow"></div>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="tasarim-2.html" class="nav-brand">
+      <div class="nav-monogram">3K</div>
+      <div>
+        <span class="nav-brand-title">3K EMİR YAPI</span>
+        <span class="nav-brand-sub">Mimarlık & Müstakil Yaşam Atölyesi</span>
+      </div>
+    </a>
+
+    <ul class="nav-menu">
+      <li><a href="#donusum">Arsa Dönüşümü</a></li>
+      <li><a href="#planlar">Kat Planları</a></li>
+      <li><a href="#hesaplayici">Maliyet Hesapla</a></li>
+      <li><a href="#koleksiyon">Modeller</a></li>
+      <li><a href="demo1.html" style="color: var(--accent-gold);">← Demo 1 (3D Timelapse)</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="https://wa.me/905314558585?text=Merhaba,%20tasarim-2%20koyu%20lüks%20koleksiyonunuzdan%20fiyat%20almak%20istiyorum." target="_blank" class="btn-gold-pill">
+        WhatsApp Teklifi
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO EDITORIAL SECTION -->
+  <section class="hero-editorial">
+    <div class="hero-tagline">
+      <span>●</span> 38.2541° K • MENDERES / İZMİR • DOĞAL ÇELİK MİMARİ
+    </div>
+
+    <h1 class="hero-title">
+      Arsanızın sessizliğinde, <em>60 günde</em> yükselen zamansız bir müstakil yaşam.
+    </h1>
+
+    <p class="hero-desc">
+      Ağır betonarme şantiyelerinin gürültüsünden ve belirsiz maliyetlerinden uzak; hafif çeliğin milimetrik statik gücünü doğal ahşap ve rustik taş dokularıyla buluşturuyoruz.
+    </p>
+
+    <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
+      <a href="#donusum" class="btn-gold-pill" style="padding: 14px 32px; font-size: 12px;">
+        Arsa Dönüşümünü İncele
+      </a>
+      <a href="#hesaplayici" class="btn-ghost-pill" style="padding: 14px 32px; font-size: 12px;">
+        Anlık Fiyatını Hesapla
+      </a>
+    </div>
+
+    <div class="hero-metrics-row">
+      <div class="hero-metric-item">
+        <span class="hero-metric-val">60 Gün</span>
+        <span class="hero-metric-lbl">Anahtar Teslim Süre</span>
+      </div>
+      <div class="hero-metric-item">
+        <span class="hero-metric-val">%100</span>
+        <span class="hero-metric-lbl">Deprem Dayanımı</span>
+      </div>
+      <div class="hero-metric-item">
+        <span class="hero-metric-val">A1 Sınıfı</span>
+        <span class="hero-metric-lbl">Taşyünü Yangın & Isı İzolasyonu</span>
+      </div>
+      <div class="hero-metric-item">
+        <span class="hero-metric-val">Sabit Fiyat</span>
+        <span class="hero-metric-lbl">Sözleşmeli Maliyet Garantisi</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1: INTERACTIVE BEFORE & AFTER SLIDER -->
+  <section class="section-wrap" id="donusum">
+    <span class="section-eyebrow">İNTERAKTİF DÖNÜŞÜM PERDESİ</span>
+    <h2 class="section-heading">Boş Arsanızdan Anahtar Teslim Villaya</h2>
+    <p class="section-desc">
+      Kaydırıcıyı sağa-sola hareket ettirerek zemin kazıkları çakılmış ham arazinin, 60 gün içinde nasıl çiçeklikli balkonlu 2 katlı bir kır villasına dönüştüğünü birebir karşılaştırın.
+    </p>
+
+    <div class="compare-container" id="compare-box">
+      <!-- Background: Completed House (timelapse_frames/frame_064.webp) -->
+      <div class="compare-img-layer">
+        <img src="timelapse_frames/frame_064.webp" alt="Tamamlanmış 2 Katlı Balkonlu Kır Evi">
+        <div class="compare-badge right">60. GÜN: TAMAMLANMIŞ YAŞAM</div>
+      </div>
+
+      <!-- Foreground Layer: Empty Land (timelapse_frames/frame_001.webp) -->
+      <div class="compare-overlay-layer" id="compare-overlay">
+        <img src="timelapse_frames/frame_001.webp" alt="Boş Arsa ve Zemin Taraması">
+        <div class="compare-badge left">01. GÜN: HAM ARSA & KOTLAMA</div>
+      </div>
+
+      <!-- Handle -->
+      <div class="compare-handle" id="compare-handle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+          <polyline points="9 18 3 12 9 6"></polyline>
+        </svg>
+      </div>
+    </div>
+
+    <div class="compare-instruction">
+      <span>← Boş Arsa (Gün 01)</span>
+      <span>Perdeyi Sağa / Sola Sürükleyin</span>
+      <span>Bitmiş Villa (Gün 60) →</span>
+    </div>
+  </section>
+
+  <!-- SECTION 2: ARCHITECTURAL FLOOR PLAN EXPLORER -->
+  <section class="section-wrap" id="planlar">
+    <span class="section-eyebrow">MİMARİ MEKÂN ANALİZİ</span>
+    <h2 class="section-heading">90 m² 2 Katlı Kır Evi — Kat Planı & Detaylar</h2>
+    <p class="section-desc">
+      Odalara tıklayarak tavan yüksekliklerini, malzeme tercihlerini ve kullanım detaylarını doğrudan inceleyin.
+    </p>
+
+    <div class="plan-explorer-wrap">
+      <!-- Left: Interactive Visual Display -->
+      <div class="plan-visual-box">
+        <img id="plan-display-img" src="timelapse_frames/frame_064.webp" alt="Mekân Görseli">
+        <div class="plan-tag-badge" id="plan-tag">Zemin Kat: Geniş Salon & Mutfak</div>
+      </div>
+
+      <!-- Right: Navigation & Room Specifications -->
+      <div class="plan-info-box">
+        <div class="floor-tabs">
+          <button class="floor-tab-btn active" onclick="switchFloor('zemin')">Zemin Kat (45 m²)</button>
+          <button class="floor-tab-btn" onclick="switchFloor('ust')">1. Kat (45 m²)</button>
+        </div>
+
+        <div class="room-spots-list" id="rooms-list">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <div style="padding-top: 16px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <span style="font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.15em;">Brüt Oturum Alanı</span>
+            <div style="font-family: var(--font-serif); font-size: 22px; color: var(--accent-gold-light);">90 m² • 2 Katlı Kır Evi</div>
+          </div>
+          <a href="https://wa.me/905314558585?text=Merhaba,%2090%20m2%202%20Katlı%20Kır%20Evi%20kat%20planı%20ve%20detayları%20için%20yazıyorum." target="_blank" class="btn-ghost-pill">
+            Planı PDF Olarak İste
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: LIVE ARCHITECTURAL COST ESTIMATOR -->
+  <section class="section-wrap" id="hesaplayici">
+    <span class="section-eyebrow">ŞEFFAF MALİYET HESAPLAYICI</span>
+    <h2 class="section-heading">Arsanıza Özel Anlık Villa Maliyeti</h2>
+    <p class="section-desc">
+      Metrekare, cephe kaplaması ve veranda tercihinizi belirleyin; sürpriz masraf olmadan anahtar teslim bütçenizi anında görün.
+    </p>
+
+    <div class="calculator-card">
+      <div class="calc-steps-grid">
+        
+        <!-- Inputs Column -->
+        <div class="calc-inputs-col">
+          
+          <!-- Step 1: Model Selection -->
+          <div>
+            <div class="calc-group-title">01 / KONUT MODELİ & BÜYÜKLÜK</div>
+            <div class="option-cards-row">
+              <div class="opt-card" onclick="selectModel(60, 1150000, this)">
+                <span class="opt-title">60 m² 2+1</span>
+                <span class="opt-sub">Tek Katlı Kompakt</span>
+              </div>
+              <div class="opt-card selected" onclick="selectModel(90, 1680000, this)">
+                <span class="opt-title">90 m² 2 Katlı</span>
+                <span class="opt-sub">Balkonlu Kır Evi</span>
+              </div>
+              <div class="opt-card" onclick="selectModel(120, 2240000, this)">
+                <span class="opt-title">120 m² 2+1</span>
+                <span class="opt-sub">Geniş Çelik Villa</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Facade Finish -->
+          <div>
+            <div class="calc-group-title">02 / DIŞ CEPHE KAPLAMA MİMARİSİ</div>
+            <div class="option-cards-row">
+              <div class="opt-card selected" onclick="selectFacade(0, 'Krem Ahşap Dokulu Siding', this)">
+                <span class="opt-title">Ahşap Siding</span>
+                <span class="opt-sub">Doğal Ege Klasiği (Dahil)</span>
+              </div>
+              <div class="opt-card" onclick="selectFacade(95000, 'A1 Yanmaz Doğal Taş & Siding Kombini', this)">
+                <span class="opt-title">Doğal Taş & Siding</span>
+                <span class="opt-sub">+95.000 TL (Rustik Detay)</span>
+              </div>
+              <div class="opt-card" onclick="selectFacade(140000, 'İskandinav Termo-Çam Cephe', this)">
+                <span class="opt-title">Termo Ahşap Cephe</span>
+                <span class="opt-sub">+140.000 TL (Doğal Sedir)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Veranda / Outdoor Living -->
+          <div>
+            <div class="calc-group-title">03 / VERANDA & TERAS YAŞAMI</div>
+            <div class="option-cards-row">
+              <div class="opt-card" onclick="selectVeranda(0, 'Standart 12 m² Veranda', this)">
+                <span class="opt-title">12 m² Standart</span>
+                <span class="opt-sub">Giriş Sundurması (Dahil)</span>
+              </div>
+              <div class="opt-card selected" onclick="selectVeranda(65000, 'Genişletilmiş 22 m² Taş Zeminli Ahşap Pergoleli Veranda', this)">
+                <span class="opt-title">22 m² Pergoleli</span>
+                <span class="opt-sub">+65.000 TL (Ahşap Çatılı)</span>
+              </div>
+              <div class="opt-card" onclick="selectVeranda(120000, '35 m² Lüks Çevre Güverte Verandası', this)">
+                <span class="opt-title">35 m² L-Teras</span>
+                <span class="opt-sub">+120.000 TL (Geniş Oturma)</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Summary & Price Column -->
+        <div class="calc-summary-col">
+          <div>
+            <span class="summary-eyebrow">TAHMİNİ ANAHTAR TESLİM BEDELİ</span>
+            <div class="summary-big-price" id="calc-price-display">1.745.000 ₺</div>
+            <p class="summary-note">
+              Fiyata hafif çelik karkas, fabrika üretimi, şantiye montajı, elektrik-su tesisatı, mutfak dolapları, vitrifiyeler ve boya dahildir.
+            </p>
+
+            <ul class="summary-features-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span id="sum-model-txt">90 m² 2 Katlı Balkonlu Kır Evi</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span id="sum-facade-txt">Krem Ahşap Dokulu Siding</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span id="sum-veranda-txt">22 m² Pergoleli Veranda</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>60 Gün Montaj & Sabit Fiyat Garantisi</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <button onclick="sendCalculatedQuote()" class="btn-gold-pill" style="width: 100%; justify-content: center; padding: 15px; font-size: 12px;">
+              Bu Teklifi WhatsApp ile Gönder
+            </button>
+            <span style="display: block; text-align: center; font-size: 11px; color: var(--text-dim); margin-top: 12px;">
+              Müşteri Temsilcisi: 0531 455 85 85
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: CURATED MODELS PORTFOLIO -->
+  <section class="section-wrap" id="koleksiyon">
+    <span class="section-eyebrow">MİMARİ PORTFÖY</span>
+    <h2 class="section-heading">Seçkin Villa Koleksiyonumuz</h2>
+    <p class="section-desc">
+      İzmir ve Ege arazileri için özel tasarlanan, doğayla tam uyumlu konut modelleri.
+    </p>
+
+    <div class="models-grid">
+      
+      <!-- Card 1: 90 m2 2 Katlı Ahşap Balkonlu Kır Evi -->
+      <div class="model-atelier-card">
+        <div class="model-thumb-wrap">
+          <img src="timelapse_frames/frame_064.webp" alt="90 m2 İki Katlı Kır Evi">
+          <div class="model-pill-tag">Timelapse Yıldızı</div>
+        </div>
+        <div class="model-body">
+          <div>
+            <h3 class="model-title">90 m² 2 Katlı Ahşap Kır Evi</h3>
+            <p class="model-desc">
+              Üst kat çiçeklikli ahşap seyir balkonu, alt katta ada mutfaklı ferah salon ve taş istinatlı teras girişi.
+            </p>
+          </div>
+          <div>
+            <div class="model-spec-grid">
+              <div class="spec-item">
+                <span class="k">Plan</span>
+                <span class="v">2+1 Dubleks</span>
+              </div>
+              <div class="spec-item">
+                <span class="k">Kurulum</span>
+                <span class="v">55 - 60 Gün</span>
+              </div>
+              <div class="spec-item">
+                <span class="k">İskelet</span>
+                <span class="v">Galvaniz Çelik + Ahşap</span>
+              </div>
+              <div class="spec-item">
+                <span class="k">Veranda</span>
+                <span class="v">22 m² Teras</span>
+              </div>
+            </div>
+            <a href="https://wa.me/905314558585?text=Merhaba,%2090%20m2%202%20Katlı%20Ahşap%20Kır%20Evi%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-ghost-pill" style="display: block; text-align: center;">
+              Detaylı Teklif Al
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: 120 m2 Tek Katlı Çelik Villa -->
+      <div class="model-atelier-card">
+        <div class="model-thumb-wrap">
+          <img src="era_prefab_day.jpg" alt="120 m2 Tek Katlı Çelik Villa">
+          <div class="model-pill-tag">Geniş Aile Serisi</div>
+        </div>
+        <div class="model-body">
+          <div>
+            <h3 class="model-title">120 m² 2+1 Çelik Villa</h3>
+            <p class="model-desc">
+              Geniş cephe tasarımı, ebeveyn banyosu, kiler, çamaşır odası ve 24 m² gölgelikli taş veranda.
+            </p>
+          </div>
+          <div>
+            <div class="model-spec-grid">
+              <div class="spec-item">
+                <span class="k">Plan</span>
+                <span class="v">2+1 Tek Kat</span>
+              </div>
+              <div class="spec-item">
+                <span class="k">Kurulum</span>
+                <span class="v">45 - 50 Gün</span>
+              </div>
+              <div class="spec-item">
+                <span class="k">İskelet</span>
+                <span class="v">%100 Hafif Çelik</span>
+              </div>
+              <div class="spec-item">
+                <span class="k">Yalıtım</span>
+                <span class="v">10 cm Taşyünü</span>
+              </div>
+            </div>
+            <a href="https://wa.me/905314558585?text=Merhaba,%20120%20m2%20Çelik%20Villa%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-ghost-pill" style="display: block; text-align: center;">
+              Detaylı Teklif Al
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: 37.5 m2 Teraslı Tiny House -->
+      <div class="model-atelier-card">
+        <div class="model-thumb-wrap">
+          <img src="era_tinyhouse_37m2.jpg" alt="37.5 m2 Teraslı Tiny House">
+          <div class="model-pill-tag">Modüler Seri</div>
+        </div>
+        <div class="model-body">
+          <div>
+            <h3 class="model-title">37.5 m² Teraslı Çelik Ev</h3>
+            <p class="model-desc">
+              Kompakt araziler ve zeytinlikler için ideal. Üst katta 18 m² çatı seyir terası ve minimalist lüks.
+            </p>
+          </div>
+          <div>
+            <div class="model-spec-grid">
+              <div class="spec-item">
+                <span class="k">Plan</span>
+                <span class="v">1+1 Loft</span>
+              </div>
+              <div class="spec-item">
+                <span class="k">Kurulum</span>
+                <span class="v">25 - 30 Gün</span>
+              </div>
+              <div class="spec-item">
+                <span class="k">İskelet</span>
+                <span class="v">Kutu Profil Çelik</span>
+              </div>
+              <div class="spec-item">
+                <span class="k">Başlangıç</span>
+                <span class="v">560.000 ₺</span>
+              </div>
+            </div>
+            <a href="https://wa.me/905314558585?text=Merhaba,%2037.5%20m2%20Teraslı%20Tiny%20House%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-ghost-pill" style="display: block; text-align: center;">
+              Detaylı Teklif Al
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h2>3K EMİR YAPI</h2>
+          <p>
+            Menderes merkezli mimarlık ve çelik yapı atölyemizle; Ege genelinde sağlam, depreme dayanıklı ve doğayla bütünleşen çağdaş müstakil villalar inşa ediyoruz.
+          </p>
+        </div>
+
+        <div>
+          <span style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-gold);">DOĞRUDAN DANIŞMA HATTI</span>
+          <a href="tel:05314558585" class="footer-phone-huge">0531 455 85 85</a>
+          <span style="font-size: 13px; color: var(--text-muted); display: block;">Menderes / İzmir • Haftanın 7 Günü 09:00 - 20:00</span>
+          
+          <div style="display: flex; gap: 14px; margin-top: 18px;">
+            <a href="https://wa.me/905314558585" target="_blank" class="btn-gold-pill">WhatsApp Hattı</a>
+            <a href="https://www.instagram.com/3k_emir_yapi" target="_blank" class="btn-ghost-pill">@3k_emir_yapi</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 3K EMİR YAPI ATÖLYESİ. Tüm Hakları Saklıdır.</div>
+        <div style="display: flex; gap: 24px;">
+          <a href="demo1.html" style="color: var(--accent-gold); text-decoration: none;">Demo 1: 3D Timelapse Görünümü</a>
+          <a href="#donusum" style="color: var(--text-muted); text-decoration: none;">Başa Dön ↑</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC FOR INTERACTIVE FEATURES -->
+  <script>
+    /* =========================================================================
+       1. INTERACTIVE BEFORE & AFTER SLIDER
+       ========================================================================= */
+    const compareBox = document.getElementById('compare-box');
+    const compareOverlay = document.getElementById('compare-overlay');
+    const compareHandle = document.getElementById('compare-handle');
+
+    let isSliding = false;
+
+    function updateSlider(clientX) {
+      const rect = compareBox.getBoundingClientRect();
+      let offsetX = clientX - rect.left;
+      let pct = (offsetX / rect.width) * 100;
+      pct = Math.max(0, Math.min(100, pct));
+
+      compareOverlay.style.width = pct + '%';
+      compareHandle.style.left = pct + '%';
+    }
+
+    compareBox.addEventListener('mousedown', (e) => {
+      isSliding = true;
+      updateSlider(e.clientX);
+    });
+
+    window.addEventListener('mouseup', () => { isSliding = false; });
+    window.addEventListener('mousemove', (e) => {
+      if (!isSliding) return;
+      updateSlider(e.clientX);
+    });
+
+    // Touch events for mobile
+    compareBox.addEventListener('touchstart', (e) => {
+      isSliding = true;
+      updateSlider(e.touches[0].clientX);
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => { isSliding = false; });
+    window.addEventListener('touchmove', (e) => {
+      if (!isSliding) return;
+      updateSlider(e.touches[0].clientX);
+    }, { passive: true });
+
+    /* =========================================================================
+       2. INTERACTIVE ROOM EXPLORER & FLOOR PLAN
+       ========================================================================= */
+    const floorData = {
+      zemin: [
+        {
+          num: '01',
+          name: 'Geniş Salon & Ada Mutfak',
+          area: '32 m²',
+          img: '3k_120m2_salon.jpg',
+          tag: 'Zemin Kat: Geniş Salon & Ada Mutfak (2.90m Tavan)'
+        },
+        {
+          num: '02',
+          name: 'Pergoleli Giriş Verandası',
+          area: '22 m²',
+          img: 'timelapse_frames/frame_064.webp',
+          tag: 'Doğal Taş & Ahşap Kolonlu 22 m² Veranda'
+        },
+        {
+          num: '03',
+          name: 'Giriş Holü & Misafir Banyo',
+          area: '8 m²',
+          img: 'timelapse_frames/frame_030.webp',
+          tag: 'Çelik Karkas İçi Isıcamlı Doğramalar'
+        }
+      ],
+      ust: [
+        {
+          num: '04',
+          name: 'Ebeveyn Yatak Odası & Süit',
+          area: '18 m²',
+          img: '3k_120m2_yatak_odasi.jpg',
+          tag: '1. Kat: Ebeveyn Süiti & Parke Zemin'
+        },
+        {
+          num: '05',
+          name: 'Çiçeklikli Ahşap Seyir Balkonu',
+          area: '10 m²',
+          img: 'timelapse_frames/frame_064.webp',
+          tag: 'Dövme Demir Korkuluk & Çiçeklikli Ahşap Balkon'
+        },
+        {
+          num: '06',
+          name: 'Çocuk / Misafir Odası',
+          area: '14 m²',
+          img: '3k_120m2_salon.jpg',
+          tag: 'Çift Yalıtımlı Taşyünü Duvarlar'
+        }
+      ]
+    };
+
+    let activeFloor = 'zemin';
+
+    function switchFloor(floorKey) {
+      activeFloor = floorKey;
+      const buttons = document.querySelectorAll('.floor-tab-btn');
+      buttons[0].classList.toggle('active', floorKey === 'zemin');
+      buttons[1].classList.toggle('active', floorKey === 'ust');
+
+      renderRooms();
+      // Select first room of floor
+      selectRoom(0);
+    }
+
+    function renderRooms() {
+      const container = document.getElementById('rooms-list');
+      container.innerHTML = '';
+      const list = floorData[activeFloor];
+
+      list.forEach((room, idx) => {
+        const item = document.createElement('div');
+        item.className = 'room-spot-item' + (idx === 0 ? ' active' : '');
+        item.onclick = () => selectRoom(idx);
+        item.innerHTML = `
+          <div class="room-name-group">
+            <span class="room-num">${room.num}</span>
+            <span class="room-title">${room.name}</span>
+          </div>
+          <span class="room-area">${room.area}</span>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function selectRoom(idx) {
+      const list = floorData[activeFloor];
+      const room = list[idx];
+      if (!room) return;
+
+      const items = document.querySelectorAll('.room-spot-item');
+      items.forEach((el, i) => el.classList.toggle('active', i === idx));
+
+      const img = document.getElementById('plan-display-img');
+      const tag = document.getElementById('plan-tag');
+      
+      img.style.opacity = '0.3';
+      setTimeout(() => {
+        img.src = room.img;
+        tag.textContent = room.tag;
+        img.style.opacity = '1';
+      }, 200);
+    }
+
+    // Init rooms
+    renderRooms();
+
+    /* =========================================================================
+       3. REAL-TIME ARCHITECTURAL COST ESTIMATOR
+       ========================================================================= */
+    let currentModelPrice = 1680000;
+    let currentModelName = '90 m² 2 Katlı Balkonlu Kır Evi';
+    let currentFacadePrice = 0;
+    let currentFacadeName = 'Krem Ahşap Dokulu Siding';
+    let currentVerandaPrice = 65000;
+    let currentVerandaName = '22 m² Pergoleli Veranda';
+
+    function formatTRY(amount) {
+      return amount.toLocaleString('tr-TR') + ' ₺';
+    }
+
+    function updateCalculator() {
+      const total = currentModelPrice + currentFacadePrice + currentVerandaPrice;
+      const display = document.getElementById('calc-price-display');
+      display.textContent = formatTRY(total);
+
+      document.getElementById('sum-model-txt').textContent = currentModelName;
+      document.getElementById('sum-facade-txt').textContent = currentFacadeName;
+      document.getElementById('sum-veranda-txt').textContent = currentVerandaName;
+    }
+
+    function selectModel(sqm, price, el) {
+      currentModelPrice = price;
+      if (sqm === 60) currentModelName = '60 m² 2+1 Tek Katlı Kompakt Villa';
+      if (sqm === 90) currentModelName = '90 m² 2 Katlı Balkonlu Kır Evi';
+      if (sqm === 120) currentModelName = '120 m² 2+1 Geniş Çelik Villa';
+
+      const siblings = el.parentElement.querySelectorAll('.opt-card');
+      siblings.forEach(s => s.classList.remove('selected'));
+      el.classList.add('selected');
+      updateCalculator();
+    }
+
+    function selectFacade(price, name, el) {
+      currentFacadePrice = price;
+      currentFacadeName = name;
+
+      const siblings = el.parentElement.querySelectorAll('.opt-card');
+      siblings.forEach(s => s.classList.remove('selected'));
+      el.classList.add('selected');
+      updateCalculator();
+    }
+
+    function selectVeranda(price, name, el) {
+      currentVerandaPrice = price;
+      currentVerandaName = name;
+
+      const siblings = el.parentElement.querySelectorAll('.opt-card');
+      siblings.forEach(s => s.classList.remove('selected'));
+      el.classList.add('selected');
+      updateCalculator();
+    }
+
+    function sendCalculatedQuote() {
+      const total = currentModelPrice + currentFacadePrice + currentVerandaPrice;
+      const message = `Merhaba 3K Emir Yapı, web sitenizdeki mimari hesaplayıcı üzerinden şu konfigürasyon için teklif almak istiyorum:\n\n` +
+        `• Model: ${currentModelName}\n` +
+        `• Cephe: ${currentFacadeName}\n` +
+        `• Veranda: ${currentVerandaName}\n` +
+        `• Tahmini Bütçe: ${formatTRY(total)}\n\n` +
+        `Arsam Menderes/İzmir bölgesinde. Kurulum süresi ve keşif için bilgi alabilir miyim?`;
+
+      const encoded = encodeURIComponent(message);
+      window.open(`https://wa.me/905314558585?text=${encoded}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>
