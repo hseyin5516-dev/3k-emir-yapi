@@ -2,11 +2,13 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/3k-modern/index.html",
-      "permanent": false
-    }
+  "rewrites": [
+    { "source": "/", "destination": "/3k-modern/index.html" },
+    { "source": "/index.html", "destination": "/3k-modern/index.html" },
+    { "source": "/css/(.*)", "destination": "/3k-modern/css/$1" },
+    { "source": "/images/(.*)", "destination": "/3k-modern/images/$1" },
+    { "source": "/js/(.*)", "destination": "/3k-modern/js/$1" },
+    { "source": "/(prefabrik-konut|celik-konut|betonarme-yapilar|ofis-yapilari|projeler|kurumsal|iletisim|rehber|sss|urunler|urun-detay)", "destination": "/3k-modern/$1.html" },
+    { "source": "/(.*\\.html)", "destination": "/3k-modern/$1" }
   ]
 }

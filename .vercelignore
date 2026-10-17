@@ -1,0 +1,9 @@
+resimler/
+yeni resimler/
+insta_downloads/
+timelapse_frames/
+__pycache__/
+*.py
+*.pyc
+*.txt
+scratch/
