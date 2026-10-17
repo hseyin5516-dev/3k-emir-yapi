@@ -1,0 +1,23 @@
+# 3K Emir Yapı Group
+
+> 3K Emir Yapı Group, İzmir Menderes merkezli olarak Ege Bölgesi ve Türkiye genelinde anahtar teslim prefabrik ev, hafif çelik villa, modüler ofis ve endüstriyel yapı üretimi ve saha montajı gerçekleştiren kurumsal inşaat ve mühendislik firmasıdır. 50 yıl taşıyıcı sistem garantisi ve sözleşmeli sabit fiyat güvencesi sunmaktadır.
+
+## Kurumsal ve Hizmet Genel Bakışı
+
+- [Anasayfa](https://3k-modern.vercel.app/): 3K Emir Yapı Group ana sayfası, konut modelleri, özellikler ve hızlı iletişim.
+- [Kurumsal Bilgiler](https://3k-modern.vercel.app/kurumsal.html): Şirket profili, üretim teknolojimiz, mühendislik ekibimiz ve kalite politikamız.
+- [Tüm Ürünlerimiz](https://3k-modern.vercel.app/urunler.html): Prefabrik, hafif çelik, ofis ve betonarme yapı kataloğu.
+- [İletişim ve Fabrika Ziyareti](https://3k-modern.vercel.app/iletisim.html): İzmir Menderes showroom, fabrika adresi, telefon (0531 455 85 85) ve WhatsApp iletişim kanalı.
+
+## Konut ve Yapı Çözümleri
+
+- [Prefabrik ve Ahşap Konutlar](https://3k-modern.vercel.app/prefabrik-konut.html): Tek katlı ve dubleks prefabrik evler, hızlı montajlı depreme dayanıklı ahşap dokulu yapılar.
+- [Hafif Çelik Villa ve Konutlar](https://3k-modern.vercel.app/celik-konut.html): Yüksek mukavemetli galvanizli hafif çelik karkas villalar, modern mimari ve üst düzey yalıtım.
+- [Modüler Ofis ve Şantiye Yapıları](https://3k-modern.vercel.app/ofis-yapilari.html): Konteyner ofisler, yemekhane, yatakhane ve şantiye yerleşkeleri.
+- [Lüks Betonarme Yapılar](https://3k-modern.vercel.app/betonarme-yapilar.html): Özel mimari projelendirme, lüks betonarme villa ve konut inşaatları.
+
+## Bilgi Bankası ve Müşteri Kaynakları
+
+- [Tamamlanan Projelerimiz](https://3k-modern.vercel.app/projeler.html): Gerçek saha teslimatları, şantiye fotoğrafları ve müşteri referansları.
+- [Prefabrik & Çelik Ev Rehberi](https://3k-modern.vercel.app/rehber.html): İmar mevzuatı, zemin betonu (su basmanı), statik hesaplar ve ruhsatlandırma kılavuzu.
+- [Sıkça Sorulan Sorular (S.S.S.)](https://3k-modern.vercel.app/sss.html): Prefabrik ve çelik ev ömrü, montaj süreleri, yalıtım detayları ve sabit fiyat garantisi.

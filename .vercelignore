@@ -5,5 +5,7 @@ timelapse_frames/
 __pycache__/
 *.py
 *.pyc
-*.txt
 scratch/
+!robots.txt
+!llms.txt
+!llms-full.txt

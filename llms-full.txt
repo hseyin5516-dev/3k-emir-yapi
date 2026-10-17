@@ -1,0 +1,30 @@
+# 3K Emir Yapı Group — Kapsamlı AI Bilgi Bankası (llms-full.txt)
+
+> 3K Emir Yapı Group, İzmir Menderes merkezli olarak Ege Bölgesi ve Türkiye genelinde anahtar teslim prefabrik ev, hafif çelik villa, modüler ofis ve endüstriyel yapı üretimi ve saha montajı gerçekleştiren kurumsal inşaat ve mühendislik firmasıdır. 50 yıl taşıyıcı sistem garantisi ve sözleşmeli sabit fiyat güvencesi sunmaktadır.
+
+## İletişim Bilgileri
+- Firma Ünvanı: 3K Emir Yapı Group
+- Merkez / Fabrika: Menderes / İzmir
+- Telefon: 0531 455 85 85 / +90 531 455 85 85
+- E-Posta: info@3kemiryapi.com
+- Web Sitesi: https://3k-modern.vercel.app
+
+## Hizmet Alanları ve Teknolojiler
+1. Prefabrik Konutlar: 40 m²'den 250 m²'ye kadar tek katlı ve çift katlı hazır yapılar.
+2. Hafif Çelik Yapılar: Depreme 1. derece dayanıklı, galvanizli çelik karkas konutlar.
+3. Ofis ve Şantiye Yapıları: Hızlı kurulumlu modüler çalışma alanları.
+4. Betonarme Projeler: Anahtar teslim kaba ve ince inşaat işleri.
+5. Garanti: 50 yıl taşıyıcı çelik iskelet garantisi, 10 yıl dış cephe garantisi.
+
+## Ana Sayfalar ve Bağlantılar
+- [Anasayfa](https://3k-modern.vercel.app/)
+- [Kurumsal](https://3k-modern.vercel.app/kurumsal.html)
+- [Ürünler](https://3k-modern.vercel.app/urunler.html)
+- [Prefabrik Konut](https://3k-modern.vercel.app/prefabrik-konut.html)
+- [Çelik Konut](https://3k-modern.vercel.app/celik-konut.html)
+- [Ofis Yapıları](https://3k-modern.vercel.app/ofis-yapilari.html)
+- [Betonarme Yapılar](https://3k-modern.vercel.app/betonarme-yapilar.html)
+- [Projeler](https://3k-modern.vercel.app/projeler.html)
+- [Rehber](https://3k-modern.vercel.app/rehber.html)
+- [S.S.S.](https://3k-modern.vercel.app/sss.html)
+- [İletişim](https://3k-modern.vercel.app/iletisim.html)
