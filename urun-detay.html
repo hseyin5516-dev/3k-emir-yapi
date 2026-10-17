@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model Detayı & Kat Planı | 3K Emir Yapı</title>
+  <meta name="description" content="3K Emir Yapı model mimari kat planı, oda m² ölçüleri, teknik şartname ve doğrudan WhatsApp teklif formu.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/modern-theme.css">
+
+  <style>
+    .detail-hero {
+      background: var(--color-bg-light);
+      padding: 40px 0 60px;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: flex-start;
+    }
+    .gallery-main {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      height: 440px;
+    }
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .gallery-thumbs {
+      display: flex;
+      gap: 12px;
+      margin-top: 14px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .gallery-thumb-item {
+      width: 90px;
+      height: 65px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .gallery-thumb-item.active {
+      border-color: var(--color-accent);
+    }
+    .gallery-thumb-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .detail-sticky-box {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      position: sticky;
+      top: 96px;
+      box-shadow: var(--shadow-md);
+    }
+    .room-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+    }
+    .room-table tr {
+      border-bottom: 1px solid var(--color-border-subtle);
+    }
+    .room-table td {
+      padding: 10px 0;
+      font-size: 13.5px;
+    }
+    .room-table td:last-child {
+      text-align: right;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    .spec-check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--color-text-muted);
+      margin-bottom: 10px;
+    }
+    .spec-check-item span {
+      color: #10B981;
+      font-weight: 800;
+    }
+    @media (max-width: 992px) {
+      .detail-grid { grid-template-columns: 1fr; }
+      .gallery-main { height: 320px; }
+      .detail-sticky-box { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP INFO BAR -->
+  <div class="mp-topbar">
+    <div class="mp-topbar-inner">
+      <div class="mp-topbar-msg">Ege Bölgesi ve Türkiye genelinde anahtar teslim üretim. <a href="kurumsal.html">Detaylar →</a></div>
+      <div class="mp-topbar-links">
+        <span>📍 Menderes / İzmir</span>
+        <a href="tel:05314558585" style="font-weight: 700; color: #FFFFFF;">📞 0531 455 85 85</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="mp-header">
+    <div class="mp-header-inner">
+      <a href="index.html" class="mp-logo">
+        <img src="images/logo.png" alt="3K Emir Yapı Group" class="mp-logo-img">
+        <div class="mp-logo-text">
+          <span>3K EMİR YAPI GROUP</span>
+          <span class="mp-logo-sub">Prefabrik & Çelik Mimarlık</span>
+        </div>
+      </a>
+      <nav class="mp-nav">
+        <a href="index.html" class="mp-nav-link">Anasayfa</a>
+        <a href="kurumsal.html" class="mp-nav-link">Kurumsal</a>
+        
+        <!-- Products Mega Menu Wrapper -->
+        <div class="mega-menu-wrapper">
+          <a href="urunler.html" class="mp-nav-link active">
+            Ürünlerimiz
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+                    <div class="mega-menu-dropdown">
+            <a href="prefabrik-konut.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏠</span>
+              <span>Prefabrik ve Ahşap Yapı</span>
+            </a>
+            <a href="celik-konut.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏛️</span>
+              <span>Çelik Konut</span>
+            </a>
+            <a href="ofis-yapilari.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏢</span>
+              <span>Ofis & Şantiye Yapıları</span>
+            </a>
+            <a href="betonarme-yapilar.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏗️</span>
+              <span>Betonarme Yapılar</span>
+            </a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="urunler.html" class="nav-dropdown-item nav-dropdown-all">
+              <span>Tüm Modelleri Gör</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="projeler.html" class="mp-nav-link">Projelerimiz</a>
+        <a href="rehber.html" class="mp-nav-link">Rehber</a>
+        <a href="sss.html" class="mp-nav-link">S.S.S.</a>
+        <a href="iletisim.html" class="mp-nav-link">İletişim</a>
+      </nav>
+      <div class="mp-header-actions">
+        <a href="tel:05314558585" class="btn-call">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0531 455 85 85
+        </a>
+        <a href="https://wa.me/905314558585?text=Merhaba,%20ürün%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-whatsapp-header" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.08C8.94 7.08 8.66 7.15 8.42 7.41C8.18 7.66 7.5 8.3 7.5 9.61C7.5 10.92 8.45 12.18 8.59 12.36C8.73 12.53 10.45 15.19 13.1 16.33C13.73 16.6 14.22 16.76 14.6 16.88C15.23 17.08 15.8 17.05 16.26 16.98C16.77 16.9 17.83 16.34 18.05 15.71C18.28 15.08 18.28 14.54 18.21 14.43C18.14 14.32 17.97 14.25 17.71 14.12C17.46 14 16.2 13.38 15.97 13.3C15.74 13.21 15.57 13.17 15.41 13.42C15.24 13.67 14.76 14.25 14.61 14.42C14.47 14.59 14.33 14.61 14.07 14.48C13.82 14.36 13.01 14.09 12.04 13.23C11.29 12.56 10.78 11.73 10.63 11.48C10.49 11.23 10.62 11.09 10.74 10.97C10.86 10.86 11 10.68 11.13 10.54C11.26 10.4 11.3 10.3 11.39 10.13C11.47 9.96 11.43 9.81 11.37 9.69C11.31 9.56 10.82 8.35 10.61 7.86C10.41 7.37 10.21 7.44 10.05 7.43C9.91 7.43 9.74 7.42 9.57 7.42C9.4 7.42 9.11 7.08 9.11 7.08Z"/></svg><span>WhatsApp Teklifi</span></a>
+        <button id="mobile-menu-toggle" style="background: none; border: 1px solid var(--color-border); border-radius: 50%; width: 40px; height: 40px; display: none;" aria-label="Menü">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- DYNAMIC PRODUCT DETAIL CONTAINER -->
+  <main id="product-detail-view">
+    <div style="text-align: center; padding: 100px 0;">Yükleniyor...</div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mp-footer">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" style="display: inline-block; margin-bottom: 12px;">
+          <img src="images/logo.png" alt="3K Emir Yapı Group" style="height: 46px; width: auto; display: block;">
+        </a>
+        <div class="footer-brand-title">3K EMİR YAPI GROUP</div>
+        <p class="footer-desc">İzmir / Menderes merkezli üretim tesislerimizde prefabrik ve hafif çelik konutlar inşa ediyoruz.</p>
+        <a href="tel:05314558585" class="btn-call">0531 455 85 85</a>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Modeller</h4>
+        <ul class="footer-links">
+          <li><a href="urunler.html?kategori=tek-kat-prefabrik">Tek Kat Prefabrik</a></li>
+          <li><a href="urunler.html?kategori=cift-kat-prefabrik">Çift Kat Prefabrik</a></li>
+          <li><a href="urunler.html?kategori=tek-kat-celik">Tek Kat Çelik</a></li>
+          <li><a href="urunler.html?kategori=cift-kat-celik">Çift Kat Çelik</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Kurumsal</h4>
+        <ul class="footer-links">
+          <li><a href="kurumsal.html">Hakkımızda</a></li>
+          <li><a href="projeler.html">Projelerimiz</a></li>
+          <li><a href="rehber.html">Rehber</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">İletişim & Üretim</h4>
+        <div class="footer-contact-block">
+          <a href="tel:05314558585" class="footer-phone-big">0531 455 85 85</a>
+          <p class="footer-address">Menderes / İzmir • Pazartesi - Pazar: 09:00 - 19:30</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 3K EMİR YAPI. Tüm hakları saklıdır.</div>
+    </div>
+  </footer>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const slug = urlParams.get('slug') || 'tek-kat-prefabrik-76-m2';
+      const item = (window.PRODUCTS_DATA || []).find(m => m.slug === slug) || window.PRODUCTS_DATA[0];
+
+      if (!item) {
+        document.getElementById('product-detail-view').innerHTML = '<div style="text-align:center; padding:100px;">Model bulunamadı. <a href="urunler.html">Kataloğa dön</a></div>';
+        return;
+      }
+
+      document.title = `${item.name} | 3K Emir Yapı Group Mimari ve Kat Planı`;
+
+      const waLink = window.getWhatsAppLink(item.name, item.area, item.price);
+
+      // Gallery Images
+      const gallery = (item.gallery && item.gallery.length) ? item.gallery : [item.image];
+      function resolveImg(p) {
+        if (!p) return '';
+        if (typeof p === 'object' && p.image) p = p.image;
+        if (typeof p !== 'string') return '';
+        if (p.startsWith('http')) return p;
+        if (p.startsWith('/images/products') || p.startsWith('images/products')) {
+          return p.startsWith('/') ? p.substring(1) : p;
+        }
+        return 'https://www.modernprefabrik.com.tr' + p;
+      }
+      const mainImg = resolveImg(gallery[0]);
+
+      // Room plan breakdown table
+      let planRows = '';
+      if (item.plan && Array.isArray(item.plan)) {
+        item.plan.forEach(p => {
+          planRows += `<tr><td>${p.room}</td><td>${p.area}</td></tr>`;
+        });
+      } else {
+        planRows = `
+          <tr><td>Salon + Mutfak</td><td>${item.livingArea ? item.livingArea + ' m²' : '35 m²'}</td></tr>
+          <tr><td>Yatak Odaları</td><td>${item.bedroomArea ? item.bedroomArea + ' m²' : '26 m²'}</td></tr>
+          <tr><td>Banyo / WC</td><td>${item.bathroomArea ? item.bathroomArea + ' m²' : '5 m²'}</td></tr>
+          <tr><td>Veranda / Teras</td><td>${item.veranda ? item.veranda + ' m²' : '12 m²'}</td></tr>
+          <tr><td><strong>Toplam Kapalı Alan</strong></td><td><strong>${item.area} m²</strong></td></tr>
+        `;
+      }
+
+      let thumbsHtml = '';
+      gallery.forEach((g, idx) => {
+        const thumbSrc = resolveImg(g);
+        thumbsHtml += `
+          <div class="gallery-thumb-item ${idx === 0 ? 'active' : ''}" onclick="changeMainImage('${thumbSrc}', this)">
+            <img src="${thumbSrc}" alt="${item.name} Görsel ${idx+1}">
+          </div>
+        `;
+      });
+
+      const html = `
+        <section class="detail-hero">
+          <div class="container">
+            <div style="margin-bottom: 24px; font-size: 13px; color: var(--color-text-light);">
+              <a href="index.html">Anasayfa</a> / <a href="urunler.html">Ürünlerimiz</a> / <span style="color: var(--color-primary); font-weight: 600;">${item.name}</span>
+            </div>
+
+            <div class="detail-grid">
+              <!-- Left: Gallery & Architecture Specs -->
+              <div>
+                <div class="gallery-main">
+                  <img id="main-gallery-img" src="${mainImg}" alt="${item.name}">
+                </div>
+                <div class="gallery-thumbs">
+                  ${thumbsHtml}
+                </div>
+
+                <!-- Plan & Features -->
+                <div style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 32px; margin-top: 36px;">
+                  <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Mimari ve Yaşam Planı</h3>
+                  <p style="font-size: 14.5px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 24px;">
+                    ${item.description || '3K Emir Yapı güvencesiyle yüksek mukavemetli galvaniz karkas ve çift ısıcam yalıtımlı duvar panelleriyle fabrikada üretilip arsanızda anahtar teslim monte edilir.'}
+                  </p>
+
+                  <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 12px;">Oda Ölçüleri ve Alan Dağılımı</h4>
+                  <table class="room-table">
+                    <tbody>
+                      ${planRows}
+                    </tbody>
+                  </table>
+
+                  ${(item.plans && item.plans.length) ? `
+                    <div style="margin-top: 28px;">
+                      <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 12px;">📐 Mimari Kat Planı & Proje Çizimi</h4>
+                      <div style="border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; background: #FAFAFA; text-align: center; padding: 12px; cursor: pointer;" onclick="changeMainImage('${resolveImg(item.plans[0])}', null)">
+                        <img src="${resolveImg(item.plans[0])}" alt="${item.name} Kat Planı" style="max-width: 100%; height: auto; border-radius: var(--radius-sm); display: inline-block;">
+                        <div style="font-size: 12px; color: var(--color-text-muted); margin-top: 8px;">🔍 Görseli galeride büyük formatta incelemek için tıklayın</div>
+                      </div>
+                    </div>
+                  ` : ''}
+                </div>
+
+                <!-- Standard Inclusions -->
+                <div style="background: #FFFFFF; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 32px; margin-top: 24px;">
+                  <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 18px;">Fiyata Dahil Olan Standart Donanımlar</h3>
+                  <div class="spec-check-item"><span>✓</span> Galvaniz çelik karkas taşıyıcı konstrüksiyon</div>
+                  <div class="spec-check-item"><span>✓</span> Çift taraflı yüksek izolasyonlu EPS/Taşyünü duvar panelleri</div>
+                  <div class="spec-check-item"><span>✓</span> Çift ısıcamlı PVC pencereler ve çelik dış kapı</div>
+                  <div class="spec-check-item"><span>✓</span> Çatı makasları, shingle/trapez saç kaplama ve cam yünü yalıtım</div>
+                  <div class="spec-check-item"><span>✓</span> Sıva altı elektrik ve sıhhi tesisat altyapısı</div>
+                  <div class="spec-check-item"><span>✓</span> İç kapılar, vitrifiye ve boya işleri</div>
+                  <div class="spec-check-item"><span>✓</span> 50 Yıl Taşıyıcı Sistem Yazılı Garanti Belgesi</div>
+                </div>
+              </div>
+
+              <!-- Right: Pricing & WhatsApp Action Box -->
+              <div>
+                <div class="detail-sticky-box">
+                  <span class="card-badge-popular" style="position: static; display: inline-block; margin-bottom: 12px;">Model Kodu: ${item.code || '3K-MODEL'}</span>
+                  <h1 style="font-size: 24px; font-weight: 800; line-height: 1.25; margin-bottom: 12px;">${item.name}</h1>
+                  
+                  <div style="background: #F8FAFC; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 18px 20px; margin-bottom: 20px;">
+                    <div style="font-size: 11.5px; font-weight: 700; color: var(--color-accent-hover); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">Arsanıza Özel Fiyatlandırma</div>
+                    <div style="font-size: 20px; font-weight: 800; color: var(--color-primary);">Anahtar Teslim Fiyat Teklifi İsteyin</div>
+                    <div style="font-size: 13px; color: var(--color-text-muted); margin-top: 6px; line-height: 1.5;">Bu modelimizin arsanıza özel zemin, nakliye, montaj ve malzeme tercihlerine göre net maliyeti için ücretsiz keşif isteyebilirsiniz.</div>
+                  </div>
+
+                  <!-- Quick Stats -->
+                  <div class="card-specs-grid" style="margin: 20px 0;">
+                    <div class="spec-pill">📐 ${item.area} m² Kapalı Alan</div>
+                    <div class="spec-pill">🛏️ ${item.bedrooms || 2} Yatak Odası</div>
+                    <div class="spec-pill">🚿 ${item.bathrooms || 1} Banyo / WC</div>
+                    <div class="spec-pill">🌿 ${item.veranda || 12} m² Veranda</div>
+                  </div>
+
+                  <!-- Fixed Budget Commitment -->
+                  <div style="background: var(--color-bg-light); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 14px; margin-bottom: 24px;">
+                    <div style="font-weight: 700; font-size: 13.5px; color: var(--color-primary);">📋 Sözleşmeli Sabit Bütçe Taahhüdü</div>
+                    <div style="font-size: 12px; color: var(--color-text-muted); margin-top: 2px;">Sözleşmede belirlenen fiyat geçerlidir; teslimata kadar sürpriz ek masraf çıkarılmaz.</div>
+                  </div>
+
+                  <!-- Primary CTA: WhatsApp -->
+                  <a href="${waLink}" target="_blank" class="btn-whatsapp-header" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.08C8.94 7.08 8.66 7.15 8.42 7.41C8.18 7.66 7.5 8.3 7.5 9.61C7.5 10.92 8.45 12.18 8.59 12.36C8.73 12.53 10.45 15.19 13.1 16.33C13.73 16.6 14.22 16.76 14.6 16.88C15.23 17.08 15.8 17.05 16.26 16.98C16.77 16.9 17.83 16.34 18.05 15.71C18.28 15.08 18.28 14.54 18.21 14.43C18.14 14.32 17.97 14.25 17.71 14.12C17.46 14 16.2 13.38 15.97 13.3C15.74 13.21 15.57 13.17 15.41 13.42C15.24 13.67 14.76 14.25 14.61 14.42C14.47 14.59 14.33 14.61 14.07 14.48C13.82 14.36 13.01 14.09 12.04 13.23C11.29 12.56 10.78 11.73 10.63 11.48C10.49 11.23 10.62 11.09 10.74 10.97C10.86 10.86 11 10.68 11.13 10.54C11.26 10.4 11.3 10.3 11.39 10.13C11.47 9.96 11.43 9.81 11.37 9.69C11.31 9.56 10.82 8.35 10.61 7.86C10.41 7.37 10.21 7.44 10.05 7.43C9.91 7.43 9.74 7.42 9.57 7.42C9.4 7.42 9.11 7.08 9.11 7.08Z"/></svg><span>WhatsApp Teklifi</span></a>
+
+                  <a href="tel:05314558585" class="btn-call" style="width: 100%; justify-content: center; padding: 14px; font-size: 14px; border-radius: var(--radius-md); background: #FFFFFF; color: var(--color-primary); border: 1px solid var(--color-border);">
+                    📞 0531 455 85 85 Mimarı Ara
+                  </a>
+
+                  <p style="font-size: 12px; color: var(--color-text-light); text-align: center; margin-top: 16px;">
+                    ⚡ Arsanızın konumunu WhatsApp'tan gönderin, 1 saat içinde ücretsiz keşif ve zemin analizi yapalım.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+
+      document.getElementById('product-detail-view').innerHTML = html;
+    });
+
+    function changeMainImage(url, el) {
+      document.getElementById('main-gallery-img').src = url;
+      document.querySelectorAll('.gallery-thumb-item').forEach(t => t.classList.remove('active'));
+      if (el) el.classList.add('active');
+    }
+  </script>
+  <!-- FLOATING MOBILE WHATSAPP ICON -->
+  <div class="floating-mobile-bar">
+    <a href="https://wa.me/905314558585?text=Merhaba,%20bilgi%20ve%20fiyat%20teklifi%20almak%20istiyorum." target="_blank" class="mobile-bar-btn wa" aria-label="WhatsApp">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.08C8.94 7.08 8.66 7.15 8.42 7.41C8.18 7.66 7.5 8.3 7.5 9.61C7.5 10.92 8.45 12.18 8.59 12.36C8.73 12.53 10.45 15.19 13.1 16.33C13.73 16.6 14.22 16.76 14.6 16.88C15.23 17.08 15.8 17.05 16.26 16.98C16.77 16.9 17.83 16.34 18.05 15.71C18.28 15.08 18.28 14.54 18.21 14.43C18.14 14.32 17.97 14.25 17.71 14.12C17.46 14 16.2 13.38 15.97 13.3C15.74 13.21 15.57 13.17 15.41 13.42C15.24 13.67 14.76 14.25 14.61 14.42C14.47 14.59 14.33 14.61 14.07 14.48C13.82 14.36 13.01 14.09 12.04 13.23C11.29 12.56 10.78 11.73 10.63 11.48C10.49 11.23 10.62 11.09 10.74 10.97C10.86 10.86 11 10.68 11.13 10.54C11.26 10.4 11.3 10.3 11.39 10.13C11.47 9.96 11.43 9.81 11.37 9.69C11.31 9.56 10.82 8.35 10.61 7.86C10.41 7.37 10.21 7.44 10.05 7.43C9.91 7.43 9.74 7.42 9.57 7.42C9.4 7.42 9.11 7.08 9.11 7.08Z"/></svg>
+    </a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tamamlanan Projelerimiz & Peyzaj Referansları | 3K Emir Yapı Group</title>
+  <meta name="description" content="3K Emir Yapı tamamlanan hafif çelik villa, prefabrik konut, dağ evi, A-frame bungalov ve bahçe peyzaj referans galerisi. İzmir, Urla, Çeşme ve tüm Ege.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/modern-theme.css">
+
+  <style>
+    .filter-bar-sticky {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--color-border);
+      padding: 16px 0;
+      position: sticky;
+      top: 76px;
+      z-index: 95;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .filter-pills-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    .proj-filter-btn {
+      background: #F8FAFC;
+      border: 1px solid var(--color-border);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .proj-filter-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+    .proj-filter-btn.active {
+      background: var(--color-primary);
+      color: #FFFFFF;
+      border-color: var(--color-primary);
+    }
+
+    /* Peyzaj Grid */
+    .peyzaj-section {
+      background: #FFFFFF;
+      padding: 72px 0;
+      border-top: 1px solid var(--color-border);
+    }
+    .peyzaj-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 22px;
+      margin-top: 36px;
+    }
+    .peyzaj-card {
+      background: #F8FAFC;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .peyzaj-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(217, 119, 6, 0.3);
+    }
+    .peyzaj-img-wrap {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+      background: #0F172A;
+    }
+    .peyzaj-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+    .peyzaj-card:hover .peyzaj-img-wrap img {
+      transform: scale(1.06);
+    }
+    .peyzaj-tag-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(15, 23, 42, 0.82);
+      backdrop-filter: blur(4px);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.03em;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .peyzaj-body {
+      padding: 18px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .peyzaj-title {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 6px;
+    }
+    .peyzaj-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.94);
+      z-index: 2500;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .lightbox-modal.open {
+      display: flex;
+    }
+    .lightbox-content {
+      max-width: 92vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: #FFFFFF;
+      font-size: 32px;
+      cursor: pointer;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP INFO BAR -->
+  <div class="mp-topbar">
+    <div class="mp-topbar-inner">
+      <div class="mp-topbar-msg">Ege Bölgesi ve Türkiye genelinde anahtar teslim üretim & mühendislik.</div>
+      <div class="mp-topbar-links">
+        <span>📍 Menderes / İzmir</span>
+        <a href="mailto:info@3kemiryapi.com">✉️ info@3kemiryapi.com</a>
+        <a href="tel:05314558585" style="font-weight: 700; color: #FFFFFF;">📞 0531 455 85 85</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="mp-header">
+    <div class="mp-header-inner">
+      <a href="index.html" class="mp-logo">
+        <img src="images/logo.png" alt="3K Emir Yapı Group" class="mp-logo-img">
+        <div class="mp-logo-text">
+          <span>3K EMİR YAPI GROUP</span>
+          <span class="mp-logo-sub">Prefabrik & Çelik Mimarlık</span>
+        </div>
+      </a>
+      <nav class="mp-nav">
+        <a href="index.html" class="mp-nav-link">Anasayfa</a>
+        <a href="kurumsal.html" class="mp-nav-link">Kurumsal</a>
+        
+        <!-- Products Mega Menu Wrapper -->
+        <div class="mega-menu-wrapper">
+          <a href="urunler.html" class="mp-nav-link">
+            Ürünlerimiz
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+                    <div class="mega-menu-dropdown">
+            <a href="prefabrik-konut.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏠</span>
+              <span>Prefabrik ve Ahşap Yapı</span>
+            </a>
+            <a href="celik-konut.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏛️</span>
+              <span>Çelik Konut</span>
+            </a>
+            <a href="ofis-yapilari.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏢</span>
+              <span>Ofis & Şantiye Yapıları</span>
+            </a>
+            <a href="betonarme-yapilar.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏗️</span>
+              <span>Betonarme Yapılar</span>
+            </a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="urunler.html" class="nav-dropdown-item nav-dropdown-all">
+              <span>Tüm Modelleri Gör</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="projeler.html" class="mp-nav-link active">Projelerimiz</a>
+        <a href="rehber.html" class="mp-nav-link">Rehber</a>
+        <a href="sss.html" class="mp-nav-link">S.S.S.</a>
+        <a href="iletisim.html" class="mp-nav-link">İletişim</a>
+      </nav>
+      <div class="mp-header-actions">
+        <a href="tel:05314558585" class="btn-call">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0531 455 85 85
+        </a>
+        <a href="https://wa.me/905314558585?text=Merhaba,%20tamamlanan%20projeleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-whatsapp-header" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.08C8.94 7.08 8.66 7.15 8.42 7.41C8.18 7.66 7.5 8.3 7.5 9.61C7.5 10.92 8.45 12.18 8.59 12.36C8.73 12.53 10.45 15.19 13.1 16.33C13.73 16.6 14.22 16.76 14.6 16.88C15.23 17.08 15.8 17.05 16.26 16.98C16.77 16.9 17.83 16.34 18.05 15.71C18.28 15.08 18.28 14.54 18.21 14.43C18.14 14.32 17.97 14.25 17.71 14.12C17.46 14 16.2 13.38 15.97 13.3C15.74 13.21 15.57 13.17 15.41 13.42C15.24 13.67 14.76 14.25 14.61 14.42C14.47 14.59 14.33 14.61 14.07 14.48C13.82 14.36 13.01 14.09 12.04 13.23C11.29 12.56 10.78 11.73 10.63 11.48C10.49 11.23 10.62 11.09 10.74 10.97C10.86 10.86 11 10.68 11.13 10.54C11.26 10.4 11.3 10.3 11.39 10.13C11.47 9.96 11.43 9.81 11.37 9.69C11.31 9.56 10.82 8.35 10.61 7.86C10.41 7.37 10.21 7.44 10.05 7.43C9.91 7.43 9.74 7.42 9.57 7.42C9.4 7.42 9.11 7.08 9.11 7.08Z"/></svg><span>WhatsApp Teklifi</span></a>
+        <button id="mobile-menu-toggle" style="background: none; border: 1px solid var(--color-border); border-radius: 50%; width: 40px; height: 40px; display: none;" aria-label="Menü">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROJECTS HERO -->
+  <section style="background: var(--color-primary); color: #FFFFFF; padding: 64px 0 54px; text-align: center;">
+    <div class="container">
+      <span class="section-tag" style="color: var(--color-accent); justify-content: center;">Şantiye, Yapı & Peyzaj Referanslarımız</span>
+      <h1 class="section-title" style="color: #FFFFFF; font-size: 40px;">Tamamlanan Referans Projelerimiz</h1>
+      <p class="section-desc" style="color: rgba(255, 255, 255, 0.75); margin: 12px auto 0; max-width: 760px;">
+        İzmir, Urla, Çeşme, Menderes ve tüm Ege genelinde sıfır hata ile teslim ettiğimiz anahtar teslim villalar, A-frame konseptler, taş yapılar ve tamamlayıcı bahçe peyzajlarımız.
+      </p>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar-sticky">
+    <div class="container">
+      <div class="filter-pills-row">
+        <button class="proj-filter-btn active" onclick="filterProjects('all', this)">Tümü (11 Proje + Peyzaj)</button>
+        <button class="proj-filter-btn" onclick="filterProjects('villa', this)">Tamamlanan Villalar (7)</button>
+        <button class="proj-filter-btn" onclick="filterProjects('aframe', this)">A-Frame & Tiny House (1)</button>
+        <button class="proj-filter-btn" onclick="filterProjects('santiye', this)">Devam Eden Şantiyeler (2)</button>
+        <button class="proj-filter-btn" onclick="filterProjects('peyzaj', this)">🌿 Peyzaj & Bahçe Yaşamı (20 Görsel)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECTS GRID -->
+  <main class="section-wrap bg-alt" style="padding-top: 40px;">
+    <div class="container">
+      <div class="projects-grid-featured" id="projects-container">
+
+        <!-- PROJE 10: URLA COUNTRY MALİKANE (5 FOTOĞRAF) -->
+        <div class="project-card-interactive" data-category="villa">
+          <div class="project-slider-wrap" data-current="0" data-total="5">
+            <div class="project-slider-track">
+              <div class="project-slide-item active"><img src="images/projeler/p10_01.webp" alt="Urla Country Malikane - Ön Cephe ve Taş İstinat" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p10_02.webp" alt="Geniş Bahçe ve Taş Duvar Görünümü" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p10_03.webp" alt="Geniş Veranda ve Ahşap Korkuluklar" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p10_04.webp" alt="Dekoratif Ahşap Saçak ve Konsol İşçiliği" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p10_05.webp" alt="Yan Cephe Çatı ve Ahşap Detayları" loading="lazy"></div>
+            </div>
+            <div class="slider-status-badge">✓ Teslim Edildi</div>
+            <div class="slider-counter-badge">📷 <span class="cur-idx">1</span> / 5</div>
+            <button class="slider-arrow-btn prev" onclick="slideProject(this, -1)" aria-label="Önceki">‹</button>
+            <button class="slider-arrow-btn next" onclick="slideProject(this, 1)" aria-label="Sonraki">›</button>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta-row">
+              <span class="project-location">Urla / İzmir</span>
+              <span style="font-size: 12px; color: var(--color-accent); font-weight: 700;">★ Anahtar Teslim</span>
+            </div>
+            <h3 class="project-card-title">140 m² Verandalı Ege Country Malikane</h3>
+            <p class="project-card-desc">
+              Doğal taş istinat duvarı üzerinde inşa edilen projemiz; geleneksel ahşap çatı saçak oymaları, dekoratif taşıyıcı konsolları, mint yeşili su basman bordürü ve geniş ön verandasıyla anahtar teslim teslim edilmiştir.
+            </p>
+            <div class="project-card-features">
+              <span class="project-feat-tag">📐 140 m² Yaşam Alanı</span>
+              <span class="project-feat-tag">🌿 35 m² Ahşap Veranda</span>
+              <span class="project-feat-tag">🏛️ Doğal Taş İstinat</span>
+              <span class="project-feat-tag">🎨 Oymalı Saçak İskeleti</span>
+              <span class="project-feat-tag">⏱️ 6 Hafta Teslim</span>
+            </div>
+            <div class="project-card-footer">
+              <div style="font-size: 12px; color: var(--color-text-muted);">Durum: <strong>Kullanımda</strong></div>
+              <a href="https://wa.me/905314558585?text=Merhaba,%20Urla%20140%20m2%20verandalı%20country%20malikane%20projeniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-card-wa" style="font-size: 13px; padding: 8px 14px;">💬 Fiyat Teklifi Al</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJE 7: ÇEŞME A-FRAME LOFT DAĞ EVİ (6 FOTOĞRAF) -->
+        <div class="project-card-interactive" data-category="aframe">
+          <div class="project-slider-wrap" data-current="0" data-total="6">
+            <div class="project-slider-track">
+              <div class="project-slide-item active"><img src="images/projeler/p7_01.webp" alt="Çeşme A-Frame - Gece Işıklandırmalı Ön Cephe" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p7_02.webp" alt="İç Mekan Asma Kat Loft ve Sarkıt Avizeler" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p7_03.webp" alt="Gündüz Görünümü ve Kenet Sac Çatı" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p7_04.webp" alt="Üçgen Camdan Dış Manzara Perspektifi" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p7_05.webp" alt="Loft Galeri Boşluğu ve Ahşap Lambri" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p7_06.webp" alt="Asma Kat Yatak Odası ve Üçgen Pencere" loading="lazy"></div>
+            </div>
+            <div class="slider-status-badge">✓ Teslim Edildi</div>
+            <div class="slider-counter-badge">📷 <span class="cur-idx">1</span> / 6</div>
+            <button class="slider-arrow-btn prev" onclick="slideProject(this, -1)" aria-label="Önceki">‹</button>
+            <button class="slider-arrow-btn next" onclick="slideProject(this, 1)" aria-label="Sonraki">›</button>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta-row">
+              <span class="project-location">Çeşme / İzmir</span>
+              <span style="font-size: 12px; color: var(--color-accent); font-weight: 700;">★ Özel Konsept</span>
+            </div>
+            <h3 class="project-card-title">65 m² İskandinav A-Frame Loft Dağ Evi</h3>
+            <p class="project-card-desc">
+              Tamamı üçgen çift cam cepheli çağdaş A-frame konseptimiz; masif ahşap asma kat loft alanı, modern sarkıt aydınlatmaları, antrasit kenet sac çatısı ve büyüleyici gece dış ışıklandırmasıyla 4 haftada teslim edilmiştir.
+            </p>
+            <div class="project-card-features">
+              <span class="project-feat-tag">📐 65 m² (Taban + Loft)</span>
+              <span class="project-feat-tag">🪟 Tam Boy Üçgen Cam Cephe</span>
+              <span class="project-feat-tag">🪜 Masif Ahşap Asma Kat</span>
+              <span class="project-feat-tag">🛡️ Antrasit Kenet Çatı</span>
+              <span class="project-feat-tag">⏱️ 4 Hafta Teslim</span>
+            </div>
+            <div class="project-card-footer">
+              <div style="font-size: 12px; color: var(--color-text-muted);">Durum: <strong>Kullanımda</strong></div>
+              <a href="https://wa.me/905314558585?text=Merhaba,%20Çeşme%20A-Frame%20üçgen%20dağ%20evi%20projeniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-card-wa" style="font-size: 13px; padding: 8px 14px;">💬 Fiyat Teklifi Al</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJE 3: MENDERES AHŞAP TERASLI MODERN KONUT (3 FOTOĞRAF) -->
+        <div class="project-card-interactive" data-category="villa">
+          <div class="project-slider-wrap" data-current="0" data-total="3">
+            <div class="project-slider-track">
+              <div class="project-slide-item active"><img src="images/projeler/p3_02.webp" alt="Menderes 125 m² - Gün Batımında Ahşap Teras" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p3_01.webp" alt="Masif Ahşap Deck Veranda ve Pergola" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p3_03.webp" alt="Pergola Altından Teras ve Bahçe Açısı" loading="lazy"></div>
+            </div>
+            <div class="slider-status-badge">✓ Teslim Edildi</div>
+            <div class="slider-counter-badge">📷 <span class="cur-idx">1</span> / 3</div>
+            <button class="slider-arrow-btn prev" onclick="slideProject(this, -1)" aria-label="Önceki">‹</button>
+            <button class="slider-arrow-btn next" onclick="slideProject(this, 1)" aria-label="Sonraki">›</button>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta-row">
+              <span class="project-location">Menderes / İzmir</span>
+              <span style="font-size: 12px; color: var(--color-accent); font-weight: 700;">★ Anahtar Teslim</span>
+            </div>
+            <h3 class="project-card-title">125 m² Ahşap Deck Teraslı Modern Konut</h3>
+            <p class="project-card-desc">
+              Gün batımında benzersiz bir görsel şölen sunan devasa masif ahşap deck verandası, entegre ahşap pergola sistemi ve yüksek ısı yalıtımlı modern dış cephesiyle doğanın kalbinde konforlu bir yaşam alanı.
+            </p>
+            <div class="project-card-features">
+              <span class="project-feat-tag">📐 125 m² Net Alan</span>
+              <span class="project-feat-tag">🌿 42 m² Masif Deck Veranda</span>
+              <span class="project-feat-tag">🪵 Ahşap Pergola Sistemi</span>
+              <span class="project-feat-tag">🪟 Çift Cam Isı Yalıtımlı PVC</span>
+              <span class="project-feat-tag">⏱️ 5 Hafta Teslim</span>
+            </div>
+            <div class="project-card-footer">
+              <div style="font-size: 12px; color: var(--color-text-muted);">Durum: <strong>Kullanımda</strong></div>
+              <a href="https://wa.me/905314558585?text=Merhaba,%20Menderes'teki%20125%20m2%20ahşap%20teraslı%20modern%20konut%20projeniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-card-wa" style="font-size: 13px; padding: 8px 14px;">💬 Fiyat Teklifi Al</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJE 5: SEFERİHİSAR 2 KATLI AMERİKAN SİDİNG VİLLA (5 FOTOĞRAF) -->
+        <div class="project-card-interactive" data-category="villa">
+          <div class="project-slider-wrap" data-current="0" data-total="5">
+            <div class="project-slider-track">
+              <div class="project-slide-item active"><img src="images/projeler/p5_02.webp" alt="Seferihisar 2 Katlı Villa - Beyaz Pergola ve Veranda" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p5_01.webp" alt="Yan Açıdan Beyaz Pergolalı Teras" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p5_03.webp" alt="Arka Cephe ve Beşik Çatı Mimarisi" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p5_04.webp" alt="Ön Giriş Kapısı, Sundurma ve Merdivenler" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p5_05.webp" alt="Geniş Bahçeden 2 Katlı Villa Görünümü" loading="lazy"></div>
+            </div>
+            <div class="slider-status-badge">✓ Teslim Edildi</div>
+            <div class="slider-counter-badge">📷 <span class="cur-idx">1</span> / 5</div>
+            <button class="slider-arrow-btn prev" onclick="slideProject(this, -1)" aria-label="Önceki">‹</button>
+            <button class="slider-arrow-btn next" onclick="slideProject(this, 1)" aria-label="Sonraki">›</button>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta-row">
+              <span class="project-location">Seferihisar / İzmir</span>
+              <span style="font-size: 12px; color: var(--color-accent); font-weight: 700;">★ Dubleks Villa</span>
+            </div>
+            <h3 class="project-card-title">155 m² Amerikan Siding 2 Katlı Villa</h3>
+            <p class="project-card-desc">
+              Beşik çatılı klasik Amerikan mimarisi; bembeyaz pergola sundurması, ahşap basamaklı giriş verandası, çift cam konfor doğramaları ve ferah 4+1 iç mekan dağılımıyla aileler için kalıcı ve depreme tam dayanıklı bir yuva.
+            </p>
+            <div class="project-card-features">
+              <span class="project-feat-tag">📐 155 m² Dubleks</span>
+              <span class="project-feat-tag">🤍 Beyaz Ahşap Pergola</span>
+              <span class="project-feat-tag">🏡 Dış Cephe Yalıtımlı Siding</span>
+              <span class="project-feat-tag">🛡️ 50 Yıl Taşıyıcı Garantisi</span>
+              <span class="project-feat-tag">⏱️ 7 Hafta Teslim</span>
+            </div>
+            <div class="project-card-footer">
+              <div style="font-size: 12px; color: var(--color-text-muted);">Durum: <strong>Kullanımda</strong></div>
+              <a href="https://wa.me/905314558585?text=Merhaba,%20Seferihisar%20155%20m2%202%20katlı%20Amerikan%20siding%20villa%20projeniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-card-wa" style="font-size: 13px; padding: 8px 14px;">💬 Fiyat Teklifi Al</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJE 2: FOÇA DOĞAL TAŞ KAPLAMA DUBLEKS TAŞ VİLLA (13 FOTOĞRAF - ŞANTİYE) -->
+        <div class="project-card-interactive" data-category="santiye">
+          <div class="project-slider-wrap" data-current="0" data-total="13">
+            <div class="project-slider-track">
+              <div class="project-slide-item active"><img src="images/projeler/p2_07.webp" alt="Foça Taş Villa - İki Katlı Genel Kaba Yapı" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p2_01.webp" alt="İç Mekan Tavan Masif Ahşap Kirişler" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p2_02.webp" alt="Köşe Taş Duvar İşçiliği ve Ahşap Lambri" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p2_03.webp" alt="Taş Duvar Örgüsü ve Tavan İskeleti" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p2_04.webp" alt="İç Oda Masif Taş Duvar Detayı" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p2_05.webp" alt="Çift Kat Galeri Boşluğu ve Çatı Ahşap Makasları" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p2_06.webp" alt="Yüksek Tavan Ahşap Kaplama ve Taş Duvar" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p2_08.webp" alt="Güneş Alan Taş Duvar ve Ahşap Tavan" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p2_09.webp" alt="Dış Sundurma Ahşap Dikmeleri ve Taş Cephe" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p2_10.webp" alt="Geniş Ahşap Saçaklar ve Taş Köşeler" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p2_11.webp" alt="Yan Cephe Taş Örgü ve Çatı Yapısı" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p2_12.webp" alt="Zemin Teras Ahşap Pergolası ve Tavanı" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p2_13.webp" alt="Geniş Açıdan Taş Villa ve Ön Ahşap Veranda Karkası" loading="lazy"></div>
+            </div>
+            <div class="slider-status-badge factory">⚡ Şantiye / Kaba Yapı</div>
+            <div class="slider-counter-badge">📷 <span class="cur-idx">1</span> / 13</div>
+            <button class="slider-arrow-btn prev" onclick="slideProject(this, -1)" aria-label="Önceki">‹</button>
+            <button class="slider-arrow-btn next" onclick="slideProject(this, 1)" aria-label="Sonraki">›</button>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta-row">
+              <span class="project-location">Foça / İzmir</span>
+              <span style="font-size: 12px; color: #2563EB; font-weight: 700;">★ Masif Taş & Ahşap</span>
+            </div>
+            <h3 class="project-card-title">190 m² Doğal Taş Kaplama Dubleks Taş Villa</h3>
+            <p class="project-card-desc">
+              Doğal moloz taş duvar örüm ustalığı, masif ahşap tavan kirişleri, çift kat ferah galeri boşluğu ve geniş ahşap sundurma karkasıyla geleneksel Ege taş mimarisini modern statik mühendislikle birleştiren şantiye referansımız.
+            </p>
+            <div class="project-card-features">
+              <span class="project-feat-tag">📐 190 m² Dubleks Taş Villa</span>
+              <span class="project-feat-tag">🧱 50 cm Masif Taş Duvar</span>
+              <span class="project-feat-tag">🪵 Rustik Ahşap Tavan Kirişleri</span>
+              <span class="project-feat-tag">🏛️ Çift Kat Galeri Boşluğu</span>
+              <span class="project-feat-tag">🔨 Özel İmalat Ustalığı</span>
+            </div>
+            <div class="project-card-footer">
+              <div style="font-size: 12px; color: var(--color-text-muted);">Aşama: <strong>İç İnce İşler</strong></div>
+              <a href="https://wa.me/905314558585?text=Merhaba,%20Foça'daki%20190%20m2%20taş%20villa%20projeniz%20hakkında%20bilgi%20ve%20fiyat%20almak%20istiyorum." target="_blank" class="btn-card-wa" style="font-size: 13px; padding: 8px 14px;">💬 Fiyat Teklifi Al</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJE 9: BORNOVA ÇİFT KATLI MASİF AHŞAP KIR VİLLASI (4 FOTOĞRAF) -->
+        <div class="project-card-interactive" data-category="villa">
+          <div class="project-slider-wrap" data-current="0" data-total="4">
+            <div class="project-slider-track">
+              <div class="project-slide-item active"><img src="images/projeler/p9_01.webp" alt="Bornova Ahşap Kır Villası - Çitli Bahçe ve Üst Balkon" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p9_02.webp" alt="Giriş Kapısı ve Çim Bahçe Perspektifi" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p9_03.webp" alt="Ahşap Cephe Yakın Detay" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p9_04.webp" alt="Doğal Ağaçlar İçinde 2 Katlı Ahşap Ev" loading="lazy"></div>
+            </div>
+            <div class="slider-status-badge">✓ Teslim Edildi</div>
+            <div class="slider-counter-badge">📷 <span class="cur-idx">1</span> / 4</div>
+            <button class="slider-arrow-btn prev" onclick="slideProject(this, -1)" aria-label="Önceki">‹</button>
+            <button class="slider-arrow-btn next" onclick="slideProject(this, 1)" aria-label="Sonraki">›</button>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta-row">
+              <span class="project-location">Bornova / İzmir</span>
+              <span style="font-size: 12px; color: var(--color-accent); font-weight: 700;">★ Ahşap Karkas</span>
+            </div>
+            <h3 class="project-card-title">130 m² Çift Katlı Masif Ahşap Kır Villası</h3>
+            <p class="project-card-desc">
+              Doğal çam ahşap kaplamalı iki katlı dağ evi; üst kat panoramik seyir balkonu, yemyeşil çim bahçesi, çevre güvenlik çiti ve sıcacık ahşap dokusuyla doğanın içinde lüks ve huzurlu bir yaşam sunuyor.
+            </p>
+            <div class="project-card-features">
+              <span class="project-feat-tag">📐 130 m² Çift Katlı</span>
+              <span class="project-feat-tag">🪵 Masif Çam Ahşap Doku</span>
+              <span class="project-feat-tag">🌄 Üst Kat Seyir Balkonu</span>
+              <span class="project-feat-tag">🌿 Çim Bahçe & Çit Entegre</span>
+              <span class="project-feat-tag">⏱️ 6 Hafta Teslim</span>
+            </div>
+            <div class="project-card-footer">
+              <div style="font-size: 12px; color: var(--color-text-muted);">Durum: <strong>Kullanımda</strong></div>
+              <a href="https://wa.me/905314558585?text=Merhaba,%20Bornova%20130%20m2%20ahşap%20kır%20villası%20projeniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-card-wa" style="font-size: 13px; padding: 8px 14px;">💬 Fiyat Teklifi Al</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJE 6: KARABURUN ÇATI TERASLI MODERN KÖY EVİ (4 FOTOĞRAF) -->
+        <div class="project-card-interactive" data-category="villa">
+          <div class="project-slider-wrap" data-current="0" data-total="4">
+            <div class="project-slider-track">
+              <div class="project-slide-item active"><img src="images/projeler/p6_04.webp" alt="Karaburun Çatı Teraslı Köy Evi - Kademeli Peyzaj" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p6_01.webp" alt="Ön Cephe, Merdiven ve Üst Çatı Terası" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p6_02.webp" alt="Zeytin Ağaçları Arasından Evin Görünümü" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p6_03.webp" alt="Yan Cephe ve Üst Teras Korkulukları" loading="lazy"></div>
+            </div>
+            <div class="slider-status-badge">✓ Teslim Edildi</div>
+            <div class="slider-counter-badge">📷 <span class="cur-idx">1</span> / 4</div>
+            <button class="slider-arrow-btn prev" onclick="slideProject(this, -1)" aria-label="Önceki">‹</button>
+            <button class="slider-arrow-btn next" onclick="slideProject(this, 1)" aria-label="Sonraki">›</button>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta-row">
+              <span class="project-location">Karaburun / İzmir</span>
+              <span style="font-size: 12px; color: var(--color-accent); font-weight: 700;">★ Teraslı Tasarım</span>
+            </div>
+            <h3 class="project-card-title">90 m² Çatı Güneşlenme Teraslı Modern Köy Evi</h3>
+            <p class="project-card-desc">
+              Kademeli peyzaj setleri üzerine oturtulan projemiz; modern sarı ahşap kaplaması, antrasit yalıtımlı su basmanı ve çatısında 30 m² açık hava güneşlenme ve gökyüzü izleme terasıyla fonksiyonel ve estetik bir yaşam alanı sunar.
+            </p>
+            <div class="project-card-features">
+              <span class="project-feat-tag">📐 90 m² Yaşam + 30 m² Teras</span>
+              <span class="project-feat-tag">☀️ Açık Hava Çatı Seyir Terası</span>
+              <span class="project-feat-tag">🪜 Dış Merdiven Erişimi</span>
+              <span class="project-feat-tag">🧱 Kademeli Taş Peyzaj</span>
+              <span class="project-feat-tag">⏱️ 5 Hafta Teslim</span>
+            </div>
+            <div class="project-card-footer">
+              <div style="font-size: 12px; color: var(--color-text-muted);">Durum: <strong>Kullanımda</strong></div>
+              <a href="https://wa.me/905314558585?text=Merhaba,%20Karaburun%20çatı%20teraslı%20modern%20köy%20evi%20projeniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-card-wa" style="font-size: 13px; padding: 8px 14px;">💬 Fiyat Teklifi Al</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJE 8: KEMALPAŞA ÇELİK KARKASTAN ANAHTAR TESLİME (6 FOTOĞRAF - İNŞAAT VE TABELA) -->
+        <div class="project-card-interactive" data-category="santiye">
+          <div class="project-slider-wrap" data-current="0" data-total="6">
+            <div class="project-slider-track">
+              <div class="project-slide-item active"><img src="images/projeler/p8_06.webp" alt="3K Emir Yapı Şantiye Tabelası ve Yan Cephe" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p8_01.webp" alt="Galvaniz Çelik Karkas Montaj Aşaması" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p8_02.webp" alt="Çatı Dormerları ve Ön Veranda Kurulumu" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p8_03.webp" alt="Ön Cephe Çatı ve Sundurma Yapım Aşaması" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p8_04.webp" alt="Çelik Karkas Dikmeler ve Cephe İskeleti" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p8_05.webp" alt="Beyaz Siding Dış Cephe ve Türk Bayrağı" loading="lazy"></div>
+            </div>
+            <div class="slider-status-badge factory">⚡ İmalat & Şantiye</div>
+            <div class="slider-counter-badge">📷 <span class="cur-idx">1</span> / 6</div>
+            <button class="slider-arrow-btn prev" onclick="slideProject(this, -1)" aria-label="Önceki">‹</button>
+            <button class="slider-arrow-btn next" onclick="slideProject(this, 1)" aria-label="Sonraki">›</button>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta-row">
+              <span class="project-location">Kemalpaşa / İzmir</span>
+              <span style="font-size: 12px; color: #2563EB; font-weight: 700;">★ Şeffaf İnşaat Süreci</span>
+            </div>
+            <h3 class="project-card-title">110 m² Hafif Çelik Kır Evi İmalat Hikayesi</h3>
+            <p class="project-card-desc">
+              Galvanizli hafif çelik karkas montajından çatı dormerlarına, dış cephe mantolamasından Türk bayraklı resmi 3K Emir Yapı şantiye tabelasına kadar adım adım imalat ve kurulum sürecini belgeleyen şeffaf referansımız.
+            </p>
+            <div class="project-card-features">
+              <span class="project-feat-tag">📐 110 m² Çelik Kır Evi</span>
+              <span class="project-feat-tag">🛡️ Deprem Güvenceli Çelik Karkas</span>
+              <span class="project-feat-tag">🪟 Çift Dormer Çatı Pencereleri</span>
+              <span class="project-feat-tag">🏷️ 3K Emir Yapı Şantiye Tescili</span>
+              <span class="project-feat-tag">⏱️ 5 Hafta Teslim</span>
+            </div>
+            <div class="project-card-footer">
+              <div style="font-size: 12px; color: var(--color-text-muted);">Aşama: <strong>Teslim Edildi</strong></div>
+              <a href="https://wa.me/905314558585?text=Merhaba,%20Kemalpaşa%20çelik%20karkas%20inşaat%20ve%20yapım%20süreci%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-card-wa" style="font-size: 13px; padding: 8px 14px;">💬 Fiyat Teklifi Al</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJE 4: BAYINDIR ZEYTİNLİK YAMACI AHŞAP YAYLA EVİ (2 FOTOĞRAF) -->
+        <div class="project-card-interactive" data-category="villa">
+          <div class="project-slider-wrap" data-current="0" data-total="2">
+            <div class="project-slider-track">
+              <div class="project-slide-item active"><img src="images/projeler/p4_02.webp" alt="Bayındır Yayla Evi - Geniş Teras ve Zeytinlik Manzarası" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p4_01.webp" alt="Zeytin Ağaçları Arasından Ahşap Evin Görünümü" loading="lazy"></div>
+            </div>
+            <div class="slider-status-badge">✓ Teslim Edildi</div>
+            <div class="slider-counter-badge">📷 <span class="cur-idx">1</span> / 2</div>
+            <button class="slider-arrow-btn prev" onclick="slideProject(this, -1)" aria-label="Önceki">‹</button>
+            <button class="slider-arrow-btn next" onclick="slideProject(this, 1)" aria-label="Sonraki">›</button>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta-row">
+              <span class="project-location">Bayındır / İzmir</span>
+              <span style="font-size: 12px; color: var(--color-accent); font-weight: 700;">★ Yayla Evi</span>
+            </div>
+            <h3 class="project-card-title">85 m² Zeytinlik Yamacı Ahşap Yayla Evi</h3>
+            <p class="project-card-desc">
+              Doğal taş istinat setleri üzerinde zeytinlik yamacına kurulan yapımız; genişletilmiş boydan boya ahşap sundurma verandası ve sıcak çam kaplamasıyla vadi manzarasına hakim doğa dostu bir yaşam alanı sunar.
+            </p>
+            <div class="project-card-features">
+              <span class="project-feat-tag">📐 85 m² Yaşam Alanı</span>
+              <span class="project-feat-tag">🌿 25 m² Ahşap Manzara Terası</span>
+              <span class="project-feat-tag">🪵 Doğal Çam Lambri Kaplama</span>
+              <span class="project-feat-tag">🌄 Eğimli Araziye Özel Çözüm</span>
+              <span class="project-feat-tag">⏱️ 3.5 Hafta Teslim</span>
+            </div>
+            <div class="project-card-footer">
+              <div style="font-size: 12px; color: var(--color-text-muted);">Durum: <strong>Kullanımda</strong></div>
+              <a href="https://wa.me/905314558585?text=Merhaba,%20Bayındır%2085%20m2%20ahşap%20yayla%20evi%20projeniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-card-wa" style="font-size: 13px; padding: 8px 14px;">💬 Fiyat Teklifi Al</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJE 1: TORBALI YÜKSELTİLMİŞ ÇELİK KIR EVİ (6 FOTOĞRAF) -->
+        <div class="project-card-interactive" data-category="villa">
+          <div class="project-slider-wrap" data-current="0" data-total="6">
+            <div class="project-slider-track">
+              <div class="project-slide-item active"><img src="images/projeler/p1_04.webp" alt="Torbalı Kır Evi - Ön Cephe ve Veranda" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p1_01.webp" alt="Ön-Yan Perspektif ve Giriş Merdivenleri" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p1_02.webp" alt="Arka Cephe ve Beyaz Siding Detayı" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p1_03.webp" alt="Giriş Merdiveni ve Korkuluk Açısı" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p1_05.webp" alt="Ön Tam Cephe ve Siyah Pencereler" loading="lazy"></div>
+              <div class="project-slide-item"><img src="images/projeler/p1_06.webp" alt="Yan Cephe ve Yüksek Ayak İskeleti" loading="lazy"></div>
+            </div>
+            <div class="slider-status-badge">✓ Teslim Edildi</div>
+            <div class="slider-counter-badge">📷 <span class="cur-idx">1</span> / 6</div>
+            <button class="slider-arrow-btn prev" onclick="slideProject(this, -1)" aria-label="Önceki">‹</button>
+            <button class="slider-arrow-btn next" onclick="slideProject(this, 1)" aria-label="Sonraki">›</button>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta-row">
+              <span class="project-location">Torbalı / İzmir</span>
+              <span style="font-size: 12px; color: var(--color-accent); font-weight: 700;">★ Yükseltilmiş Sistem</span>
+            </div>
+            <h3 class="project-card-title">80 m² Yerden Yükseltilmiş Çelik Kır Evi</h3>
+            <p class="project-card-desc">
+              Beton ayaklar üzerinde yükseltilerek zemin nemi ve rutubetten tamamen arındırılan yapımız; beyaz dikey siding kaplaması, siyah antrasit konfor doğramaları ve ön sundurmasıyla kompakt modern yaşamın seçkin bir örneğidir.
+            </p>
+            <div class="project-card-features">
+              <span class="project-feat-tag">📐 80 m² Yaşam Alanı</span>
+              <span class="project-feat-tag">🛡️ Beton Pabuç Yükseltilmiş Temel</span>
+              <span class="project-feat-tag">🤍 Beyaz Dikey Siding</span>
+              <span class="project-feat-tag">🪟 Antrasit Çift Cam Doğrama</span>
+              <span class="project-feat-tag">⏱️ 3 Hafta Kurulum</span>
+            </div>
+            <div class="project-card-footer">
+              <div style="font-size: 12px; color: var(--color-text-muted);">Durum: <strong>Kullanımda</strong></div>
+              <a href="https://wa.me/905314558585?text=Merhaba,%20Torbalı%2080%20m2%20yükseltilmiş%20çelik%20kır%20evi%20projeniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-card-wa" style="font-size: 13px; padding: 8px 14px;">💬 Fiyat Teklifi Al</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJE 11: URLA MODERNİST SİYAH-BEYAZ LÜKS DUBLEKS VİLLA (1 FOTOĞRAF) -->
+        <div class="project-card-interactive" data-category="villa">
+          <div class="project-slider-wrap" data-current="0" data-total="1">
+            <div class="project-slider-track">
+              <div class="project-slide-item active"><img src="images/projeler/p11_01.webp" alt="Urla Modernist Lüks Dubleks Villa" loading="lazy"></div>
+            </div>
+            <div class="slider-status-badge">✓ Teslim Edildi</div>
+            <div class="slider-counter-badge">📷 1 / 1</div>
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta-row">
+              <span class="project-location">Urla / İzmir</span>
+              <span style="font-size: 12px; color: var(--color-accent); font-weight: 700;">★ Modernist Dubleks</span>
+            </div>
+            <h3 class="project-card-title">175 m² Modernist Siyah-Beyaz Geometrik Villa</h3>
+            <p class="project-card-desc">
+              Çağdaş mimarinin cesur çizgilerini taşıyan dubleks villamız; keskin siyah mimari kolonları, geniş saçak çıkmaları, kanton balkonları ve ferah cam açıklıklarıyla lüks yaşam standartlarını arsanıza taşır.
+            </p>
+            <div class="project-card-features">
+              <span class="project-feat-tag">📐 175 m² Dubleks</span>
+              <span class="project-feat-tag">🏛️ Modern Geometrik Mimari</span>
+              <span class="project-feat-tag">🖤 Siyah Kolon & Saçak Vurgusu</span>
+              <span class="project-feat-tag">☀️ Üst Kat Özel Balkon</span>
+              <span class="project-feat-tag">🛡️ TBDY 2018 Statik Güvence</span>
+            </div>
+            <div class="project-card-footer">
+              <div style="font-size: 12px; color: var(--color-text-muted);">Durum: <strong>Kullanımda</strong></div>
+              <a href="https://wa.me/905314558585?text=Merhaba,%20Urla%20175%20m2%20modernist%20siyah-beyaz%20villa%20projeniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-card-wa" style="font-size: 13px; padding: 8px 14px;">💬 Fiyat Teklifi Al</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- PEYZAJ & AÇIK HAVA YAŞAM GALERİSİ (20 GÖRSELİN TAMAMI) -->
+  <section class="peyzaj-section" id="peyzaj-bolumu">
+    <div class="container">
+      <div style="text-align: center; max-width: 780px; margin: 0 auto 32px;">
+        <span class="section-tag" style="color: var(--color-accent); justify-content: center;">Bahçe & Açık Hava Yaşamı</span>
+        <h2 class="section-title">Peyzaj, Ateş Çukuru & Açık Hava Mutfakları</h2>
+        <p class="section-desc" style="margin: 0 auto;">
+          Sadece evinizi değil, aileniz ve sevdiklerinizle keyifli vakit geçireceğiniz açık hava yaşam alanlarını, ateş çukurlarını, taş fırınları ve bahçe peyzajlarını da anahtar teslim inşa ediyoruz.
+        </p>
+      </div>
+
+      <div class="peyzaj-grid">
+        <!-- 1 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_01.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🔥 Ateş Çukuru</span>
+            <img src="images/peyzaj/peyzaj_01.webp" alt="Gömme Ahşap Lounge & Ateş Çukuru" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Gömme Ahşap Lounge & Ateş Çukuru</h4>
+            <p class="peyzaj-desc">Masif ahşap kademeli gömme oturma alanı, minder konforu ve ortada doğal taş ateş çukuru.</p>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_02.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🔥 Ateş Çukuru</span>
+            <img src="images/peyzaj/peyzaj_02.webp" alt="Dairesel Taş Ateş Çukuru" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Dairesel Doğal Taş Ateş Çukuru</h4>
+            <p class="peyzaj-desc">Çim bahçe içerisinde dairesel taş zemin kaplaması ve kavisli oturma sediri.</p>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_03.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🔥 Ateş Çukuru</span>
+            <img src="images/peyzaj/peyzaj_03.webp" alt="Kavisli Taş Oturma Duvarı & Ateş Alanı" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Kavisli Taş Sedirli Ateş Çukuru</h4>
+            <p class="peyzaj-desc">Taş duvar örgülü yarım ay sedir ve granit parke taş zeminli sıcak akşam buluşma noktası.</p>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_04.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🌿 Bahçe Yolu</span>
+            <img src="images/peyzaj/peyzaj_04.webp" alt="Çakıl Yürüyüş Yolu & Ahşap Dairesel Sedir" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Çakıl Yürüyüş Yolu & Ahşap Sedir</h4>
+            <p class="peyzaj-desc">Doğal çakıl yürüyüş koridoru ve yeşillikler içine gömülü dairesel masif ahşap bank.</p>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_05.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🔥 Ateş Çukuru</span>
+            <img src="images/peyzaj/peyzaj_05.webp" alt="Beyaz Blok Ateş Çukuru & Çakıl Teras" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Modern Blok Ateş Çukuru & Çakıl Bahçe</h4>
+            <p class="peyzaj-desc">Ahşap çit önünde antrasit çakıl zemin ve beyaz blok taş ateş ünitesi düzenlemesi.</p>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_06.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🔥 Gömme Teras</span>
+            <img src="images/peyzaj/peyzaj_06.webp" alt="Basamaklı Gömme Çakıl Teras & Ateş Kasesi" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Basamaklı Gömme Teras & Ateş Kasesi</h4>
+            <p class="peyzaj-desc">Beyaz merdivenlerle inilen, ahşap çıtalı banklarla çevrili çağdaş bahçe lounge alanı.</p>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_07.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🔥 Ateş Çukuru</span>
+            <img src="images/peyzaj/peyzaj_07.webp" alt="Modern Köşe Sedirli Ateş Çukuru" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Aydınlatmalı Köşe Sedirli Ateş Alanı</h4>
+            <p class="peyzaj-desc">L şeklinde beyaz oturma sediri, gizli aplik ışıkları ve döküm ateş kasesi konforu.</p>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_08.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🔥 Ateş Çukuru</span>
+            <img src="images/peyzaj/peyzaj_08.webp" alt="Taş İstinat Arkası Ateş Çukuru" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Peyzaj Sedirli Bahçe Ateş Alanı</h4>
+            <p class="peyzaj-desc">Çim bahçe sınırında kavisli taş oturma duvarı ve granit tablalı şık ateş çukuru.</p>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_09.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🍕 Taş Fırın</span>
+            <img src="images/peyzaj/peyzaj_09.webp" alt="Taş Fırın & Barbekü Ünitesi" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Müstakil Taş Fırın & Ekmek/Pizza Fırını</h4>
+            <p class="peyzaj-desc">Bahçenizde otantik lezzetler için çelik gövdeli, termometreli taş tabanlı özel bahçe fırını.</p>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_10.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🍳 Açık Hava Mutfak</span>
+            <img src="images/peyzaj/peyzaj_10.webp" alt="Pergola Altı Açık Hava Mutfak & Barbekü" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Pergola Altı Tezgahlı Açık Mutfak</h4>
+            <p class="peyzaj-desc">Eviye, granit tezgah, ahşap dolaplar ve entegre taş fırın içeren tam donanımlı bahçe mutfağı.</p>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_11.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">✨ Gece Aydınlatması</span>
+            <img src="images/peyzaj/peyzaj_11.webp" alt="Taş Duvarlı Gece Işıklandırmalı Bahçe Mutfağı" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Işıklandırmalı Açık Mutfak & Ahşap Deck</h4>
+            <p class="peyzaj-desc">Doğal taş duvar önünde ahşap deck yürüyüş yolları ve küre lambalı lüks akşam bahçe atmosferi.</p>
+          </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_12.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🌵 Kaya Bahçesi</span>
+            <img src="images/peyzaj/peyzaj_12.webp" alt="Kaktüs ve Kaya Bahçesi Gece Aydınlatması" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Gece Aydınlatmalı Kaktüs & Kaya Bahçesi</h4>
+            <p class="peyzaj-desc">Duvar aplikleri ve zemin spotlarıyla aydınlatılmış egzotik kaktüs ve beyaz dolomit taş peyzajı.</p>
+          </div>
+        </div>
+
+        <!-- 13 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_13.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🌵 Botanik Bahçe</span>
+            <img src="images/peyzaj/peyzaj_13.webp" alt="Kaktüs ve Palmiye Bahçe Tasarımı" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Özel Tasarım Sukulent & Çöl Bahçesi</h4>
+            <p class="peyzaj-desc">Kavisli bordürler, cüruf taşları ve tropikal bitkilerle az su tüketen çevre dostu peyzaj.</p>
+          </div>
+        </div>
+
+        <!-- 14 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_14.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🌺 Çiçek Peyzajı</span>
+            <img src="images/peyzaj/peyzaj_14.webp" alt="Çiçek Tarhı ve Veranda Oturma Alanı" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Veranda Önü Çiçek Tarhı & Çim Bahçe</h4>
+            <p class="peyzaj-desc">Rengarenk mevsimlik çiçek bordürleri, bakımlı rulo çim ve açık hava yemek alanı konsepti.</p>
+          </div>
+        </div>
+
+        <!-- 15 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_15.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🌴 Palmiye & Çiçek</span>
+            <img src="images/peyzaj/peyzaj_15.webp" alt="Beyaz Taş Bordürlü Palmiye Düzenlemesi" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Beyaz Taş Bordürlü Palmiye Adası</h4>
+            <p class="peyzaj-desc">Beyaz bordür taşlarıyla çevrili cüce palmiye, çam kabuğu malç ve kırmızı çiçek adası.</p>
+          </div>
+        </div>
+
+        <!-- 16 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_16.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🌿 Peyzaj Düzenleme</span>
+            <img src="images/peyzaj/peyzaj_16.webp" alt="Kavisli Bahçe Düzenlemesi ve Çiçekler" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Kavisli Ege Bahçe Mimarisi</h4>
+            <p class="peyzaj-desc">Akdeniz iklimine uyumlu kalıcı bodur çalılar ve damlama sulama altyapılı çiçek adası.</p>
+          </div>
+        </div>
+
+        <!-- 17 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_17.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🌵 Kaktüs & Sanat</span>
+            <img src="images/peyzaj/peyzaj_17.webp" alt="Kaktüs ve Heykelli Bahçe Tasarımı" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Heykelli Kaktüs & Taş Düzenlemesi</h4>
+            <p class="peyzaj-desc">Bahçe heykelleri, dik sütun kaktüsler ve beyaz taş zeminle estetik bahçe köşesi.</p>
+          </div>
+        </div>
+
+        <!-- 18 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_18.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🚶 Yürüme Yolu</span>
+            <img src="images/peyzaj/peyzaj_18.webp" alt="Adım Taşlı Kaktüs Bahçesi Üstten Görünüm" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Adım Taşlı Botanik Yürüyüş Yolu</h4>
+            <p class="peyzaj-desc">Beyaz dolomit çakıllar arasında geniş basamak taşları ve geometrik bitki adacıkları.</p>
+          </div>
+        </div>
+
+        <!-- 19 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_19.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">🏺 Saksı & Peyzaj</span>
+            <img src="images/peyzaj/peyzaj_19.webp" alt="Saksılı Sukulent & Çakıl Tasarımı" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Toprak Çömlek & Sukulent Peyzajı</h4>
+            <p class="peyzaj-desc">Geleneksel toprak çömlekler içerisinde sukulentler ve kavisli çakıl bordür uyumu.</p>
+          </div>
+        </div>
+
+        <!-- 20 -->
+        <div class="peyzaj-card" onclick="openLightbox('images/peyzaj/peyzaj_20.webp')">
+          <div class="peyzaj-img-wrap">
+            <span class="peyzaj-tag-badge">✂️ Budama Sanatı</span>
+            <img src="images/peyzaj/peyzaj_20.webp" alt="Topiary Budanmış Çalılar ve Çim Bahçe" loading="lazy">
+          </div>
+          <div class="peyzaj-body">
+            <h4 class="peyzaj-title">Topiary Budanmış Çalılar & Çim Veranda</h4>
+            <p class="peyzaj-desc">Küre şeklinde özel form verilmiş çalılar, canlı çiçek tarhları ve huzurlu veranda manzarası.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-modal" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+    <img src="" alt="Büyük Görünüm" class="lightbox-content" id="lightbox-img">
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="mp-footer">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" style="display: inline-block; margin-bottom: 12px;">
+          <img src="images/logo.png" alt="3K Emir Yapı Group" style="height: 46px; width: auto; display: block;">
+        </a>
+        <div class="footer-brand-title">3K EMİR YAPI GROUP</div>
+        <p class="footer-desc">İzmir / Menderes tesislerimizde prefabrik ve hafif çelik yapılar üretiyoruz.</p>
+        <a href="tel:05314558585" class="btn-call">0531 455 85 85</a>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Modeller</h4>
+        <ul class="footer-links">
+          <li><a href="urunler.html?kategori=tek-kat-prefabrik">Tek Kat Prefabrik</a></li>
+          <li><a href="urunler.html?kategori=cift-kat-prefabrik">Çift Kat Prefabrik</a></li>
+          <li><a href="urunler.html?kategori=tek-kat-celik">Tek Kat Çelik Ev</a></li>
+          <li><a href="urunler.html?kategori=cift-kat-celik">Çift Kat Çelik Villa</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Kurumsal</h4>
+        <ul class="footer-links">
+          <li><a href="kurumsal.html">Hakkımızda</a></li>
+          <li><a href="projeler.html">Projelerimiz</a></li>
+          <li><a href="rehber.html">Rehber</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">İletişim</h4>
+        <div class="footer-contact-block">
+          <a href="tel:05314558585" class="footer-phone-big">0531 455 85 85</a>
+          <p class="footer-address">Menderes / İzmir • Pazartesi - Pazar: 09:00 - 19:30</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 3K EMİR YAPI GROUP. Tüm hakları saklıdır.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // FILTER LOGIC
+    function filterProjects(cat, btn) {
+      document.querySelectorAll('.proj-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.project-card-interactive');
+      const peyzajSec = document.getElementById('peyzaj-bolumu');
+
+      if (cat === 'all') {
+        cards.forEach(c => c.style.display = 'flex');
+        if (peyzajSec) peyzajSec.style.display = 'block';
+      } else if (cat === 'peyzaj') {
+        cards.forEach(c => c.style.display = 'none');
+        if (peyzajSec) {
+          peyzajSec.style.display = 'block';
+          peyzajSec.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        cards.forEach(c => {
+          if (c.dataset.category === cat) {
+            c.style.display = 'flex';
+          } else {
+            c.style.display = 'none';
+          }
+        });
+        if (peyzajSec) peyzajSec.style.display = 'none';
+      }
+    }
+
+    // LIGHTBOX
+    function openLightbox(src) {
+      const modal = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(e) {
+      if (e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close')) {
+        const modal = document.getElementById('lightbox');
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+  </script>
+  <!-- FLOATING MOBILE WHATSAPP ICON -->
+  <div class="floating-mobile-bar">
+    <a href="https://wa.me/905314558585?text=Merhaba,%20bilgi%20ve%20fiyat%20teklifi%20almak%20istiyorum." target="_blank" class="mobile-bar-btn wa" aria-label="WhatsApp">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.08C8.94 7.08 8.66 7.15 8.42 7.41C8.18 7.66 7.5 8.3 7.5 9.61C7.5 10.92 8.45 12.18 8.59 12.36C8.73 12.53 10.45 15.19 13.1 16.33C13.73 16.6 14.22 16.76 14.6 16.88C15.23 17.08 15.8 17.05 16.26 16.98C16.77 16.9 17.83 16.34 18.05 15.71C18.28 15.08 18.28 14.54 18.21 14.43C18.14 14.32 17.97 14.25 17.71 14.12C17.46 14 16.2 13.38 15.97 13.3C15.74 13.21 15.57 13.17 15.41 13.42C15.24 13.67 14.76 14.25 14.61 14.42C14.47 14.59 14.33 14.61 14.07 14.48C13.82 14.36 13.01 14.09 12.04 13.23C11.29 12.56 10.78 11.73 10.63 11.48C10.49 11.23 10.62 11.09 10.74 10.97C10.86 10.86 11 10.68 11.13 10.54C11.26 10.4 11.3 10.3 11.39 10.13C11.47 9.96 11.43 9.81 11.37 9.69C11.31 9.56 10.82 8.35 10.61 7.86C10.41 7.37 10.21 7.44 10.05 7.43C9.91 7.43 9.74 7.42 9.57 7.42C9.4 7.42 9.11 7.08 9.11 7.08Z"/></svg>
+    </a>
+  </div>
+</body>
+</html>

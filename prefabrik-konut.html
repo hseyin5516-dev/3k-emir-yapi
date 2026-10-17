@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prefabrik ve Ahşap Yapı Sistemleri | 3K Emir Yapı Group</title>
+  <meta name="description" content="3K Emir Yapı prefabrik ev üretim rehberi. Fabrika pres panel sistemi, A sınıfı izolasyon, zemin betonundan anahtar teslime nasıl yaptığımızı keşfedin.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/modern-theme.css">
+
+  <style>
+    .ba-hero {
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      color: #FFFFFF;
+      padding: 72px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ba-hero::after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: radial-gradient(circle at 80% 30%, rgba(217, 119, 6, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .ba-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 20px;
+    }
+    .ba-breadcrumb a {
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .ba-breadcrumb a:hover {
+      color: var(--color-accent);
+    }
+    .ba-hero-title {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: #FFFFFF;
+    }
+    .ba-hero-desc {
+      font-size: 16.5px;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 780px;
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+    .ba-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .ba-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      color: #F8FAFC;
+    }
+    .what-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .what-card {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    .what-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(217, 119, 6, 0.3);
+    }
+    .what-card-icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+      width: 56px;
+      height: 56px;
+      background: #FEF3C7;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .what-card-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 10px;
+    }
+    .what-card-text {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .steps-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .step-card {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 28px;
+      align-items: flex-start;
+      transition: border-color 0.2s;
+    }
+    .step-card:hover {
+      border-color: var(--color-accent);
+    }
+    .step-number-box {
+      width: 80px;
+      height: 80px;
+      background: #F1F5F9;
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--color-border);
+    }
+    .step-num {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--color-primary);
+      font-family: var(--font-mono);
+      line-height: 1;
+    }
+    .step-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-accent-hover);
+      margin-top: 4px;
+    }
+    .step-content h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 10px;
+    }
+    .step-content p {
+      font-size: 14.5px;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+    .step-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .step-hl-tag {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      color: #334155;
+      font-weight: 600;
+    }
+
+    /* Construction Photos Banner */
+    .site-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .site-photo-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      position: relative;
+      background: #000;
+    }
+    .site-photo-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .site-photo-card:hover img {
+      transform: scale(1.03);
+    }
+    .site-photo-cap {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, transparent 100%);
+      color: #FFFFFF;
+      padding: 24px 20px 14px;
+      font-size: 13px;
+    }
+    .site-photo-cap strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .cta-models-box {
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      border-radius: var(--radius-xl);
+      padding: 56px 48px;
+      color: #FFFFFF;
+      text-align: center;
+      margin-top: 60px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-models-box::before {
+      content: "";
+      position: absolute;
+      top: -50px; right: -50px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(217, 119, 6, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .cta-models-title {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .cta-models-desc {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 660px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .cta-models-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 768px) {
+      .step-card {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 24px;
+      }
+      .ba-hero-title {
+        font-size: 28px;
+      }
+    }
+  
+    /* Prominent Category Photo Gallery */
+    .cat-gallery-section {
+      background: #F8FAFC;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+      padding: 56px 0;
+    }
+    .cat-gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .cat-gallery-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FDE68A;
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-size: 13.5px;
+      font-weight: 700;
+    }
+    .cat-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 20px;
+    }
+    .cat-photo-item {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: #0F172A;
+      position: relative;
+      cursor: pointer;
+      aspect-ratio: 4/3;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .cat-photo-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.15);
+    }
+    .cat-photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .cat-photo-item:hover img {
+      transform: scale(1.05);
+    }
+    .cat-photo-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.6) 65%, transparent 100%);
+      color: #FFFFFF;
+      padding: 24px 16px 14px;
+      pointer-events: none;
+    }
+    .cat-photo-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #FBBF24;
+      margin-bottom: 4px;
+    }
+    .cat-photo-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 2px;
+    }
+    .cat-photo-desc {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .cat-photo-zoom-icon {
+      position: absolute;
+      top: 12px; right: 12px;
+      width: 34px; height: 34px;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(4px);
+      border-radius: 50%;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .cat-photo-item:hover .cat-photo-zoom-icon {
+      opacity: 1;
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.94);
+      z-index: 999999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(8px);
+    }
+    .lightbox-modal.active { display: flex; }
+    .lightbox-box {
+      position: relative;
+      max-width: 92vw;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .lightbox-box img {
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: var(--radius-md);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      object-fit: contain;
+    }
+    .lightbox-caption {
+      color: #FFFFFF;
+      margin-top: 14px;
+      font-size: 15px;
+      font-weight: 600;
+      text-align: center;
+      max-width: 800px;
+      line-height: 1.4;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: -44px; right: 0;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      width: 36px; height: 36px;
+      color: #FFFFFF;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- TOP INFO BAR -->
+  <div class="mp-topbar">
+    <div class="mp-topbar-inner">
+      <div class="mp-topbar-msg">Ege Bölgesi ve Türkiye genelinde anahtar teslim prefabrik & çelik üretim.</div>
+      <div class="mp-topbar-links">
+        <span>📍 Menderes / İzmir</span>
+        <a href="mailto:info@3kemiryapi.com">✉️ info@3kemiryapi.com</a>
+        <a href="tel:05314558585" style="font-weight: 700; color: #FFFFFF;">📞 0531 455 85 85</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="mp-header">
+    <div class="mp-header-inner">
+      <a href="index.html" class="mp-logo">
+        <img src="images/logo.png" alt="3K Emir Yapı Group" class="mp-logo-img">
+        <div class="mp-logo-text">
+          <span>3K EMİR YAPI GROUP</span>
+          <span class="mp-logo-sub">Prefabrik & Çelik Mimarlık</span>
+        </div>
+      </a>
+      <nav class="mp-nav">
+        <a href="index.html" class="mp-nav-link">Anasayfa</a>
+        <a href="kurumsal.html" class="mp-nav-link">Kurumsal</a>
+        
+        <!-- Products Mega Menu Wrapper -->
+        <div class="mega-menu-wrapper">
+          <a href="urunler.html" class="mp-nav-link active">
+            Ürünlerimiz
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+                    <div class="mega-menu-dropdown">
+            <a href="prefabrik-konut.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏠</span>
+              <span>Prefabrik ve Ahşap Yapı</span>
+            </a>
+            <a href="celik-konut.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏛️</span>
+              <span>Çelik Konut</span>
+            </a>
+            <a href="ofis-yapilari.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏢</span>
+              <span>Ofis & Şantiye Yapıları</span>
+            </a>
+            <a href="betonarme-yapilar.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏗️</span>
+              <span>Betonarme Yapılar</span>
+            </a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="urunler.html" class="nav-dropdown-item nav-dropdown-all">
+              <span>Tüm Modelleri Gör</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="projeler.html" class="mp-nav-link">Projelerimiz</a>
+        <a href="rehber.html" class="mp-nav-link">Rehber</a>
+        <a href="sss.html" class="mp-nav-link">S.S.S.</a>
+        <a href="iletisim.html" class="mp-nav-link">İletişim</a>
+      </nav>
+      <div class="mp-header-actions">
+        <a href="tel:05314558585" class="btn-call">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0531 455 85 85
+        </a>
+        <a href="https://wa.me/905314558585?text=Merhaba,%20prefabrik%20ev%20modelleriniz%20hakkında%20bilgi%20ve%20fiyat%20almak%20istiyorum." target="_blank" class="btn-whatsapp-header" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.08C8.94 7.08 8.66 7.15 8.42 7.41C8.18 7.66 7.5 8.3 7.5 9.61C7.5 10.92 8.45 12.18 8.59 12.36C8.73 12.53 10.45 15.19 13.1 16.33C13.73 16.6 14.22 16.76 14.6 16.88C15.23 17.08 15.8 17.05 16.26 16.98C16.77 16.9 17.83 16.34 18.05 15.71C18.28 15.08 18.28 14.54 18.21 14.43C18.14 14.32 17.97 14.25 17.71 14.12C17.46 14 16.2 13.38 15.97 13.3C15.74 13.21 15.57 13.17 15.41 13.42C15.24 13.67 14.76 14.25 14.61 14.42C14.47 14.59 14.33 14.61 14.07 14.48C13.82 14.36 13.01 14.09 12.04 13.23C11.29 12.56 10.78 11.73 10.63 11.48C10.49 11.23 10.62 11.09 10.74 10.97C10.86 10.86 11 10.68 11.13 10.54C11.26 10.4 11.3 10.3 11.39 10.13C11.47 9.96 11.43 9.81 11.37 9.69C11.31 9.56 10.82 8.35 10.61 7.86C10.41 7.37 10.21 7.44 10.05 7.43C9.91 7.43 9.74 7.42 9.57 7.42C9.4 7.42 9.11 7.08 9.11 7.08Z"/></svg><span>WhatsApp Teklifi</span></a>
+        <button id="mobile-menu-toggle" style="background: none; border: 1px solid var(--color-border); border-radius: 50%; width: 40px; height: 40px; display: none;" aria-label="Menü">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="ba-hero">
+      <div class="container">
+        <div class="ba-breadcrumb">
+          <a href="index.html">Anasayfa</a>
+          <span>›</span>
+          <span style="color: #FFFFFF;">Prefabrik ve Ahşap Yapı</span>
+        </div>
+
+        <span class="section-tag" style="color: var(--color-accent); margin-bottom: 12px;">3K Emir Yapı Panel Teknolojisi</span>
+        <h1 class="ba-hero-title">Prefabrik ve Ahşap Yapı Sistemleri:<br>Neyi Nasıl Yapıyoruz?</h1>
+        <p class="ba-hero-desc">
+          Fabrika ortamında milimetrik pres makinelerinde üretilen yüksek yalıtımlı Betopan paneller, galvanizli H profil taşıyıcılar ve hızlı saha montajıyla arsanızda 15-20 gün içinde kalıcı ve konforlu yaşam alanları kuruyoruz.
+        </p>
+
+        <div class="ba-badges-row">
+          <span class="ba-badge">⚡ 15 Günde Anahtar Teslim Montaj</span>
+          <span class="ba-badge">🧊 A Sınıfı Yüksek Isı & Ses Yalıtımı</span>
+          <span class="ba-badge">📋 Sözleşmeli Sabit Fiyat Garantisi</span>
+          <span class="ba-badge">🛡️ Paslanmaz Galvanizli Çelik Şase</span>
+          <span class="ba-badge">🌿 76 m² - 166 m² Zengin Plan Çeşitliliği</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- NE YAPIYORUZ -->
+    <section class="section-wrap">
+      <div class="container">
+        <div class="section-header-wrap">
+          <div>
+            <span class="section-tag">Üretim Gruplarımız</span>
+            <h2 class="section-title">Prefabrikte Ne Yapıyoruz?</h2>
+            <p class="section-desc">Yaz kış dört mevsim yaşanabilir, izolasyonu güçlü ve ergonomik kat planlarına sahip hazır konutlar.</p>
+          </div>
+        </div>
+
+        <div class="what-grid">
+          <div class="what-card">
+            <div class="what-card-icon">🏡</div>
+            <h3 class="what-card-title">Tek Katlı Prefabrik Konutlar</h3>
+            <p class="what-card-text">
+              76 m²'den 125 m²'ye kadar; 2+1 ve 3+1 seçenekleriyle engelsiz, geniş verandalı ve ferah tavan yüksekliğine sahip müstakil aile evleri.
+            </p>
+          </div>
+
+          <div class="what-card">
+            <div class="what-card-icon">🏘️</div>
+            <h3 class="what-card-title">Çift Katlı Prefabrik Evler</h3>
+            <p class="what-card-text">
+              100 m² - 166 m² aralığında, alt katta salon ve mutfak, üst katta geniş yatak odaları ve balkon alanlarıyla iki katlı müstakil yaşam konforu.
+            </p>
+          </div>
+
+          <div class="what-card">
+            <div class="what-card-icon">🌿</div>
+            <h3 class="what-card-title">Hobi Bahçesi & Yazlık Evler</h3>
+            <p class="what-card-text">
+              Köy yerleşik alanları, zeytinlik ve tarla statüsündeki arazilerde pratik kurulum sağlayan kompakt ve verandalı doğa evleri.
+            </p>
+          </div>
+
+          <div class="what-card">
+            <div class="what-card-icon">🛠️</div>
+            <h3 class="what-card-title">Anahtar Teslim Komple Paket</h3>
+            <p class="what-card-text">
+              Duvar panelleri, çelik çatı makasları, çift ısıcamlı pencereler, çelik kapı, iç kapılar, sıva altı tesisat ve boya dahil eksiksiz teslimat.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BÖLÜM: GERÇEK PREFABRİK VE AHŞAP KONUT FOTOĞRAF GALERİSİ -->
+    <section class="cat-gallery-section" id="santiye-galerisi">
+      <div class="container">
+        <div class="cat-gallery-header">
+          <div>
+            <span class="section-tag">Tamamlanan Referanslarımız</span>
+            <h2 class="section-title">Tamamlanan Ahşap Villa ve Prefabrik Konut Projelerimiz</h2>
+            <p class="section-desc">A-Frame üçgen dağ evlerinden masif ahşap kütük villalara, geniş teraslı yayla evlerinden Amerikan siding konutlara kadar bizzat inşa ettiğimiz gerçek projeler:</p>
+          </div>
+          <div class="cat-gallery-pill">
+            📷 29 Gerçek Ahşap & Prefabrik Yapı Fotoğrafı (Büyütmek için tıklayın)
+          </div>
+        </div>
+
+        <div class="cat-gallery-grid">
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p7_01.webp', 'Çeşme A-Frame Loft Dağ Evi Gece Aydınlatması', 'Ön üçgen cam cephesi, sıcak akşam ışıklandırması ve geniş ahşap ön terası.')">
+            <img src="images/projeler/p7_01.webp" alt="Çeşme A-Frame Loft Dağ Evi Gece Aydınlatması" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">A-Frame Dağ Evi</span>
+              <div class="cat-photo-title">Çeşme A-Frame Loft Dağ Evi Gece Aydınlatması</div>
+              <div class="cat-photo-desc">Ön üçgen cam cephesi, sıcak akşam ışıklandırması ve geniş ahşap ön terası.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p7_02.webp', 'Masif Ahşap Tavan Lambrileri & Asma Kat', 'Yüksek tavanlı ferah salon, sarkıt lambalar ve üst kat yatak odası asma katı.')">
+            <img src="images/projeler/p7_02.webp" alt="Masif Ahşap Tavan Lambrileri & Asma Kat" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Loft İç Mekan</span>
+              <div class="cat-photo-title">Masif Ahşap Tavan Lambrileri & Asma Kat</div>
+              <div class="cat-photo-desc">Yüksek tavanlı ferah salon, sarkıt lambalar ve üst kat yatak odası asma katı.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p7_03.webp', 'İç Mekandan Bahçe Manzaralı Cam Cephe', 'Doğayı evin içine taşıyan devasa üçgen cam cephe tasarımı.')">
+            <img src="images/projeler/p7_03.webp" alt="İç Mekandan Bahçe Manzaralı Cam Cephe" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Üçgen Cam Cephe</span>
+              <div class="cat-photo-title">İç Mekandan Bahçe Manzaralı Cam Cephe</div>
+              <div class="cat-photo-desc">Doğayı evin içine taşıyan devasa üçgen cam cephe tasarımı.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p7_04.webp', 'Gündüz Işığında A-Frame Dağ Evi Dış Cephesi', 'Doğal ahşap sundurma ve modern üçgen çatı formu.')">
+            <img src="images/projeler/p7_04.webp" alt="Gündüz Işığında A-Frame Dağ Evi Dış Cephesi" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Gündüz Işığı</span>
+              <div class="cat-photo-title">Gündüz Işığında A-Frame Dağ Evi Dış Cephesi</div>
+              <div class="cat-photo-desc">Doğal ahşap sundurma ve modern üçgen çatı formu.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p7_05.webp', 'Ağaçlar Arasında A-Frame Dağ Evi Konumu', 'Zeytin ve çam ağaçlarıyla tam uyumlu ekolojik mimari.')">
+            <img src="images/projeler/p7_05.webp" alt="Ağaçlar Arasında A-Frame Dağ Evi Konumu" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Doğa Entegrasyonu</span>
+              <div class="cat-photo-title">Ağaçlar Arasında A-Frame Dağ Evi Konumu</div>
+              <div class="cat-photo-desc">Zeytin ve çam ağaçlarıyla tam uyumlu ekolojik mimari.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p7_06.webp', 'Masif Deck Veranda & Açık Hava Oturma Alanı', 'Doğanın kalbinde kahve ve dinlenme keyfi sunan ahşap veranda.')">
+            <img src="images/projeler/p7_06.webp" alt="Masif Deck Veranda & Açık Hava Oturma Alanı" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Ön Ahşap Teras</span>
+              <div class="cat-photo-title">Masif Deck Veranda & Açık Hava Oturma Alanı</div>
+              <div class="cat-photo-desc">Doğanın kalbinde kahve ve dinlenme keyfi sunan ahşap veranda.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p9_01.webp', 'Bornova Çift Katlı Masif Ahşap Kır Villası', 'Üst kat seyir balkonu, masif kütük dokusu ve yeşil çim bahçesiyle tamamlanan villa.')">
+            <img src="images/projeler/p9_01.webp" alt="Bornova Çift Katlı Masif Ahşap Kır Villası" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Masif Ahşap Villa</span>
+              <div class="cat-photo-title">Bornova Çift Katlı Masif Ahşap Kır Villası</div>
+              <div class="cat-photo-desc">Üst kat seyir balkonu, masif kütük dokusu ve yeşil çim bahçesiyle tamamlanan villa.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p9_02.webp', 'Üst Kat Ahşap Balkon & Saçak İşçiliği', 'Doğal ahşap korkuluklar ve geniş gölgelikli çatı saçağı.')">
+            <img src="images/projeler/p9_02.webp" alt="Üst Kat Ahşap Balkon & Saçak İşçiliği" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Seyir Balkonu</span>
+              <div class="cat-photo-title">Üst Kat Ahşap Balkon & Saçak İşçiliği</div>
+              <div class="cat-photo-desc">Doğal ahşap korkuluklar ve geniş gölgelikli çatı saçağı.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p9_03.webp', 'Panel Çitli Geniş Çim Bahçe & Yaşam Alanı', 'Çocuklar ve evcil hayvanlar için güvenli geniş bahçe alanı.')">
+            <img src="images/projeler/p9_03.webp" alt="Panel Çitli Geniş Çim Bahçe & Yaşam Alanı" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Geniş Bahçe</span>
+              <div class="cat-photo-title">Panel Çitli Geniş Çim Bahçe & Yaşam Alanı</div>
+              <div class="cat-photo-desc">Çocuklar ve evcil hayvanlar için güvenli geniş bahçe alanı.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p9_04.webp', 'Masif Kütük Doku & Ahşap Giriş Kapısı', 'Otantik ahşap dokusunu koruyan sıcak karşılama alanı.')">
+            <img src="images/projeler/p9_04.webp" alt="Masif Kütük Doku & Ahşap Giriş Kapısı" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Giriş Kapısı</span>
+              <div class="cat-photo-title">Masif Kütük Doku & Ahşap Giriş Kapısı</div>
+              <div class="cat-photo-desc">Otantik ahşap dokusunu koruyan sıcak karşılama alanı.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p10_01.webp', 'Urla 140 m² Verandalı Country Ahşap Malikane', 'Geniş taş istinat kaidesi, oymalı ahşap saçak konsolları ve çim bahçesiyle tamamlanan lüks konut.')">
+            <img src="images/projeler/p10_01.webp" alt="Urla 140 m² Verandalı Country Ahşap Malikane" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Ahşap Verandalı Malikane</span>
+              <div class="cat-photo-title">Urla 140 m² Verandalı Country Ahşap Malikane</div>
+              <div class="cat-photo-desc">Geniş taş istinat kaidesi, oymalı ahşap saçak konsolları ve çim bahçesiyle tamamlanan lüks konut.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p10_02.webp', 'Oymalı Ahşap Saçaklar & Konsol İşçiliği', 'Geleneksel mimariye uygun dekoratif oymalı ahşap konsollar ve çatı saçağı.')">
+            <img src="images/projeler/p10_02.webp" alt="Oymalı Ahşap Saçaklar & Konsol İşçiliği" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Ahşap Saçak Oymaları</span>
+              <div class="cat-photo-title">Oymalı Ahşap Saçaklar & Konsol İşçiliği</div>
+              <div class="cat-photo-desc">Geleneksel mimariye uygun dekoratif oymalı ahşap konsollar ve çatı saçağı.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p10_03.webp', 'Ahşap Korkuluklu Ön Veranda & Bahçe', 'Geniş veranda oturma alanı, çim bahçe ve ahşap korkuluk detayları.')">
+            <img src="images/projeler/p10_03.webp" alt="Ahşap Korkuluklu Ön Veranda & Bahçe" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Geniş Ahşap Veranda</span>
+              <div class="cat-photo-title">Ahşap Korkuluklu Ön Veranda & Bahçe</div>
+              <div class="cat-photo-desc">Geniş veranda oturma alanı, çim bahçe ve ahşap korkuluk detayları.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p10_04.webp', 'Geniş Veranda & Doğayla Bütünleşen Tasarım', 'Müstakil yaşamın tadını çıkaran ferah ahşap veranda ve peyzaj alanları.')">
+            <img src="images/projeler/p10_04.webp" alt="Geniş Veranda & Doğayla Bütünleşen Tasarım" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Bahçe Yaşamı</span>
+              <div class="cat-photo-title">Geniş Veranda & Doğayla Bütünleşen Tasarım</div>
+              <div class="cat-photo-desc">Müstakil yaşamın tadını çıkaran ferah ahşap veranda ve peyzaj alanları.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p10_05.webp', 'Country Ahşap Malikane Akşam Görünümü', 'Sıcak akşam ışıklandırması ve beşik çatı mimarisi.')">
+            <img src="images/projeler/p10_05.webp" alt="Country Ahşap Malikane Akşam Görünümü" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Gün Batımı</span>
+              <div class="cat-photo-title">Country Ahşap Malikane Akşam Görünümü</div>
+              <div class="cat-photo-desc">Sıcak akşam ışıklandırması ve beşik çatı mimarisi.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p3_01.webp', 'Menderes 125 m² Geniş Ahşap Teraslı Konut', 'Geniş ahşap deck terası, antrasit detayları ve doğayla bütünleşen modern ahşap mimari.')">
+            <img src="images/projeler/p3_01.webp" alt="Menderes 125 m² Geniş Ahşap Teraslı Konut" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Ahşap Deck Teras</span>
+              <div class="cat-photo-title">Menderes 125 m² Geniş Ahşap Teraslı Konut</div>
+              <div class="cat-photo-desc">Geniş ahşap deck terası, antrasit detayları ve doğayla bütünleşen modern ahşap mimari.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p3_02.webp', 'Gün Batımında Parıldayan Masif Ahşap Deck', 'Akşam gün batımında parıldayan sıcak aydınlatmalı ferah dış mekan.')">
+            <img src="images/projeler/p3_02.webp" alt="Gün Batımında Parıldayan Masif Ahşap Deck" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Gün Batımı</span>
+              <div class="cat-photo-title">Gün Batımında Parıldayan Masif Ahşap Deck</div>
+              <div class="cat-photo-desc">Akşam gün batımında parıldayan sıcak aydınlatmalı ferah dış mekan.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p3_03.webp', 'Geniş Veranda Ahşap Pergola Sundurması', 'Yaz aylarında gölge sağlayan estetik ahşap pergola sistemi.')">
+            <img src="images/projeler/p3_03.webp" alt="Geniş Veranda Ahşap Pergola Sundurması" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Ahşap Pergola</span>
+              <div class="cat-photo-title">Geniş Veranda Ahşap Pergola Sundurması</div>
+              <div class="cat-photo-desc">Yaz aylarında gölge sağlayan estetik ahşap pergola sistemi.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p5_01.webp', 'Seferihisar 2 Katlı Amerikan Siding Villa', 'Beşik çatılı, açık gri cephe kaplamalı, pergola verandası ve çim bahçesiyle tamamlanan modern konut.')">
+            <img src="images/projeler/p5_01.webp" alt="Seferihisar 2 Katlı Amerikan Siding Villa" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Amerikan Siding</span>
+              <div class="cat-photo-title">Seferihisar 2 Katlı Amerikan Siding Villa</div>
+              <div class="cat-photo-desc">Beşik çatılı, açık gri cephe kaplamalı, pergola verandası ve çim bahçesiyle tamamlanan modern konut.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p5_02.webp', 'Beyaz Ahşap Pergola Sundurma & Merdivenler', 'Estetik beyaz ahşap pergola, ahşap basamaklar ve ferah veranda girişi.')">
+            <img src="images/projeler/p5_02.webp" alt="Beyaz Ahşap Pergola Sundurma & Merdivenler" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Ahşap Pergola Giriş</span>
+              <div class="cat-photo-title">Beyaz Ahşap Pergola Sundurma & Merdivenler</div>
+              <div class="cat-photo-desc">Estetik beyaz ahşap pergola, ahşap basamaklar ve ferah veranda girişi.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p5_03.webp', 'Çim Bahçe & Çevre Panel Çit Düzenlemesi', 'Geniş peyzaj bahçesi, yeşil çimler ve güvenli çevre çiti.')">
+            <img src="images/projeler/p5_03.webp" alt="Çim Bahçe & Çevre Panel Çit Düzenlemesi" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Bahçe Düzenlemesi</span>
+              <div class="cat-photo-title">Çim Bahçe & Çevre Panel Çit Düzenlemesi</div>
+              <div class="cat-photo-desc">Geniş peyzaj bahçesi, yeşil çimler ve güvenli çevre çiti.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p5_04.webp', 'Beşik Çatı ve Üst Kat Yatak Odası Pencereleri', 'Simetrik beşik çatı mimarisi ve ısıcamlı beyaz doğramalar.')">
+            <img src="images/projeler/p5_04.webp" alt="Beşik Çatı ve Üst Kat Yatak Odası Pencereleri" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Beşik Çatı</span>
+              <div class="cat-photo-title">Beşik Çatı ve Üst Kat Yatak Odası Pencereleri</div>
+              <div class="cat-photo-desc">Simetrik beşik çatı mimarisi ve ısıcamlı beyaz doğramalar.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p5_05.webp', 'Gri Amerikan Siding Kaplama & Dekoratif Söveler', 'Yüksek yalıtımlı neme dayanıklı Amerikan siding dış cephe kaplaması.')">
+            <img src="images/projeler/p5_05.webp" alt="Gri Amerikan Siding Kaplama & Dekoratif Söveler" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Siding Detayı</span>
+              <div class="cat-photo-title">Gri Amerikan Siding Kaplama & Dekoratif Söveler</div>
+              <div class="cat-photo-desc">Yüksek yalıtımlı neme dayanıklı Amerikan siding dış cephe kaplaması.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p6_01.webp', 'Karaburun Çatı Seyir Teraslı Ahşap Köy Evi', 'Kademeli peyzaj basamakları, sarı ahşap doku ve çatıda açık hava dinlenme terası.')">
+            <img src="images/projeler/p6_01.webp" alt="Karaburun Çatı Seyir Teraslı Ahşap Köy Evi" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Çatı Teraslı Köy Evi</span>
+              <div class="cat-photo-title">Karaburun Çatı Seyir Teraslı Ahşap Köy Evi</div>
+              <div class="cat-photo-desc">Kademeli peyzaj basamakları, sarı ahşap doku ve çatıda açık hava dinlenme terası.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p6_02.webp', 'Doğal Tuğla & Taş Basamaklı Peyzaj Girişi', 'Eğimli arazide kademeli taş setler ve çiçek tarhlarıyla zenginleştirilen giriş.')">
+            <img src="images/projeler/p6_02.webp" alt="Doğal Tuğla & Taş Basamaklı Peyzaj Girişi" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Kademeli Giriş</span>
+              <div class="cat-photo-title">Doğal Tuğla & Taş Basamaklı Peyzaj Girişi</div>
+              <div class="cat-photo-desc">Eğimli arazide kademeli taş setler ve çiçek tarhlarıyla zenginleştirilen giriş.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p6_03.webp', 'Doğal Sarı Ahşap Kaplama ve Antrasit Detaylar', 'Doğal ahşap yatay kaplama ve yüksek yalıtımlı dış cephe.')">
+            <img src="images/projeler/p6_03.webp" alt="Doğal Sarı Ahşap Kaplama ve Antrasit Detaylar" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Ahşap Cephe</span>
+              <div class="cat-photo-title">Doğal Sarı Ahşap Kaplama ve Antrasit Detaylar</div>
+              <div class="cat-photo-desc">Doğal ahşap yatay kaplama ve yüksek yalıtımlı dış cephe.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p6_04.webp', 'Çatıda Açık Hava Güneşlenme & Seyir Terası', 'Panoramik manzaraya açılan ahşap korkuluklu özel çatı terası.')">
+            <img src="images/projeler/p6_04.webp" alt="Çatıda Açık Hava Güneşlenme & Seyir Terası" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Çatı Dinlenme Terası</span>
+              <div class="cat-photo-title">Çatıda Açık Hava Güneşlenme & Seyir Terası</div>
+              <div class="cat-photo-desc">Panoramik manzaraya açılan ahşap korkuluklu özel çatı terası.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p4_01.webp', 'Bayındır Zeytinlik Yamacı Ahşap Yayla Evi', 'Doğal taş set üzerinde yükselen, zeytin ağaçlarına bakan geniş ahşap teraslı yayla evi.')">
+            <img src="images/projeler/p4_01.webp" alt="Bayındır Zeytinlik Yamacı Ahşap Yayla Evi" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Ahşap Yayla Evi</span>
+              <div class="cat-photo-title">Bayındır Zeytinlik Yamacı Ahşap Yayla Evi</div>
+              <div class="cat-photo-desc">Doğal taş set üzerinde yükselen, zeytin ağaçlarına bakan geniş ahşap teraslı yayla evi.</div>
+            </div>
+          </div>
+          <div class="cat-photo-item" onclick="openPhoto('images/projeler/p4_02.webp', 'Taş Kaide Üzerinde Zeytinlik Manzaralı Deck', 'Geniş ahşap deck üzerinde vadi ve zeytinlik manzarası.')">
+            <img src="images/projeler/p4_02.webp" alt="Taş Kaide Üzerinde Zeytinlik Manzaralı Deck" loading="lazy">
+            <div class="cat-photo-zoom-icon">🔍</div>
+            <div class="cat-photo-overlay">
+              <span class="cat-photo-badge">Manzara Terası</span>
+              <div class="cat-photo-title">Taş Kaide Üzerinde Zeytinlik Manzaralı Deck</div>
+              <div class="cat-photo-desc">Geniş ahşap deck üzerinde vadi ve zeytinlik manzarası.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NASIL YAPIYORUZ (ADIMLAR) -->
+    <section class="section-wrap bg-alt">
+      <div class="container">
+        <div class="section-header-wrap">
+          <div>
+            <span class="section-tag">Aşama Aşama Üretim</span>
+            <h2 class="section-title">Nasıl Yapıyoruz? (6 Adımda Teslimat)</h2>
+            <p class="section-desc">Fabrika kontrollü koşullarda sıfır hata ile üretilir, arsanızda günler içinde kurulur.</p>
+          </div>
+        </div>
+
+        <div class="steps-timeline">
+          <!-- 1 -->
+          <div class="step-card">
+            <div class="step-number-box">
+              <span class="step-num">01</span>
+              <span class="step-label">Model</span>
+            </div>
+            <div class="step-content">
+              <h3>Model Seçimi & Arsa Aks Planı</h3>
+              <p>
+                İhtiyacınıza uygun metrekare ve oda sayısını kataloğumuzdan seçiyorsunuz. Seçilen modelin taban beton aks planı mimarlarımız tarafından hazırlanarak arsanızın zemin betonu (su basmanı) için tarafınıza teslim edilir.
+              </p>
+              <div class="step-highlights">
+                <span class="step-hl-tag">✓ Mimari Aks Planı</span>
+                <span class="step-hl-tag">✓ Ücretsiz Keşif Desteği</span>
+                <span class="step-hl-tag">✓ Sabit Maliyet Sözleşmesi</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="step-card">
+            <div class="step-number-box">
+              <span class="step-num">02</span>
+              <span class="step-label">Üretim</span>
+            </div>
+            <div class="step-content">
+              <h3>Menderes Fabrikamızda Pres Panel Üretimi</h3>
+              <p>
+                Dış ve iç duvar panelleri, 84 mm / 100 mm kalınlığında çift taraflı yüksek yoğunluklu çimentolu yonga levha (Betopan) arasına 16 dansite yanmaz EPS veya taşyünü preslenerek üretilir. Galvanizli çelik H profilleri özel roll-form makinelerimizde şekillendirilir.
+              </p>
+              <div class="step-highlights">
+                <span class="step-hl-tag">✓ Çift Taraflı Betopan</span>
+                <span class="step-hl-tag">✓ A1 Yanmaz İzolasyon</span>
+                <span class="step-hl-tag">✓ Paslanmaz Galvaniz H Profil</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="step-card">
+            <div class="step-number-box">
+              <span class="step-num">03</span>
+              <span class="step-label">Lojistik</span>
+            </div>
+            <div class="step-content">
+              <h3>Güvenli Sevkiyat & Saha Lojistiği</h3>
+              <p>
+                Fabrikada paketlenen tüm paneller, çatı makasları ve montaj bileşenleri korumalı araçlarımızla doğrudan arsanıza sevk edilir. Türkiye'nin 81 iline ve köylerine kadar sorunsuz lojistik ağımız mevcuttur.
+              </p>
+              <div class="step-highlights">
+                <span class="step-hl-tag">✓ Türkiye Geneli Sevkiyat</span>
+                <span class="step-hl-tag">✓ Sigortalı Nakliye</span>
+                <span class="step-hl-tag">✓ Eksiksiz Parça Paketi</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="step-card">
+            <div class="step-number-box">
+              <span class="step-num">04</span>
+              <span class="step-label">Karkas</span>
+            </div>
+            <div class="step-content">
+              <h3>Zemin Sabitleme & Duvar Kurulumu</h3>
+              <p>
+                Uzman montaj ekibimiz, zemin betonuna çelik dübellerle taban raylarını sabitler. Ardından H profiller ve duvar panelleri geçmeli kilit sistemiyle milimetrik olarak dikilir. Deprem sarsıntılarına karşı esneyebilen mukavemetli birleşme sağlanır.
+              </p>
+              <div class="step-highlights">
+                <span class="step-hl-tag">✓ Çelik Dübelli Sabitleme</span>
+                <span class="step-hl-tag">✓ Geçmeli Kilit Sistemi</span>
+                <span class="step-hl-tag">✓ 3 Günde Kaba Kurulum</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="step-card">
+            <div class="step-number-box">
+              <span class="step-num">05</span>
+              <span class="step-label">Çatı</span>
+            </div>
+            <div class="step-content">
+              <h3>Çelik Çatı Makasları & Doğrama Montajı</h3>
+              <p>
+                Galvanizli hafif çelik çatı makasları yerleştirilir; tavan arasına 10 cm kalınlığında camyünü / taşyünü serilerek ısı kaybı sıfıra indirilir. Üzerine boyalı galvaniz trapez sac veya shingle kaplanır. 4+16+4 mm çift ısıcamlı PVC pencereler takılır.
+              </p>
+              <div class="step-highlights">
+                <span class="step-hl-tag">✓ 10 cm Tavan İzolasyonu</span>
+                <span class="step-hl-tag">✓ Çift Isıcamlı PVC Doğramalar</span>
+                <span class="step-hl-tag">✓ Güçlendirilmiş Çelik Dış Kapı</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="step-card">
+            <div class="step-number-box">
+              <span class="step-num">06</span>
+              <span class="step-label">Teslim</span>
+            </div>
+            <div class="step-content">
+              <h3>Tesisat, İç İmalat & Anahtar Teslim</h3>
+              <p>
+                Elektrik ve sıhhi tesisat hatları çekilir, Amerikan panel iç kapılar takılır, derz dolguları ve dış/iç cephe boyası tamamlanarak eviniz anahtarlarıyla birlikte eksiksiz olarak kullanımınıza sunulur.
+              </p>
+              <div class="step-highlights">
+                <span class="step-hl-tag">✓ Sıva Altı Tesisat</span>
+                <span class="step-hl-tag">✓ Boya & Kapı Montajı</span>
+                <span class="step-hl-tag">✓ 15-20 Günlük Süreç</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODELLERE GİDEN BUTON -->
+        <div class="cta-models-box">
+          <span class="section-tag" style="color: var(--color-accent); justify-content: center; margin-bottom: 12px;">Modelleri Keşfedin</span>
+          <h2 class="cta-models-title">Prefabrik Ev Modellerimizi ve Kat Planlarını İnceleyin</h2>
+          <p class="cta-models-desc">
+            76 m²'den 166 m²'ye kadar 28 farklı prefabrik konut modelimizi, detaylı kat planlarını ve oda dağılımlarını kataloğumuzda görebilirsiniz.
+          </p>
+          <div class="cta-models-buttons">
+            <a href="urunler.html?kategori=tek-kat-prefabrik" class="btn-hero-primary" style="padding: 14px 32px; font-size: 15px;">
+              🏠 Tüm Prefabrik Modellerimizi İnceleyin →
+            </a>
+            <a href="https://wa.me/905314558585?text=Merhaba,%20prefabrik%20ev%20modelleriniz%20hakkında%20bilgi%20ve%20fiyat%20teklifi%20almak%20istiyorum." target="_blank" class="btn-call" style="background: #FFFFFF; color: var(--color-primary); padding: 14px 28px; font-size: 15px; border: 1px solid var(--color-border);">
+              💬 WhatsApp'tan Teklif Alın
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mp-footer">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" style="display: inline-block; margin-bottom: 12px;">
+          <img src="images/logo.png" alt="3K Emir Yapı Group" style="height: 46px; width: auto; display: block;">
+        </a>
+        <div class="footer-brand-title">3K EMİR YAPI GROUP</div>
+        <p class="footer-desc">İzmir / Menderes tesislerimizde kaliteli prefabrik ve çelik yapılar üretiyoruz.</p>
+        <a href="tel:05314558585" class="btn-call">0531 455 85 85</a>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Modeller</h4>
+        <ul class="footer-links">
+          <li><a href="urunler.html?kategori=tek-kat-prefabrik">Tek Kat Prefabrik</a></li>
+          <li><a href="urunler.html?kategori=cift-kat-prefabrik">Çift Kat Prefabrik</a></li>
+          <li><a href="urunler.html?kategori=tek-kat-celik">Tek Kat Çelik Ev</a></li>
+          <li><a href="betonarme-yapilar.html">Betonarme Yapılar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Kurumsal</h4>
+        <ul class="footer-links">
+          <li><a href="kurumsal.html">Hakkımızda</a></li>
+          <li><a href="projeler.html">Projelerimiz</a></li>
+          <li><a href="rehber.html">Rehber</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">İletişim</h4>
+        <div class="footer-contact-block">
+          <a href="tel:05314558585" class="footer-phone-big">0531 455 85 85</a>
+          <p class="footer-address">Menderes / İzmir • Pazartesi - Pazar: 09:00 - 19:30</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 3K EMİR YAPI GROUP. Tüm hakları saklıdır.</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <!-- LIGHTBOX MODAL -->
+  <div id="photoLightbox" class="lightbox-modal" onclick="closeLightbox(event)">
+    <div class="lightbox-box">
+      <button class="lightbox-close" onclick="closeLightbox(event)">✕</button>
+      <img id="lightboxImg" src="" alt="Büyük Görsel">
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <script>
+    function openPhoto(src, title, desc) {
+      var m = document.getElementById('photoLightbox');
+      var img = document.getElementById('lightboxImg');
+      var cap = document.getElementById('lightboxCaption');
+      if (m && img) {
+        img.src = src;
+        cap.innerHTML = '<strong>' + title + '</strong><br><span style="font-size:13px; opacity:0.85; font-weight:normal;">' + (desc || '') + '</span>';
+        m.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function closeLightbox(e) {
+      if (e.target.id === 'photoLightbox' || e.target.classList.contains('lightbox-close') || e.target.closest('.lightbox-close')) {
+        var m = document.getElementById('photoLightbox');
+        if (m) {
+          m.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        var m = document.getElementById('photoLightbox');
+        if (m) {
+          m.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+    });
+  </script>
+
+  <!-- FLOATING MOBILE WHATSAPP ICON -->
+  <div class="floating-mobile-bar">
+    <a href="https://wa.me/905314558585?text=Merhaba,%20bilgi%20ve%20fiyat%20teklifi%20almak%20istiyorum." target="_blank" class="mobile-bar-btn wa" aria-label="WhatsApp">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.08C8.94 7.08 8.66 7.15 8.42 7.41C8.18 7.66 7.5 8.3 7.5 9.61C7.5 10.92 8.45 12.18 8.59 12.36C8.73 12.53 10.45 15.19 13.1 16.33C13.73 16.6 14.22 16.76 14.6 16.88C15.23 17.08 15.8 17.05 16.26 16.98C16.77 16.9 17.83 16.34 18.05 15.71C18.28 15.08 18.28 14.54 18.21 14.43C18.14 14.32 17.97 14.25 17.71 14.12C17.46 14 16.2 13.38 15.97 13.3C15.74 13.21 15.57 13.17 15.41 13.42C15.24 13.67 14.76 14.25 14.61 14.42C14.47 14.59 14.33 14.61 14.07 14.48C13.82 14.36 13.01 14.09 12.04 13.23C11.29 12.56 10.78 11.73 10.63 11.48C10.49 11.23 10.62 11.09 10.74 10.97C10.86 10.86 11 10.68 11.13 10.54C11.26 10.4 11.3 10.3 11.39 10.13C11.47 9.96 11.43 9.81 11.37 9.69C11.31 9.56 10.82 8.35 10.61 7.86C10.41 7.37 10.21 7.44 10.05 7.43C9.91 7.43 9.74 7.42 9.57 7.42C9.4 7.42 9.11 7.08 9.11 7.08Z"/></svg>
+    </a>
+  </div>
+</body>
+</html>

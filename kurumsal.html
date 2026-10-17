@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kurumsal & Fabrika Üretim Gücümüz | 3K Emir Yapı Group</title>
+  <meta name="description" content="3K Emir Yapı Group kurumsal vizyonu, Menderes / İzmir üretim tesisi, hafif çelik mühendisliği, Instagram @3k_emir_yapi şeffaf şantiye süreçleri ve kalite güvencemiz.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/modern-theme.css">
+
+  <style>
+    .corporate-hero {
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+      color: #FFFFFF;
+      padding: 72px 0 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .corporate-hero::after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: radial-gradient(circle at 50% 30%, rgba(217, 119, 6, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .corp-social-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 8px 20px;
+      border-radius: var(--radius-full);
+      font-size: 13.5px;
+      color: #FFFFFF;
+      margin-top: 24px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .corp-social-pill:hover {
+      background: rgba(217, 119, 6, 0.2);
+      border-color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+    .factory-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      margin: 40px 0;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .value-card {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .value-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(217, 119, 6, 0.35);
+    }
+    .value-icon {
+      font-size: 30px;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+    .value-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 10px;
+    }
+    .value-desc {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .insta-banner-box {
+      background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-xl);
+      padding: 48px;
+      color: #FFFFFF;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+      margin-top: 60px;
+    }
+    /* Construction Showcase */
+    .site-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .site-photo-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      position: relative;
+      background: #000;
+    }
+    .site-photo-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .site-photo-card:hover img {
+      transform: scale(1.03);
+    }
+    .site-photo-cap {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, transparent 100%);
+      color: #FFFFFF;
+      padding: 24px 18px 14px;
+      font-size: 13px;
+    }
+    .site-photo-cap strong {
+      display: block;
+      font-size: 14.5px;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP INFO BAR -->
+  <div class="mp-topbar">
+    <div class="mp-topbar-inner">
+      <div class="mp-topbar-msg">Ege Bölgesi ve Türkiye genelinde anahtar teslim üretim & mühendislik.</div>
+      <div class="mp-topbar-links">
+        <span>📍 Menderes / İzmir</span>
+        <a href="mailto:info@3kemiryapi.com">✉️ info@3kemiryapi.com</a>
+        <a href="tel:05314558585" style="font-weight: 700; color: #FFFFFF;">📞 0531 455 85 85</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="mp-header">
+    <div class="mp-header-inner">
+      <a href="index.html" class="mp-logo">
+        <img src="images/logo.png" alt="3K Emir Yapı Group" class="mp-logo-img">
+        <div class="mp-logo-text">
+          <span>3K EMİR YAPI GROUP</span>
+          <span class="mp-logo-sub">Prefabrik & Çelik Mimarlık</span>
+        </div>
+      </a>
+      <nav class="mp-nav">
+        <a href="index.html" class="mp-nav-link">Anasayfa</a>
+        <a href="kurumsal.html" class="mp-nav-link active">Kurumsal</a>
+        
+        <!-- Products Mega Menu Wrapper -->
+        <div class="mega-menu-wrapper">
+          <a href="urunler.html" class="mp-nav-link">
+            Ürünlerimiz
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+                    <div class="mega-menu-dropdown">
+            <a href="prefabrik-konut.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏠</span>
+              <span>Prefabrik ve Ahşap Yapı</span>
+            </a>
+            <a href="celik-konut.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏛️</span>
+              <span>Çelik Konut</span>
+            </a>
+            <a href="ofis-yapilari.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏢</span>
+              <span>Ofis & Şantiye Yapıları</span>
+            </a>
+            <a href="betonarme-yapilar.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏗️</span>
+              <span>Betonarme Yapılar</span>
+            </a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="urunler.html" class="nav-dropdown-item nav-dropdown-all">
+              <span>Tüm Modelleri Gör</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="projeler.html" class="mp-nav-link">Projelerimiz</a>
+        <a href="rehber.html" class="mp-nav-link">Rehber</a>
+        <a href="sss.html" class="mp-nav-link">S.S.S.</a>
+        <a href="iletisim.html" class="mp-nav-link">İletişim</a>
+      </nav>
+      <div class="mp-header-actions">
+        <a href="tel:05314558585" class="btn-call">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0531 455 85 85
+        </a>
+        <a href="https://wa.me/905314558585" target="_blank" class="btn-whatsapp-header" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.08C8.94 7.08 8.66 7.15 8.42 7.41C8.18 7.66 7.5 8.3 7.5 9.61C7.5 10.92 8.45 12.18 8.59 12.36C8.73 12.53 10.45 15.19 13.1 16.33C13.73 16.6 14.22 16.76 14.6 16.88C15.23 17.08 15.8 17.05 16.26 16.98C16.77 16.9 17.83 16.34 18.05 15.71C18.28 15.08 18.28 14.54 18.21 14.43C18.14 14.32 17.97 14.25 17.71 14.12C17.46 14 16.2 13.38 15.97 13.3C15.74 13.21 15.57 13.17 15.41 13.42C15.24 13.67 14.76 14.25 14.61 14.42C14.47 14.59 14.33 14.61 14.07 14.48C13.82 14.36 13.01 14.09 12.04 13.23C11.29 12.56 10.78 11.73 10.63 11.48C10.49 11.23 10.62 11.09 10.74 10.97C10.86 10.86 11 10.68 11.13 10.54C11.26 10.4 11.3 10.3 11.39 10.13C11.47 9.96 11.43 9.81 11.37 9.69C11.31 9.56 10.82 8.35 10.61 7.86C10.41 7.37 10.21 7.44 10.05 7.43C9.91 7.43 9.74 7.42 9.57 7.42C9.4 7.42 9.11 7.08 9.11 7.08Z"/></svg><span>WhatsApp Teklifi</span></a>
+        <button id="mobile-menu-toggle" style="background: none; border: 1px solid var(--color-border); border-radius: 50%; width: 40px; height: 40px; display: none;" aria-label="Menü">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- KURUMSAL HERO -->
+    <section class="corporate-hero">
+      <div class="container">
+        <span class="section-tag" style="color: var(--color-accent); justify-content: center;">3K Emir Yapı Group Kurumsal</span>
+        <h1 class="section-title" style="color: #FFFFFF; font-size: 42px; max-width: 840px; margin: 0 auto 16px;">
+          Geleceğin Güvenli Konut Teknolojisi ve Şeffaf Mühendislik
+        </h1>
+        <p class="section-desc" style="color: rgba(255, 255, 255, 0.8); margin: 0 auto; max-width: 760px; font-size: 16.5px; line-height: 1.65;">
+          İzmir Menderes entegre üretim tesislerimizde, hafif çelik villa, prefabrik konut, betonarme yapı ve butik modüler yaşam alanlarını kendi mühendislik kadromuzla anahtar teslim inşa ediyoruz.
+        </p>
+
+        <a href="https://www.instagram.com/3k_emir_yapi/" target="_blank" class="corp-social-pill">
+          <span>📸 Resmi Instagram: <strong>@3k_emir_yapi</strong></span>
+          <span style="color: var(--color-accent); font-weight: 700;">Takip Et →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- HİKAYEMİZ & VİZYON -->
+    <section class="section-wrap">
+      <div class="container">
+        <div class="factory-grid">
+          <div>
+            <span class="section-tag">Biz Kimiz?</span>
+            <h2 class="section-title">Depreme dayanıklı, sözleşmeli ve sabit bütçeli yapılar.</h2>
+            <p class="section-desc" style="margin-bottom: 20px;">
+              <strong>3K Emir Yapı Group</strong>; geleneksel inşaat süreçlerindeki belirsizlikleri, bitmeyen şantiye gecikmelerini ve maliyet aşımlarını ortadan kaldırmak amacıyla kurulmuştur.
+            </p>
+            <p class="section-desc" style="margin-bottom: 20px;">
+              İzmir / Menderes üretim tesisimizde milimetrik hassasiyette roll-form karkas makineleriyle ürettiğimiz hafif çelik profilleri ve yalıtımlı panel sistemlerini Türkiye'nin 81 ilindeki arsalara taşıyor; temel betonundan çatı izolasyonuna, ıslak hacimlerden kapı montajına kadar komple anahtar teslim taahhüt sunuyoruz.
+            </p>
+            <p class="section-desc">
+              Instagram hesabımız <strong>@3k_emir_yapi</strong> üzerinden paylaştığımız gibi; şantiyelerimizin her aşamasını şeffaf bir şekilde video ve fotoğraflarla kayıt altına alıyor, müşterilerimize güven ve huzur dolu bir inşaat deneyimi yaşatıyoruz.
+            </p>
+          </div>
+
+          <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-border); box-shadow: var(--shadow-lg); background: #000;">
+            <img src="images/tamamlanan-projeler/p3_03_fabrika_iskelet.webp" alt="3K Emir Yapı Menderes Üretim Tesisi ve İskelet Hattı" style="width: 100%; height: 380px; object-fit: cover; display: block;">
+            <div style="background: #1E293B; color: #FFFFFF; padding: 14px 20px; font-size: 13px;">
+              🏭 <strong>Menderes / İzmir Fabrikamız:</strong> Ziyarete açık üretim sahamızda iskelet ve prototip modellerimizi canlı inceleyebilirsiniz.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METRICS -->
+    <section class="mp-stats-bar">
+      <div class="mp-stats-grid">
+        <div class="mp-stat-item">
+          <div class="stat-number">18<span class="stat-unit">yıl</span></div>
+          <div class="stat-label">Sektörel Deneyim</div>
+        </div>
+        <div class="mp-stat-item">
+          <div class="stat-number">1.400<span class="stat-unit">+</span></div>
+          <div class="stat-label">Başarıyla Teslim Edilen Konut</div>
+        </div>
+        <div class="mp-stat-item">
+          <div class="stat-number">81<span class="stat-unit">il</span></div>
+          <div class="stat-label">Türkiye Çapında Montaj Ağı</div>
+        </div>
+        <div class="mp-stat-item">
+          <div class="stat-number">50<span class="stat-unit">yıl</span></div>
+          <div class="stat-label">Taşıyıcı Sistem Yazılı Garanti</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAHADAN VE ŞANTİYELERİMİZDEN GERÇEK İMALAT KANITLARI -->
+    <section class="section-wrap">
+      <div class="container">
+        <div class="section-header-wrap" style="text-align: center; max-width: 760px; margin: 0 auto 32px;">
+          <span class="section-tag" style="justify-content: center;">Sahadaki Gücümüz</span>
+          <h2 class="section-title">Sahadan ve Şantiyelerimizden Gerçek Kareler</h2>
+          <p class="section-desc">Biz sadece kağıt üzerinde proje çizen bir ofis değil; her aşamasını kendi ustalarımız ve mühendislerimizle inşa eden güvenilir bir inşaat grubuyuz.</p>
+        </div>
+
+        <div class="site-showcase">
+          <div class="site-photo-card">
+            <img src="images/projeler/p8_06.webp" alt="3K Emir Yapı Şantiye Tabelası" loading="lazy">
+            <div class="site-photo-cap">
+              <strong>Resmi Şantiye Sorumluluğu</strong>
+              "Bu Yapının İnşaat İşleri 3K EMİR YAPI Tarafından Yapılmaktadır" resmi şantiye tabelamız.
+            </div>
+          </div>
+
+          <div class="site-photo-card">
+            <img src="images/projeler/p8_01.webp" alt="Çelik Karkas İskelet Montajı" loading="lazy">
+            <div class="site-photo-cap">
+              <strong>Hafif Çelik Karkas Montajı</strong>
+              CNC roll-form üretimi profillerin temel üzerine milimetrik ankrajla birleştirilmesi.
+            </div>
+          </div>
+
+          <div class="site-photo-card">
+            <img src="images/projeler/p2_07.webp" alt="Radye Temel ve Taş İstinat" loading="lazy">
+            <div class="site-photo-cap">
+              <strong>Temel & Taş Duvar İşçiliği</strong>
+              Subasman perdeleri, su yalıtımı ve Ege mimarisine uygun moloz taş kaide inşası.
+            </div>
+          </div>
+
+          <div class="site-photo-card">
+            <img src="images/projeler/p10_01.webp" alt="Anahtar Teslim Tamamlanan Malikane" loading="lazy">
+            <div class="site-photo-cap">
+              <strong>Anahtar Teslim Teslimat</strong>
+              Peyzajı, verandası ve mimari detaylarıyla zamanında ve eksiksiz teslim edilen konutlarımız.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEMEL DEĞERLERİMİZ -->
+    <section class="section-wrap bg-alt">
+      <div class="container">
+        <div class="section-header-wrap" style="text-align: center; max-width: 720px; margin: 0 auto 40px;">
+          <span class="section-tag" style="justify-content: center;">Şeffaf İlkelerimiz</span>
+          <h2 class="section-title">Neden 3K Emir Yapı Group?</h2>
+          <p class="section-desc">Müşterilerimizle kurduğumuz güven ilişkisi, lafta değil sözleşmede ve sahada somutlaşır.</p>
+        </div>
+
+        <div class="values-grid">
+          <!-- 1 -->
+          <div class="value-card">
+            <span class="value-icon">🏢</span>
+            <h3 class="value-title">Fabrika Ziyaretine Açık</h3>
+            <p class="value-desc">
+              Menderes tesisimize dilediğiniz gün misafir olabilir; kullanılan galvaniz çelik et kalınlıklarını, taşyünü izolasyon katmanlarını ve örnek modellerimizi yerinde inceleyebilirsiniz.
+            </p>
+          </div>
+
+          <!-- 2 -->
+          <div class="value-card">
+            <span class="value-icon">📋</span>
+            <h3 class="value-title">Sözleşmeli Sabit Bütçe</h3>
+            <p class="value-desc">
+              Teklifimizde ne yazıyorsa sözleşmemizde o geçerlidir. Malzeme zamları veya döviz dalgalanmaları gerekçe gösterilerek müşteriden asla ek masraf talep edilmez.
+            </p>
+          </div>
+
+          <!-- 3 -->
+          <div class="value-card">
+            <span class="value-icon">📱</span>
+            <h3 class="value-title">Haftalık Şantiye Raporu</h3>
+            <p class="value-desc">
+              Şantiye şeflerimiz; temel kazısından çatı kaplamasına kadar her etabın yüksek çözünürlüklü video ve fotoğraflarını WhatsApp üzerinden düzenli olarak sizinle paylaşır.
+            </p>
+          </div>
+
+          <!-- 4 -->
+          <div class="value-card">
+            <span class="value-icon">🛡️</span>
+            <h3 class="value-title">TBDY 2018 Deprem Güvencesi</h3>
+            <p class="value-desc">
+              Tüm yapılarımız yürürlükteki en güncel Türkiye Bina Deprem Yönetmeliği standartlarına uygun bilgisayar destekli statik hesaplarla üretilir.
+            </p>
+          </div>
+        </div>
+
+        <!-- INSTAGRAM BANNER BOX -->
+        <div class="insta-banner-box">
+          <div>
+            <span class="section-tag" style="color: var(--color-accent); margin-bottom: 10px;">Sosyal Medyada Biz</span>
+            <h3 style="font-size: 26px; font-weight: 800; margin-bottom: 12px;">Güncel Şantiyelerimizi Canlı İzleyin</h3>
+            <p style="font-size: 15px; color: rgba(255, 255, 255, 0.8); line-height: 1.6; max-width: 620px;">
+              Instagram sayfamız <strong>@3k_emir_yapi</strong> üzerinden teslim ettiğimiz yeni villaların teslim anlarını, arsa keşif turlarımızı ve devam eden montaj aşamalarımızı takip edebilirsiniz.
+            </p>
+          </div>
+          <div>
+            <a href="https://www.instagram.com/3k_emir_yapi/" target="_blank" class="btn-hero-primary" style="padding: 14px 28px; font-size: 15px;">
+              📸 @3k_emir_yapi Profiline Git →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FABRİKA VE İLETİŞİM CTA -->
+    <section class="section-wrap">
+      <div class="container" style="text-align: center; max-width: 800px;">
+        <span class="section-tag" style="justify-content: center;">Ücretsiz Keşif & Danışmanlık</span>
+        <h2 class="section-title">Arsanız İçin En Doğru Yapı Modelini Belirleyelim</h2>
+        <p class="section-desc" style="margin-bottom: 32px;">
+          Arsanızın bulunduğu il/ilçe, eğim ve imar durumuna göre mimarımızla birebir görüşebilir veya Menderes tesisimize gelerek kahvemizi içebilirsiniz.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://wa.me/905314558585?text=Merhaba,%20arsam%20için%20ücretsiz%20keşif%20ve%20model%20önerisi%20almak%20istiyorum." target="_blank" class="btn-hero-primary" style="padding: 14px 30px;">
+            💬 WhatsApp Mimar Danışma Hattı
+          </a>
+          <a href="urunler.html" class="btn-call" style="background: #FFFFFF; color: var(--color-primary); border: 1px solid var(--color-border); padding: 14px 26px;">
+            🏠 Tüm Modellerimizi İnceleyin →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="mp-footer">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" style="display: inline-block; margin-bottom: 12px;">
+          <img src="images/logo.png" alt="3K Emir Yapı Group" style="height: 46px; width: auto; display: block;">
+        </a>
+        <div class="footer-brand-title">3K EMİR YAPI GROUP</div>
+        <p class="footer-desc">İzmir / Menderes tesislerimizde kaliteli yaşam alanları üretiyoruz.</p>
+        <a href="tel:05314558585" class="btn-call">0531 455 85 85</a>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Modeller</h4>
+        <ul class="footer-links">
+          <li><a href="urunler.html?kategori=tek-kat-prefabrik">Tek Kat Prefabrik</a></li>
+          <li><a href="urunler.html?kategori=cift-kat-prefabrik">Çift Kat Prefabrik</a></li>
+          <li><a href="urunler.html?kategori=tek-kat-celik">Tek Kat Çelik Ev</a></li>
+          <li><a href="urunler.html?kategori=cift-kat-celik">Çift Kat Çelik Villa</a></li>
+          <li><a href="betonarme-yapilar.html">Betonarme Yapılar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Kurumsal</h4>
+        <ul class="footer-links">
+          <li><a href="kurumsal.html">Hakkımızda</a></li>
+          <li><a href="projeler.html">Projelerimiz</a></li>
+          <li><a href="rehber.html">Rehber</a></li>
+          <li><a href="sss.html">Sık Sorulan Sorular</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">İletişim & Fabrika</h4>
+        <div class="footer-contact-block">
+          <a href="tel:05314558585" class="footer-phone-big">0531 455 85 85</a>
+          <p class="footer-address">Menderes / İzmir • Pazartesi - Pazar: 09:00 - 19:30</p>
+          <p style="font-size: 13px; color: rgba(255, 255, 255, 0.7); margin-top: 8px;">
+            Instagram: <a href="https://www.instagram.com/3k_emir_yapi/" target="_blank" style="color: var(--color-accent); font-weight: 700;">@3k_emir_yapi</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 3K EMİR YAPI GROUP. Tüm hakları saklıdır.</div>
+      <div>Türkiye Geneli Prefabrik, Çelik Villa ve Betonarme Yapı Üretimi</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <!-- FLOATING MOBILE WHATSAPP ICON -->
+  <div class="floating-mobile-bar">
+    <a href="https://wa.me/905314558585?text=Merhaba,%20bilgi%20ve%20fiyat%20teklifi%20almak%20istiyorum." target="_blank" class="mobile-bar-btn wa" aria-label="WhatsApp">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.08C8.94 7.08 8.66 7.15 8.42 7.41C8.18 7.66 7.5 8.3 7.5 9.61C7.5 10.92 8.45 12.18 8.59 12.36C8.73 12.53 10.45 15.19 13.1 16.33C13.73 16.6 14.22 16.76 14.6 16.88C15.23 17.08 15.8 17.05 16.26 16.98C16.77 16.9 17.83 16.34 18.05 15.71C18.28 15.08 18.28 14.54 18.21 14.43C18.14 14.32 17.97 14.25 17.71 14.12C17.46 14 16.2 13.38 15.97 13.3C15.74 13.21 15.57 13.17 15.41 13.42C15.24 13.67 14.76 14.25 14.61 14.42C14.47 14.59 14.33 14.61 14.07 14.48C13.82 14.36 13.01 14.09 12.04 13.23C11.29 12.56 10.78 11.73 10.63 11.48C10.49 11.23 10.62 11.09 10.74 10.97C10.86 10.86 11 10.68 11.13 10.54C11.26 10.4 11.3 10.3 11.39 10.13C11.47 9.96 11.43 9.81 11.37 9.69C11.31 9.56 10.82 8.35 10.61 7.86C10.41 7.37 10.21 7.44 10.05 7.43C9.91 7.43 9.74 7.42 9.57 7.42C9.4 7.42 9.11 7.08 9.11 7.08Z"/></svg>
+    </a>
+  </div>
+</body>
+</html>

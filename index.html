@@ -2,606 +2,744 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>3K EMİR YAPI — Müşteri Tasarım Sunumu (Demo 1 & Demo 2)</title>
-  <meta name="description" content="3K Emir Yapı Müşteri Tasarım ve Konsept Sunumu. Demo 1: 3D İnşaat Simülasyonu & Scrollytelling, Demo 2: Obsidian Lüks Atölye, Kat Planları ve Maliyet Hesaplayıcı.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3K Emir Yapı Group | Prefabrik Ev ve Çelik Ev Üretimi — Ege & Türkiye Geneli</title>
+  <meta name="description" content="3K Emir Yapı: Prefabrik ev, hafif çelik villa, modüler ofis ve endüstriyel yapı üretimi. Menderes / İzmir merkezli, anahtar teslim, 50 yıl taşıyıcı sistem garantisi.">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Plus Jakarta Sans & Space Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg-dark: #0a0b0d;
-      --bg-surface: #121418;
-      --bg-surface-elevated: #1a1e24;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-gold: rgba(212, 175, 55, 0.35);
-      --accent-gold: #d4af37;
-      --accent-gold-hover: #e5c358;
-      --accent-gold-glow: rgba(212, 175, 55, 0.22);
-      --text-main: #f0ede6;
-      --text-muted: #8e95a0;
-      --header-h: 68px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
-    }
-
-    /* TOP PRESENTATION BAR */
-    .pres-header {
-      width: 100%;
-      height: var(--header-h);
-      background: rgba(14, 16, 20, 0.94);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border-subtle);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 20px;
-      position: relative;
-      z-index: 1000;
-      gap: 16px;
-    }
-
-    /* BRAND LOGO */
-    .brand-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: inherit;
-      min-width: 200px;
-    }
-
-    .brand-logo-pill {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, #1c1813, #0d0c0a);
-      border: 1px solid var(--accent-gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cinzel', serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--accent-gold);
-      box-shadow: 0 0 16px var(--accent-gold-glow);
-    }
-
-    .brand-texts {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .brand-title {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: #ffffff;
-      font-family: 'Cinzel', serif;
-    }
-
-    .brand-badge {
-      font-size: 10px;
-      font-weight: 500;
-      color: var(--accent-gold);
-      letter-spacing: 0.05em;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .live-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 8px #10b981;
-      animation: pulseDot 2s infinite;
-    }
-
-    @keyframes pulseDot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
-    }
-
-    /* CENTER DEMO SEGMENTED SELECTOR */
-    .demo-segmented {
-      display: flex;
-      align-items: center;
-      background: rgba(22, 26, 32, 0.95);
-      border: 1px solid var(--border-subtle);
-      padding: 4px;
-      border-radius: 40px;
-      gap: 4px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    }
-
-    .demo-btn {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 18px;
-      border-radius: 30px;
-      border: none;
-      background: transparent;
-      color: var(--text-muted);
-      cursor: pointer;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      transition: all 0.25s ease;
-      white-space: nowrap;
-    }
-
-    .demo-btn:hover {
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .demo-btn.active {
-      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.08));
-      color: #ffffff;
-      border: 1px solid var(--border-gold);
-      box-shadow: 0 2px 14px var(--accent-gold-glow);
-    }
-
-    .demo-btn .badge-pill {
-      font-size: 9.5px;
-      font-weight: 700;
-      padding: 2px 7px;
-      border-radius: 12px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-family: 'Space Mono', monospace;
-    }
-
-    .demo-btn.active .badge-pill {
-      background: var(--accent-gold);
-      color: #0b0c0e;
-    }
-
-    .demo-btn:not(.active) .badge-pill {
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--text-muted);
-    }
-
-    /* RIGHT ACTIONS (Device view, Direct Link, WhatsApp) */
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 200px;
-      justify-content: flex-end;
-    }
-
-    /* Device Preview Toggle */
-    .device-group {
-      display: flex;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 2px;
-    }
-
-    .device-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-muted);
-      padding: 6px 10px;
-      font-size: 11px;
-      border-radius: 6px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-
-    .device-btn.active {
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-    }
-
-    .device-btn svg {
-      width: 14px;
-      height: 14px;
-      fill: currentColor;
-    }
-
-    /* External direct link */
-    .action-icon-btn {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-muted);
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
-    .action-icon-btn:hover {
-      color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .action-icon-btn svg {
-      width: 15px;
-      height: 15px;
-      stroke: currentColor;
-    }
-
-    /* WhatsApp Approve Button */
-    .btn-approve-wa {
-      background: linear-gradient(135deg, #25d366, #128c7e);
-      color: #ffffff;
-      text-decoration: none;
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-size: 11.5px;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      transition: all 0.25s ease;
-      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
-      white-space: nowrap;
-    }
-
-    .btn-approve-wa:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-    }
-
-    .btn-approve-wa svg {
-      width: 15px;
-      height: 15px;
-      fill: currentColor;
-    }
-
-    /* MAIN VIEWPORT STAGE */
-    .stage-container {
-      width: 100%;
-      height: calc(100vh - var(--header-h));
-      position: relative;
-      background: #000000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      transition: background 0.3s ease;
-    }
-
-    /* DESKTOP FULL-SCREEN IFRAME */
-    .demo-iframe-wrap {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      inset: 0;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-      background: #000000;
-    }
-
-    /* MOBILE DEVICE MOCKUP FRAME */
-    .stage-container.mobile-mode {
-      background: radial-gradient(circle at center, #181d24 0%, #0a0c0e 80%);
-      padding: 24px;
-    }
-
-    .stage-container.mobile-mode .demo-iframe-wrap {
-      position: relative;
-      inset: auto;
-      width: 390px;
-      height: 844px;
-      max-height: calc(100vh - var(--header-h) - 48px);
-      border-radius: 52px;
-      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.8),
-                  0 0 0 12px #262a30,
-                  0 0 0 14px #1b1e23,
-                  0 0 35px rgba(212, 175, 55, 0.15);
-      overflow: hidden;
-      background: #000000;
-    }
-
-    /* Dynamic Island Notch on Mobile Mockup */
-    .phone-notch {
-      display: none;
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 110px;
-      height: 26px;
-      background: #000000;
-      border-radius: 20px;
-      z-index: 500;
-      pointer-events: none;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
-
-    .stage-container.mobile-mode .phone-notch {
-      display: block;
-    }
-
-    /* FLOATING BOTTOM BAR HINT */
-    .floating-hint-bar {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(18, 22, 28, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--border-gold);
-      border-radius: 40px;
-      padding: 8px 20px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-size: 11.5px;
-      color: var(--text-main);
-      z-index: 999;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-      pointer-events: auto;
-      transition: opacity 0.3s;
-    }
-
-    .floating-hint-bar strong {
-      color: var(--accent-gold);
-    }
-
-    .hint-close-btn {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      cursor: pointer;
-      font-size: 14px;
-      line-height: 1;
-      padding: 2px 4px;
-    }
-    .hint-close-btn:hover {
-      color: #fff;
-    }
-
-    /* RESPONSIVE DESIGN */
-    @media (max-width: 992px) {
-      .pres-header {
-        height: auto;
-        padding: 10px 14px;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .brand-wrap {
-        min-width: auto;
-      }
-      .header-actions {
-        min-width: auto;
-      }
-      .device-group {
-        display: none;
-      }
-      .stage-container {
-        height: calc(100vh - 110px);
-      }
-    }
-
-    @media (max-width: 640px) {
-      .demo-segmented {
-        width: 100%;
-        order: 3;
-        justify-content: center;
-      }
-      .stage-container {
-        height: calc(100vh - 130px);
-      }
-      .brand-texts .brand-badge {
-        display: none;
-      }
-      .floating-hint-bar {
-        display: none;
-      }
-      .btn-approve-wa span {
-        display: none;
-      }
-      .btn-approve-wa {
-        padding: 8px 12px;
-      }
-    }
-  </style>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/modern-theme.css">
 </head>
 <body>
 
-  <!-- =========================================================================
-       MASTER PRESENTATION HEADER
-       ========================================================================= -->
-  <header class="pres-header">
-    <!-- Brand Info -->
-    <a href="#" class="brand-wrap">
-      <div class="brand-logo-pill">3K</div>
-      <div class="brand-texts">
-        <span class="brand-title">3K EMİR YAPI</span>
-        <span class="brand-badge"><span class="live-dot"></span> Müşteri Sunum Modu</span>
+  <!-- TOP INFO BAR -->
+  <div class="mp-topbar">
+    <div class="mp-topbar-inner">
+      <div class="mp-topbar-msg">
+        Ege Bölgesi ve Türkiye genelinde anahtar teslim prefabrik ve hafif çelik yapı üretimi.
+        <a href="kurumsal.html">Detaylar →</a>
       </div>
-    </a>
-
-    <!-- Center Demo Segmented Switcher -->
-    <div class="demo-segmented">
-      <button class="demo-btn active" id="btn-demo-1" onclick="switchDemo(1)">
-        <span class="badge-pill">DEMO 1</span>
-        <span>3D Timelapse</span>
-      </button>
-
-      <button class="demo-btn" id="btn-demo-2" onclick="switchDemo(2)">
-        <span class="badge-pill">DEMO 2</span>
-        <span>Lüks Atölye</span>
-      </button>
-
-      <button class="demo-btn" id="btn-demo-3" onclick="switchDemo(3)">
-        <span class="badge-pill" style="background: #E0A11C; color: #0E1116;">DEMO 3</span>
-        <span>Modern Prefabrik (Yeni)</span>
-      </button>
+      <div class="mp-topbar-links">
+        <span>📍 Menderes / İzmir</span>
+        <a href="mailto:info@3kemiryapi.com">✉️ info@3kemiryapi.com</a>
+        <a href="tel:05314558585" style="font-weight: 700; color: #FFFFFF;">📞 0531 455 85 85</a>
+      </div>
     </div>
+  </div>
 
-    <!-- Right Controls -->
-    <div class="header-actions">
-      <!-- Device Mode Toggle -->
-      <div class="device-group">
-        <button class="device-btn active" id="btn-dev-desk" onclick="setDeviceMode('desktop')" title="Masaüstü Görünümü">
-          <svg viewBox="0 0 24 24"><path d="M20 3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h7v2H8v2h8v-2h-3v-2h7c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H4V5h16v11z"/></svg>
-          Masaüstü
-        </button>
-        <button class="device-btn" id="btn-dev-mob" onclick="setDeviceMode('mobile')" title="Mobil Cihaz Görünümü">
-          <svg viewBox="0 0 24 24"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg>
-          Mobil
+  <!-- STICKY HEADER -->
+  <header class="mp-header">
+    <div class="mp-header-inner">
+      <!-- Brand Logo -->
+      <a href="index.html" class="mp-logo">
+        <img src="images/logo.png" alt="3K Emir Yapı Group" class="mp-logo-img">
+        <div class="mp-logo-text">
+          <span>3K EMİR YAPI GROUP</span>
+          <span class="mp-logo-sub">Prefabrik & Çelik Mimarlık</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="mp-nav">
+        <a href="index.html" class="mp-nav-link active">Anasayfa</a>
+        <a href="kurumsal.html" class="mp-nav-link">Kurumsal</a>
+        
+        <!-- Products Mega Menu Wrapper -->
+        <div class="mega-menu-wrapper">
+          <a href="urunler.html" class="mp-nav-link">
+            Ürünlerimiz
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+                    <div class="mega-menu-dropdown">
+            <a href="prefabrik-konut.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏠</span>
+              <span>Prefabrik ve Ahşap Yapı</span>
+            </a>
+            <a href="celik-konut.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏛️</span>
+              <span>Çelik Konut</span>
+            </a>
+            <a href="ofis-yapilari.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏢</span>
+              <span>Ofis & Şantiye Yapıları</span>
+            </a>
+            <a href="betonarme-yapilar.html" class="nav-dropdown-item">
+              <span class="nav-dropdown-icon">🏗️</span>
+              <span>Betonarme Yapılar</span>
+            </a>
+            <div class="nav-dropdown-divider"></div>
+            <a href="urunler.html" class="nav-dropdown-item nav-dropdown-all">
+              <span>Tüm Modelleri Gör</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <a href="projeler.html" class="mp-nav-link">Projelerimiz</a>
+        <a href="rehber.html" class="mp-nav-link">Rehber</a>
+        <a href="sss.html" class="mp-nav-link">S.S.S.</a>
+        <a href="iletisim.html" class="mp-nav-link">İletişim</a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="mp-header-actions">
+        <a href="tel:05314558585" class="btn-call">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0531 455 85 85
+        </a>
+        <a href="https://wa.me/905314558585?text=Merhaba,%20prefabrik%20ve%20çelik%20ev%20fiyatları%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-whatsapp-header" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.08C8.94 7.08 8.66 7.15 8.42 7.41C8.18 7.66 7.5 8.3 7.5 9.61C7.5 10.92 8.45 12.18 8.59 12.36C8.73 12.53 10.45 15.19 13.1 16.33C13.73 16.6 14.22 16.76 14.6 16.88C15.23 17.08 15.8 17.05 16.26 16.98C16.77 16.9 17.83 16.34 18.05 15.71C18.28 15.08 18.28 14.54 18.21 14.43C18.14 14.32 17.97 14.25 17.71 14.12C17.46 14 16.2 13.38 15.97 13.3C15.74 13.21 15.57 13.17 15.41 13.42C15.24 13.67 14.76 14.25 14.61 14.42C14.47 14.59 14.33 14.61 14.07 14.48C13.82 14.36 13.01 14.09 12.04 13.23C11.29 12.56 10.78 11.73 10.63 11.48C10.49 11.23 10.62 11.09 10.74 10.97C10.86 10.86 11 10.68 11.13 10.54C11.26 10.4 11.3 10.3 11.39 10.13C11.47 9.96 11.43 9.81 11.37 9.69C11.31 9.56 10.82 8.35 10.61 7.86C10.41 7.37 10.21 7.44 10.05 7.43C9.91 7.43 9.74 7.42 9.57 7.42C9.4 7.42 9.11 7.08 9.11 7.08Z"/></svg><span>WhatsApp Teklifi</span></a>
+        <button id="mobile-menu-toggle" style="background: none; border: 1px solid var(--color-border); border-radius: 50%; width: 40px; height: 40px; display: none;" aria-label="Menü">
+          ☰
         </button>
       </div>
-
-      <!-- Direct Fullscreen Link -->
-      <a href="demo1.html" id="link-direct-open" target="_blank" class="action-icon-btn" title="Çerçevesiz Tam Ekran Aç">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-          <polyline points="15 3 21 3 21 9"></polyline>
-          <line x1="10" y1="14" x2="21" y2="3"></line>
-        </svg>
-      </a>
-
-      <!-- WhatsApp Selection Action -->
-      <a href="https://wa.me/905314558585?text=Merhaba,%203K%20Emir%20Yapı%20sunumundaki%20Demo%201%20tasarımını%20beğendim,%20detayları%20görüşmek%20istiyorum." id="btn-wa-select" target="_blank" class="btn-approve-wa">
-        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-        <span id="wa-text-label">Bu Tasarımı Onayla</span>
-      </a>
     </div>
   </header>
 
-  <!-- =========================================================================
-       VIEWPORT STAGE WITH EMBEDDED IFRAME
-       ========================================================================= -->
-  <main class="stage-container" id="stage">
-    <div class="demo-iframe-wrap">
-      <div class="phone-notch"></div>
-      <iframe id="main-frame" src="demo1.html" title="3K Emir Yapı Canlı Sunum"></iframe>
-    </div>
+
+  <main>
+    <!-- HERO SLIDER SECTION -->
+    <section class="mp-hero">
+      <!-- Slide 1: Genel Vizyon / Hayalinizdeki Ev -->
+      <div class="mp-hero-slide active">
+        <img src="images/products/wp_stone_wood_120.webp" alt="3K Emir Yapı Modern Yaşam Alanları" class="mp-hero-bg">
+        <div class="mp-hero-overlay"></div>
+        <div class="mp-hero-content">
+          <div class="mp-hero-tag">3K EMİR YAPI GROUP • HAYALİNİZDEKİ YAŞAM ALANLARI</div>
+          <h1 class="mp-hero-title">
+            Hayalinizdeki Evi
+            <span>Gerçeğe Dönüştürüyoruz</span>
+          </h1>
+          <p class="mp-hero-desc">
+            Arsanıza ve beklentilerinize özel modern mimari, üstün mühendislik standartları ve anahtar teslim güvencesiyle konforlu yaşam alanları inşa ediyoruz.
+          </p>
+
+          <div class="mp-badge-installment">
+            <span class="installment-icon">📋</span>
+            <div class="installment-text">
+              <div class="installment-title">Sözleşmeli Sabit Fiyat Güvencesi</div>
+              <div class="installment-sub">Teslimata kadar sürpriz maliyet yok, şeffaf süreç</div>
+            </div>
+          </div>
+
+          <div class="mp-hero-btns">
+            <a href="https://wa.me/905314558585?text=Merhaba,%20hayalimdeki%20ev%20projesi%20hakkında%20bilgi%20ve%20teklif%20almak%20istiyorum." target="_blank" class="btn-hero-primary">
+              WhatsApp'tan Teklif Alın
+            </a>
+            <a href="urunler.html" class="btn-hero-secondary">
+              Tüm Modelleri İncele →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Güvenli & Kalıcı Yaşam Alanları -->
+      <div class="mp-hero-slide">
+        <img src="images/products/wp_hillside_165.webp" alt="3K Emir Yapı Lüks Yaşam Alanları" class="mp-hero-bg">
+        <div class="mp-hero-overlay"></div>
+        <div class="mp-hero-content">
+          <div class="mp-hero-tag">GÜVENLİ, ESTETİK VE KALICI YAPILAR • TÜRKİYE GENELİ HİZMET</div>
+          <h2 class="mp-hero-title">
+            Modern Mimaride
+            <span>Güvenli & Kalıcı Yuvalar</span>
+          </h2>
+          <p class="mp-hero-desc">
+            Deprem yönetmeliklerine tam uyumlu statik güvenlik, yüksek ısı-ses yalıtımı ve estetik dokunuşlarla nesiller boyu huzurla yaşayacağınız modern evler inşa ediyoruz.
+          </p>
+
+          <div class="mp-hero-btns">
+            <a href="https://wa.me/905314558585?text=Merhaba,%20konut%20projeleriniz%20ve%20yapı%20sistemleriniz%20hakkında%20keşif%20talep%20ediyorum." target="_blank" class="btn-hero-primary">
+              WhatsApp'tan Keşif İsteyin
+            </a>
+            <a href="projeler.html" class="btn-hero-secondary">
+              Projelerimizi Görün →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider Dots -->
+      <div class="mp-hero-dots">
+        <button class="hero-dot active" aria-label="1. Slayt"></button>
+        <button class="hero-dot" aria-label="2. Slayt"></button>
+      </div>
+    </section>
+
+    <!-- PRODUCT CATEGORY TILES -->
+    <section class="section-wrap" style="padding-top: 50px; padding-bottom: 50px; background: #FFFFFF;">
+      <div class="container">
+        <div class="section-header-wrap">
+          <div>
+            <span class="section-tag">Yapı Sistemleri</span>
+            <h2 class="section-title">İhtiyacınıza uygun yapı sistemini seçin</h2>
+            <p class="section-desc">Prefabrik panel sisteminden lüks hafif çelik villalara ve betonarmeye kadar tüm yapı çözümlerimizi ve üretim süreçlerimizi keşfedin.</p>
+          </div>
+        </div>
+
+        <div class="cat-tiles-grid">
+          <a href="prefabrik-konut.html" class="cat-tile">
+            <div class="cat-tile-img">
+              <img src="https://www.modernprefabrik.com.tr/gorseller/all-images/UrunlerDetay/tek_kat_prefabrik/Tek_Katli_Prefabrik_Ev_76_m2_1.webp" alt="Prefabrik ve Ahşap Yapı">
+            </div>
+            <div class="cat-tile-content">
+              <div class="cat-tile-top">
+                <h3 class="cat-tile-title">Prefabrik ve Ahşap Yapı</h3>
+                <span class="cat-tile-count">Sistem Rehberi & Modeller</span>
+              </div>
+              <p class="cat-tile-desc">Fabrikada üretilen panel sistemiyle kısa sürede kurulan, ekonomik ve yüksek izolasyonlu konut çözümleri.</p>
+            </div>
+          </a>
+
+          <a href="celik-konut.html" class="cat-tile">
+            <div class="cat-tile-img">
+              <img src="https://www.modernprefabrik.com.tr/gorseller/all-images/UrunlerDetay/tek_kat_celik/Tek_Kat_Celik_86_m2_1.webp" alt="Çelik Konut">
+            </div>
+            <div class="cat-tile-content">
+              <div class="cat-tile-top">
+                <h3 class="cat-tile-title">Çelik Konut</h3>
+                <span class="cat-tile-count">Mühendislik & Modeller</span>
+              </div>
+              <p class="cat-tile-desc">Hafif çelik karkas taşıyıcı sistemle üretilen, TBDY 2018 deprem yönetmeliğine tam uyumlu 50 yıl garantili villalar.</p>
+            </div>
+          </a>
+
+          <a href="ofis-yapilari.html" class="cat-tile">
+            <div class="cat-tile-img">
+              <img src="https://www.modernprefabrik.com.tr/gorseller/all-images/UrunlerDetay/ofis_yapilari/Ofis_Yapilari_Tek_Kat_143_m2_1.webp" alt="Ofis Yapıları">
+            </div>
+            <div class="cat-tile-content">
+              <div class="cat-tile-top">
+                <h3 class="cat-tile-title">Ofis Yapıları</h3>
+                <span class="cat-tile-count">Modüler Sistem Rehberi</span>
+              </div>
+              <p class="cat-tile-desc">Şantiye ofisi, satış ofisi ve idari bina ihtiyaçları için modüler, taşınabilir ve hızlı kurulan çalışma yapıları.</p>
+            </div>
+          </a>
+
+          <a href="betonarme-yapilar.html" class="cat-tile">
+            <div class="cat-tile-img">
+              <img src="images/products/betonarme_modern_lux_villa_ai.webp?v=ai_villa_2026" alt="Betonarme Yapılar">
+            </div>
+            <div class="cat-tile-content">
+              <div class="cat-tile-top">
+                <h3 class="cat-tile-title">Betonarme Yapılar</h3>
+                <span class="cat-tile-count">Özel Proje & Rehber</span>
+              </div>
+              <p class="cat-tile-desc">Arsanıza özel mimari ve statik projelendirme, deprem yönetmeliğine tam uyumlu C30/C35 karkas ve anahtar teslim villa yapım süreci.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STATS BAR -->
+    <section class="mp-stats-bar">
+      <div class="mp-stats-grid">
+        <div class="mp-stat-item">
+          <div class="stat-number">18<span class="stat-unit">yıl</span></div>
+          <div class="stat-label">Sektör Deneyimi</div>
+        </div>
+        <div class="mp-stat-item">
+          <div class="stat-number">1.400<span class="stat-unit">+</span></div>
+          <div class="stat-label">Teslim Edilen Yapı</div>
+        </div>
+        <div class="mp-stat-item">
+          <div class="stat-number">81<span class="stat-unit">il</span></div>
+          <div class="stat-label">Montaj & Kurulum Ağı</div>
+        </div>
+        <div class="mp-stat-item">
+          <div class="stat-number">12.000<span class="stat-unit">m²</span></div>
+          <div class="stat-label">Kapalı Üretim Alanı</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED MODELS GRID -->
+    <section class="section-wrap bg-alt">
+      <div class="container">
+        <div class="section-header-wrap">
+          <div>
+            <span class="section-tag">Öne Çıkan Modeller</span>
+            <h2 class="section-title">En çok tercih edilen planlar</h2>
+            <p class="section-desc">Metrekare, oda sayısı ve bütçeye göre en sık seçilen modelleri bir araya getirdik. Beğendiğiniz model için anında WhatsApp üzerinden teklif alın.</p>
+          </div>
+          <a href="urunler.html" class="link-detail" style="font-size: 14.5px;">Tüm Modelleri Gör →</a>
+        </div>
+
+        <div class="products-grid" id="featured-products-container">
+          <!-- Populated dynamically via JS from PRODUCTS_DATA -->
+        </div>
+      </div>
+    </section>
+
+    <!-- REFERENCE PROJECTS SECTION -->
+    <section class="section-wrap">
+      <div class="container">
+        <div class="section-header-wrap">
+          <div>
+            <span class="section-tag">Referans Projeler</span>
+            <h2 class="section-title">Teslim ettiğimiz yapılar</h2>
+            <p class="section-desc">İzmir, Balıkesir, Tekirdağ ve Türkiye genelinde anahtar teslim tamamladığımız işlerden bir seçki.</p>
+          </div>
+          <a href="projeler.html" class="link-detail" style="font-size: 14.5px;">Tüm Projelerimiz →</a>
+        </div>
+
+        <div class="projects-grid-featured">
+          
+          <!-- PROJE 1: URLA 140 m2 COUNTRY MALİKANE -->
+          <div class="project-card-interactive">
+            <div class="project-slider-wrap" data-current="0" data-total="5">
+              <div class="project-slider-track">
+                <div class="project-slide-item active"><img src="images/projeler/p10_01.webp" alt="Urla 140 m² Country Malikane" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p10_02.webp" alt="Geniş Bahçe ve Taş Duvar Görünümü" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p10_03.webp" alt="Geniş Veranda ve Ahşap Korkuluklar" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p10_04.webp" alt="Dekoratif Ahşap Saçak ve Konsol İşçiliği" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p10_05.webp" alt="Yan Cephe Çatı ve Ahşap Detayları" loading="lazy"></div>
+              </div>
+              <div class="slider-status-badge">✓ Teslim Edildi</div>
+              <div class="slider-counter-badge">📷 <span class="cur-idx">1</span> / 5</div>
+              <button class="slider-arrow-btn prev" onclick="slideProject(this, -1)" aria-label="Önceki Görsel">‹</button>
+              <button class="slider-arrow-btn next" onclick="slideProject(this, 1)" aria-label="Sonraki Görsel">›</button>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-meta-row">
+                <span class="project-location">Urla / İzmir</span>
+                <span style="font-size: 12px; color: var(--color-accent); font-weight: 700;">★ Anahtar Teslim</span>
+              </div>
+              <h3 class="project-card-title">140 m² Verandalı Ege Country Malikane</h3>
+              <p class="project-card-desc">
+                Doğal taş istinat duvarı üzerinde inşa edilen projemiz; geleneksel ahşap saçak oymaları, dekoratif konsolları ve geniş ön verandasıyla anahtar teslim tamamlanmıştır.
+              </p>
+              <div class="project-card-features">
+                <span class="project-feat-tag">📐 140 m² Yaşam</span>
+                <span class="project-feat-tag">🌿 35 m² Ahşap Veranda</span>
+                <span class="project-feat-tag">🏛️ Doğal Taş Duvar</span>
+                <span class="project-feat-tag">⏱️ 6 Hafta Teslim</span>
+              </div>
+              <div class="project-card-footer">
+                <div style="font-size: 12px; color: var(--color-text-muted);">Durum: <strong>Kullanımda</strong></div>
+                <a href="https://wa.me/905314558585?text=Merhaba,%20Urla%20140%20m2%20country%20malikane%20projeniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-card-wa" style="font-size: 13px; padding: 8px 14px;">💬 Fiyat Teklifi Al</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJE 2: ÇEŞME A-FRAME LOFT DAĞ EVİ -->
+          <div class="project-card-interactive">
+            <div class="project-slider-wrap" data-current="0" data-total="6">
+              <div class="project-slider-track">
+                <div class="project-slide-item active"><img src="images/projeler/p7_01.webp" alt="Çeşme A-Frame - Gece Işıklandırmalı Ön Cephe" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p7_02.webp" alt="İç Mekan Asma Kat Loft ve Sarkıt Avizeler" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p7_03.webp" alt="Gündüz Görünümü ve Kenet Sac Çatı" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p7_04.webp" alt="Üçgen Camdan Dış Manzara Perspektifi" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p7_05.webp" alt="Loft Galeri Boşluğu ve Ahşap Lambri" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p7_06.webp" alt="Asma Kat Yatak Odası ve Üçgen Pencere" loading="lazy"></div>
+              </div>
+              <div class="slider-status-badge">✓ Teslim Edildi</div>
+              <div class="slider-counter-badge">📷 <span class="cur-idx">1</span> / 6</div>
+              <button class="slider-arrow-btn prev" onclick="slideProject(this, -1)" aria-label="Önceki Görsel">‹</button>
+              <button class="slider-arrow-btn next" onclick="slideProject(this, 1)" aria-label="Sonraki Görsel">›</button>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-meta-row">
+                <span class="project-location">Çeşme / İzmir</span>
+                <span style="font-size: 12px; color: var(--color-accent); font-weight: 700;">★ Özel Konsept</span>
+              </div>
+              <h3 class="project-card-title">65 m² İskandinav A-Frame Loft Dağ Evi</h3>
+              <p class="project-card-desc">
+                Tamamı üçgen çift cam cepheli çağdaş A-frame konseptimiz; masif ahşap asma kat loft alanı, modern sarkıt lambaları ve büyüleyici gece dış ışıklandırmasıyla 4 haftada teslim edilmiştir.
+              </p>
+              <div class="project-card-features">
+                <span class="project-feat-tag">📐 65 m² Taban+Loft</span>
+                <span class="project-feat-tag">🪟 Üçgen Cam Cephe</span>
+                <span class="project-feat-tag">🪜 Masif Asma Kat</span>
+                <span class="project-feat-tag">⏱️ 4 Hafta Teslim</span>
+              </div>
+              <div class="project-card-footer">
+                <div style="font-size: 12px; color: var(--color-text-muted);">Durum: <strong>Kullanımda</strong></div>
+                <a href="https://wa.me/905314558585?text=Merhaba,%20Çeşme%20A-Frame%20üçgen%20dağ%20evi%20projeniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-card-wa" style="font-size: 13px; padding: 8px 14px;">💬 Fiyat Teklifi Al</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJE 3: MENDERES AHŞAP TERASLI MODERN KONUT -->
+          <div class="project-card-interactive">
+            <div class="project-slider-wrap" data-current="0" data-total="3">
+              <div class="project-slider-track">
+                <div class="project-slide-item active"><img src="images/projeler/p3_02.webp" alt="Menderes 125 m² - Gün Batımında Ahşap Teras" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p3_01.webp" alt="Masif Ahşap Deck Veranda ve Pergola" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p3_03.webp" alt="Pergola Altından Teras ve Bahçe Açısı" loading="lazy"></div>
+              </div>
+              <div class="slider-status-badge">✓ Teslim Edildi</div>
+              <div class="slider-counter-badge">📷 <span class="cur-idx">1</span> / 3</div>
+              <button class="slider-arrow-btn prev" onclick="slideProject(this, -1)" aria-label="Önceki Görsel">‹</button>
+              <button class="slider-arrow-btn next" onclick="slideProject(this, 1)" aria-label="Sonraki Görsel">›</button>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-meta-row">
+                <span class="project-location">Menderes / İzmir</span>
+                <span style="font-size: 12px; color: var(--color-accent); font-weight: 700;">★ Anahtar Teslim</span>
+              </div>
+              <h3 class="project-card-title">125 m² Ahşap Deck Teraslı Modern Konut</h3>
+              <p class="project-card-desc">
+                Gün batımında benzersiz bir görsel şölen sunan devasa masif ahşap deck verandası, ahşap pergola sistemi ve yüksek izolasyonlu dış cephesiyle doğanın kalbinde huzurlu bir yaşam.
+              </p>
+              <div class="project-card-features">
+                <span class="project-feat-tag">📐 125 m² Net Alan</span>
+                <span class="project-feat-tag">🌿 42 m² Deck Veranda</span>
+                <span class="project-feat-tag">🪵 Ahşap Pergola</span>
+                <span class="project-feat-tag">⏱️ 5 Hafta Teslim</span>
+              </div>
+              <div class="project-card-footer">
+                <div style="font-size: 12px; color: var(--color-text-muted);">Durum: <strong>Kullanımda</strong></div>
+                <a href="https://wa.me/905314558585?text=Merhaba,%20Menderes'teki%20125%20m2%20ahşap%20teraslı%20modern%20konut%20projeniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-card-wa" style="font-size: 13px; padding: 8px 14px;">💬 Fiyat Teklifi Al</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJE 4: SEFERİHİSAR 2 KATLI VİLLA -->
+          <div class="project-card-interactive">
+            <div class="project-slider-wrap" data-current="0" data-total="5">
+              <div class="project-slider-track">
+                <div class="project-slide-item active"><img src="images/projeler/p5_02.webp" alt="Seferihisar 2 Katlı Villa - Beyaz Pergola ve Veranda" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p5_01.webp" alt="Yan Açıdan Beyaz Pergolalı Teras" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p5_03.webp" alt="Arka Cephe ve Beşik Çatı Mimarisi" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p5_04.webp" alt="Ön Giriş Kapısı, Sundurma ve Merdivenler" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p5_05.webp" alt="Geniş Bahçeden 2 Katlı Villa Görünümü" loading="lazy"></div>
+              </div>
+              <div class="slider-status-badge">✓ Teslim Edildi</div>
+              <div class="slider-counter-badge">📷 <span class="cur-idx">1</span> / 5</div>
+              <button class="slider-arrow-btn prev" onclick="slideProject(this, -1)" aria-label="Önceki Görsel">‹</button>
+              <button class="slider-arrow-btn next" onclick="slideProject(this, 1)" aria-label="Sonraki Görsel">›</button>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-meta-row">
+                <span class="project-location">Seferihisar / İzmir</span>
+                <span style="font-size: 12px; color: var(--color-accent); font-weight: 700;">★ Dubleks Villa</span>
+              </div>
+              <h3 class="project-card-title">155 m² Amerikan Siding 2 Katlı Villa</h3>
+              <p class="project-card-desc">
+                Beşik çatılı klasik Amerikan mimarisi; bembeyaz pergola sundurması, ahşap basamaklı giriş verandası ve ferah iç mekan dağılımıyla aileler için kalıcı bir yaşam alanı.
+              </p>
+              <div class="project-card-features">
+                <span class="project-feat-tag">📐 155 m² Dubleks</span>
+                <span class="project-feat-tag">🤍 Beyaz Ahşap Pergola</span>
+                <span class="project-feat-tag">🏡 Yalıtımlı Siding</span>
+                <span class="project-feat-tag">⏱️ 7 Hafta Teslim</span>
+              </div>
+              <div class="project-card-footer">
+                <div style="font-size: 12px; color: var(--color-text-muted);">Durum: <strong>Kullanımda</strong></div>
+                <a href="https://wa.me/905314558585?text=Merhaba,%20Seferihisar%20155%20m2%202%20katlı%20Amerikan%20siding%20villa%20projeniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-card-wa" style="font-size: 13px; padding: 8px 14px;">💬 Fiyat Teklifi Al</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJE 5: BORNOVA ÇİFT KATLI MASİF AHŞAP KIR VİLLASI -->
+          <div class="project-card-interactive">
+            <div class="project-slider-wrap" data-current="0" data-total="4">
+              <div class="project-slider-track">
+                <div class="project-slide-item active"><img src="images/projeler/p9_01.webp" alt="Bornova Ahşap Kır Villası - Çitli Bahçe ve Üst Balkon" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p9_02.webp" alt="Giriş Kapısı ve Çim Bahçe Perspektifi" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p9_03.webp" alt="Ahşap Cephe Yakın Detay" loading="lazy"></div>
+                <div class="project-slide-item"><img src="images/projeler/p9_04.webp" alt="Doğal Ağaçlar İçinde 2 Katlı Ahşap Ev" loading="lazy"></div>
+              </div>
+              <div class="slider-status-badge">✓ Teslim Edildi</div>
+              <div class="slider-counter-badge">📷 <span class="cur-idx">1</span> / 4</div>
+              <button class="slider-arrow-btn prev" onclick="slideProject(this, -1)" aria-label="Önceki Görsel">‹</button>
+              <button class="slider-arrow-btn next" onclick="slideProject(this, 1)" aria-label="Sonraki Görsel">›</button>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-meta-row">
+                <span class="project-location">Bornova / İzmir</span>
+                <span style="font-size: 12px; color: var(--color-accent); font-weight: 700;">★ Ahşap Karkas</span>
+              </div>
+              <h3 class="project-card-title">130 m² Çift Katlı Masif Ahşap Dağ Villası</h3>
+              <p class="project-card-desc">
+                Doğal çam ahşap kaplamalı iki katlı dağ evi; üst kat panoramik seyir balkonu, yemyeşil çim bahçesi ve çevre güvenlik çitiyle doğayla baş başa konfor sunuyor.
+              </p>
+              <div class="project-card-features">
+                <span class="project-feat-tag">📐 130 m² Çift Katlı</span>
+                <span class="project-feat-tag">🪵 Masif Çam Doku</span>
+                <span class="project-feat-tag">🌄 Üst Seyir Balkonu</span>
+                <span class="project-feat-tag">⏱️ 6 Hafta Teslim</span>
+              </div>
+              <div class="project-card-footer">
+                <div style="font-size: 12px; color: var(--color-text-muted);">Durum: <strong>Kullanımda</strong></div>
+                <a href="https://wa.me/905314558585?text=Merhaba,%20Bornova%20130%20m2%20ahşap%20kır%20villası%20projeniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-card-wa" style="font-size: 13px; padding: 8px 14px;">💬 Fiyat Teklifi Al</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PROJE 6: URLA MODERNİST SİYAH-BEYAZ LÜKS DUBLEKS VİLLA -->
+          <div class="project-card-interactive">
+            <div class="project-slider-wrap" data-current="0" data-total="1">
+              <div class="project-slider-track">
+                <div class="project-slide-item active"><img src="images/projeler/p11_01.webp" alt="Urla Modernist Lüks Dubleks Villa" loading="lazy"></div>
+              </div>
+              <div class="slider-status-badge">✓ Teslim Edildi</div>
+              <div class="slider-counter-badge">📷 1 / 1</div>
+            </div>
+            <div class="project-card-body">
+              <div class="project-card-meta-row">
+                <span class="project-location">Urla / İzmir</span>
+                <span style="font-size: 12px; color: var(--color-accent); font-weight: 700;">★ Modernist Mimari</span>
+              </div>
+              <h3 class="project-card-title">175 m² Modernist Siyah-Beyaz Dubleks Villa</h3>
+              <p class="project-card-desc">
+                Minimalist çağdaş mimarinin örneği olan dubleks villamız; keskin siyah kolonları, geniş saçak çıkmaları, kanton balkonları ve ferah cam açıklıklarıyla lüks yaşam standartlarını arsanıza taşır.
+              </p>
+              <div class="project-card-features">
+                <span class="project-feat-tag">📐 175 m² Dubleks</span>
+                <span class="project-feat-tag">🏛️ Modernist Tasarım</span>
+                <span class="project-feat-tag">🖤 Siyah Kolon Vurgusu</span>
+                <span class="project-feat-tag">⏱️ 8 Hafta Teslim</span>
+              </div>
+              <div class="project-card-footer">
+                <div style="font-size: 12px; color: var(--color-text-muted);">Durum: <strong>Kullanımda</strong></div>
+                <a href="https://wa.me/905314558585?text=Merhaba,%20Urla%20175%20m2%20modernist%20siyah-beyaz%20villa%20projeniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-card-wa" style="font-size: 13px; padding: 8px 14px;">💬 Fiyat Teklifi Al</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW OUTDOOR & LANDSCAPE SHOWCASE ON HOMEPAGE -->
+    <section class="section-wrap" style="background: #FFFFFF; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+      <div class="container">
+        <div class="section-header-wrap">
+          <div>
+            <span class="section-tag" style="color: var(--color-accent);">Açık Hava & Bahçe Yaşamı</span>
+            <h2 class="section-title">Evinizle Bütünleşen Peyzaj & Ateş Çukuru Çözümleri</h2>
+            <p class="section-desc">Sadece dört duvar değil; taş fırınları, açık hava mutfakları, gömme ateş çukurları ve özel botanik bahçe peyzajıyla eksiksiz bir yaşam alanı kuruyoruz.</p>
+          </div>
+          <a href="projeler.html#peyzaj-bolumu" class="link-detail" style="font-size: 14.5px;">Tüm Peyzaj Galerisi (20 Görsel) →</a>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 28px;">
+          <a href="projeler.html#peyzaj-bolumu" style="text-decoration: none; color: inherit; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); background: #F8FAFC; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="height: 190px; overflow: hidden; position: relative;">
+              <span style="position: absolute; top: 10px; left: 10px; background: rgba(15,23,42,0.85); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 20px;">✨ Gece Işıklandırmalı</span>
+              <img src="images/peyzaj/peyzaj_11.webp" alt="Taş Fırın ve Açık Hava Mutfak" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="padding: 16px;">
+              <h4 style="font-size: 15px; font-weight: 700; color: var(--color-primary); margin-bottom: 4px;">Açık Hava Mutfağı & Taş Fırın</h4>
+              <p style="font-size: 12.5px; color: var(--color-text-muted); margin: 0;">Doğal taş duvar önünde ahşap deck yürüyüş yolları ve ışıklandırmalı açık hava mutfağı.</p>
+            </div>
+          </a>
+
+          <a href="projeler.html#peyzaj-bolumu" style="text-decoration: none; color: inherit; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); background: #F8FAFC; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="height: 190px; overflow: hidden; position: relative;">
+              <span style="position: absolute; top: 10px; left: 10px; background: rgba(15,23,42,0.85); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 20px;">🔥 Ateş Çukuru</span>
+              <img src="images/peyzaj/peyzaj_01.webp" alt="Gömme Ahşap Lounge Ateş Çukuru" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="padding: 16px;">
+              <h4 style="font-size: 15px; font-weight: 700; color: var(--color-primary); margin-bottom: 4px;">Gömme Ahşap Lounge & Ateş Çukuru</h4>
+              <p style="font-size: 12.5px; color: var(--color-text-muted); margin: 0;">Masif ahşap kademeli gömme oturma alanı, minder konforu ve ortada doğal taş ateş çukuru.</p>
+            </div>
+          </a>
+
+          <a href="projeler.html#peyzaj-bolumu" style="text-decoration: none; color: inherit; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); background: #F8FAFC; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="height: 190px; overflow: hidden; position: relative;">
+              <span style="position: absolute; top: 10px; left: 10px; background: rgba(15,23,42,0.85); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 20px;">🌵 Kaya Bahçesi</span>
+              <img src="images/peyzaj/peyzaj_12.webp" alt="Gece Aydınlatmalı Kaktüs ve Kaya Bahçesi" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="padding: 16px;">
+              <h4 style="font-size: 15px; font-weight: 700; color: var(--color-primary); margin-bottom: 4px;">Kaktüs & Kaya Bahçesi Peyzajı</h4>
+              <p style="font-size: 12.5px; color: var(--color-text-muted); margin: 0;">Duvar aplikleri ve spotlarla aydınlatılmış egzotik kaktüs ve beyaz dolomit taş bahçesi.</p>
+            </div>
+          </a>
+
+          <a href="projeler.html#peyzaj-bolumu" style="text-decoration: none; color: inherit; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border); background: #F8FAFC; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+            <div style="height: 190px; overflow: hidden; position: relative;">
+              <span style="position: absolute; top: 10px; left: 10px; background: rgba(15,23,42,0.85); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 20px;">🔥 Taş Ateş Çukuru</span>
+              <img src="images/peyzaj/peyzaj_03.webp" alt="Kavisli Taş Sedirli Ateş Çukuru" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="padding: 16px;">
+              <h4 style="font-size: 15px; font-weight: 700; color: var(--color-primary); margin-bottom: 4px;">Kavisli Taş Sedirli Ateş Alanı</h4>
+              <p style="font-size: 12.5px; color: var(--color-text-muted); margin: 0;">Taş duvar örgülü yarım ay sedir ve granit parke taş zeminli sıcak akşam buluşma noktası.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US SECTION -->
+    <section class="section-wrap bg-alt">
+      <div class="container">
+        <div class="why-grid">
+          <div>
+            <span class="section-tag">Neden 3K Emir Yapı?</span>
+            <h2 class="section-title">Söz verdiğimiz tarihte, söz verdiğimiz sabit maliyetle.</h2>
+            <p class="section-desc" style="margin-bottom: 24px;">
+              Prefabrik ve çelik yapı sektöründe en sık yaşanan sorun, teklifte belirtilmeyen ek maliyetlerin çıkması ve teslim tarihinin aylarca sarkmasıdır. 3K Emir Yapı olarak her iki maddeyi de sözleşmemize açıkça taahhüt ediyoruz.
+            </p>
+            <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+              <a href="kurumsal.html" class="btn-call" style="background: #FFFFFF; color: var(--color-primary); border: 1px solid var(--color-border);">
+                Kurumsal Bilgiler →
+              </a>
+              <a href="https://wa.me/905314558585?text=Merhaba,%20arsa%20keşif%20talebinde%20bulunmak%20istiyorum." target="_blank" class="btn-hero-primary" style="padding: 10px 24px;">
+                Ücretsiz Keşif İste
+              </a>
+            </div>
+          </div>
+
+          <div class="why-cards">
+            <div class="why-card">
+              <div class="why-icon">⏱️</div>
+              <h3 class="why-title">Kısa Sürede Teslim</h3>
+              <p class="why-desc">Fabrika imalatı ve saha zemin hazırlığı paralel yürür; klasik betonarmeye göre 3 kat hızlı tamamlanır.</p>
+            </div>
+
+            <div class="why-card">
+              <div class="why-icon">📝</div>
+              <h3 class="why-title">Net Fiyat, Net Kapsam</h3>
+              <p class="why-desc">Teklifte dahil ve hariç olan tüm kalemler yazılıdır. Şantiye esnasında sürpriz fatura çıkmaz.</p>
+            </div>
+
+            <div class="why-card">
+              <div class="why-icon">🛡️</div>
+              <h3 class="why-title">Deprem Yönetmeliğine Uygun</h3>
+              <p class="why-desc">Statik hesaplamalar güncel Türkiye Bina Deprem Yönetmeliği'ne göre bilgisayar destekli CAD ile çözümlenir.</p>
+            </div>
+
+            <div class="why-card">
+              <div class="why-icon">🏭</div>
+              <h3 class="why-title">Kendi Üretim Tesisimiz</h3>
+              <p class="why-desc">Üretim fason değil Menderes / İzmir entegre tesislerimizde gerçekleştirilir; kalite doğrudan kontrol altındadır.</p>
+            </div>
+
+            <div class="why-card">
+              <div class="why-icon">🚚</div>
+              <h3 class="why-title">Türkiye Geneli Montaj</h3>
+              <p class="why-desc">Kendi uzman ekiplerimizle 81 ilde kurulum yapıyoruz. Nakliye ve montaj koordinasyonu tek elden yürütülür.</p>
+            </div>
+
+            <div class="why-card">
+              <div class="why-icon">📜</div>
+              <h3 class="why-title">50 Yıl Yazılı Garanti</h3>
+              <p class="why-desc">Çelik taşıyıcı karkas sistemde 50 yıl, imalat ve montaj işçiliğinde 2 yıl yazılı garanti belgesi verilir.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5-STEP PRODUCTION PROCESS -->
+    <section class="process-section">
+      <div class="container">
+        <span class="section-tag" style="color: rgba(255, 255, 255, 0.7);">Üretim Süreci</span>
+        <h2 class="section-title" style="color: #FFFFFF;">İlk görüşmeden anahtar teslimine 5 adım</h2>
+        <p class="section-desc" style="color: rgba(255, 255, 255, 0.65);">
+          Süreç boyunca tek bir mimari proje sorumlusuyla muhatap olursunuz. Her adım yazılı ve şeffaftır.
+        </p>
+
+        <div class="process-grid">
+          <div class="process-card">
+            <span class="process-step-num">01</span>
+            <h3 class="process-card-title">Keşif ve İhtiyaç Analizi</h3>
+            <p class="process-card-desc">Arsanızın konumu, imar durumu ve kullanım amacınız değerlendirilir. Bütçe ve teslim beklentisi netleştirilir.</p>
+          </div>
+
+          <div class="process-card">
+            <span class="process-step-num">02</span>
+            <h3 class="process-card-title">Proje ve Statik Hesap</h3>
+            <p class="process-card-desc">Seçilen model arsanıza göre uyarlanır. Deprem yönetmeliğine uygun statik ve mimari projeler çizilir.</p>
+          </div>
+
+          <div class="process-card">
+            <span class="process-step-num">03</span>
+            <h3 class="process-card-title">Fabrika Üretimi</h3>
+            <p class="process-card-desc">Taşıyıcı çelik profiller, yalıtımlı duvar panelleri ve doğramalar kapalı tesisimizde milimetrik imal edilir.</p>
+          </div>
+
+          <div class="process-card">
+            <span class="process-step-num">04</span>
+            <h3 class="process-card-title">Saha Montajı</h3>
+            <p class="process-card-desc">Zemin betonu hazır olduğunda yapı sahaya sevk edilir. Kendi profesyonel ekiplerimiz karkas ve panelleri kurar.</p>
+          </div>
+
+          <div class="process-card">
+            <span class="process-step-num">05</span>
+            <h3 class="process-card-title">İç İmalat ve Teslim</h3>
+            <p class="process-card-desc">Tesisat bağlantıları, iç kaplamalar ve son kontroller tamamlanarak anahtarınız garanti belgesiyle teslim edilir.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <!-- FLOATING BOTTOM CLIENT HELPER -->
-  <div class="floating-hint-bar" id="hint-bar">
-    <span>💡 <strong>Sunum İpucu:</strong> Yukarıdan <strong>Demo 1</strong> ve <strong>Demo 2</strong> arasında geçiş yaparak müşterinize iki farklı vizyonu canlı olarak sunabilirsiniz.</span>
-    <button class="hint-close-btn" onclick="document.getElementById('hint-bar').style.display='none'" title="Kapat">✕</button>
+  <!-- FOOTER -->
+  <footer class="mp-footer">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" style="display: inline-block; margin-bottom: 12px;">
+          <img src="images/logo.png" alt="3K Emir Yapı Group" style="height: 46px; width: auto; display: block;">
+        </a>
+        <div class="footer-brand-title">3K EMİR YAPI GROUP</div>
+        <p class="footer-desc">
+          İzmir / Menderes merkezli üretim tesislerimizde yüksek kaliteli hafif çelik konutlar, prefabrik evler, ofis ve ticari modüler yapılar inşa ediyoruz.
+        </p>
+        <div style="display: flex; gap: 12px;">
+          <a href="https://wa.me/905314558585" target="_blank" class="btn-whatsapp-header" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.08C8.94 7.08 8.66 7.15 8.42 7.41C8.18 7.66 7.5 8.3 7.5 9.61C7.5 10.92 8.45 12.18 8.59 12.36C8.73 12.53 10.45 15.19 13.1 16.33C13.73 16.6 14.22 16.76 14.6 16.88C15.23 17.08 15.8 17.05 16.26 16.98C16.77 16.9 17.83 16.34 18.05 15.71C18.28 15.08 18.28 14.54 18.21 14.43C18.14 14.32 17.97 14.25 17.71 14.12C17.46 14 16.2 13.38 15.97 13.3C15.74 13.21 15.57 13.17 15.41 13.42C15.24 13.67 14.76 14.25 14.61 14.42C14.47 14.59 14.33 14.61 14.07 14.48C13.82 14.36 13.01 14.09 12.04 13.23C11.29 12.56 10.78 11.73 10.63 11.48C10.49 11.23 10.62 11.09 10.74 10.97C10.86 10.86 11 10.68 11.13 10.54C11.26 10.4 11.3 10.3 11.39 10.13C11.47 9.96 11.43 9.81 11.37 9.69C11.31 9.56 10.82 8.35 10.61 7.86C10.41 7.37 10.21 7.44 10.05 7.43C9.91 7.43 9.74 7.42 9.57 7.42C9.4 7.42 9.11 7.08 9.11 7.08Z"/></svg><span>WhatsApp Teklifi</span></a>
+          <a href="tel:05314558585" class="btn-call" style="padding: 8px 16px; font-size: 12.5px; background: rgba(255,255,255,0.1);">
+            0531 455 85 85
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Modellerimiz</h4>
+        <ul class="footer-links">
+          <li><a href="urunler.html?kategori=tek-kat-prefabrik">Tek Kat Prefabrik</a></li>
+          <li><a href="urunler.html?kategori=cift-kat-prefabrik">Çift Kat Prefabrik</a></li>
+          <li><a href="urunler.html?kategori=tek-kat-celik">Tek Kat Çelik Ev</a></li>
+          <li><a href="urunler.html?kategori=cift-kat-celik">Çift Kat Çelik Villa</a></li>
+          <li><a href="betonarme-yapilar.html">Betonarme Yapılar</a></li>
+          <li><a href="urunler.html?kategori=ofis-yapilari">Ofis & Şantiye Yapıları</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Kurumsal</h4>
+        <ul class="footer-links">
+          <li><a href="kurumsal.html">Hakkımızda</a></li>
+          <li><a href="projeler.html">Projelerimiz</a></li>
+          <li><a href="rehber.html">Yapı Rehberi</a></li>
+          <li><a href="sss.html">Sık Sorulan Sorular</a></li>
+          <li><a href="iletisim.html">İletişim & Keşif</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">İletişim & Üretim</h4>
+        <div class="footer-contact-block">
+          <a href="tel:05314558585" class="footer-phone-big">0531 455 85 85</a>
+          <p class="footer-address">
+            📍 Üretim & Merkez Ofis: Menderes / İzmir<br>
+            🕒 Çalışma Saatleri: Pazartesi - Pazar: 09:00 - 19:30<br>
+            ✉️ info@3kemiryapi.com
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 3K EMİR YAPI. Tüm hakları saklıdır.</div>
+      <div>Türkiye & Ege Bölgesi Geneli Anahtar Teslim Prefabrik ve Çelik Yapı Üretimi</div>
+    </div>
+  </footer>
+
+  <!-- FLOATING MOBILE WHATSAPP ICON -->
+  <div class="floating-mobile-bar">
+    <a href="https://wa.me/905314558585?text=Merhaba,%20bilgi%20ve%20fiyat%20teklifi%20almak%20istiyorum." target="_blank" class="mobile-bar-btn wa" aria-label="WhatsApp">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.08C8.94 7.08 8.66 7.15 8.42 7.41C8.18 7.66 7.5 8.3 7.5 9.61C7.5 10.92 8.45 12.18 8.59 12.36C8.73 12.53 10.45 15.19 13.1 16.33C13.73 16.6 14.22 16.76 14.6 16.88C15.23 17.08 15.8 17.05 16.26 16.98C16.77 16.9 17.83 16.34 18.05 15.71C18.28 15.08 18.28 14.54 18.21 14.43C18.14 14.32 17.97 14.25 17.71 14.12C17.46 14 16.2 13.38 15.97 13.3C15.74 13.21 15.57 13.17 15.41 13.42C15.24 13.67 14.76 14.25 14.61 14.42C14.47 14.59 14.33 14.61 14.07 14.48C13.82 14.36 13.01 14.09 12.04 13.23C11.29 12.56 10.78 11.73 10.63 11.48C10.49 11.23 10.62 11.09 10.74 10.97C10.86 10.86 11 10.68 11.13 10.54C11.26 10.4 11.3 10.3 11.39 10.13C11.47 9.96 11.43 9.81 11.37 9.69C11.31 9.56 10.82 8.35 10.61 7.86C10.41 7.37 10.21 7.44 10.05 7.43C9.91 7.43 9.74 7.42 9.57 7.42C9.4 7.42 9.11 7.08 9.11 7.08Z"/></svg>
+    </a>
   </div>
-
-  <!-- JAVASCRIPT CONTROLLER -->
-  <script>
-    let activeDemo = 1;
-    let activeDevice = 'desktop';
-
-    const btnDemo1 = document.getElementById('btn-demo-1');
-    const btnDemo2 = document.getElementById('btn-demo-2');
-    const btnDemo3 = document.getElementById('btn-demo-3');
-    const iframe = document.getElementById('main-frame');
-    const directLink = document.getElementById('link-direct-open');
-    const waBtn = document.getElementById('btn-wa-select');
-    const waLabel = document.getElementById('wa-text-label');
-    const stage = document.getElementById('stage');
-    const btnDevDesk = document.getElementById('btn-dev-desk');
-    const btnDevMob = document.getElementById('btn-dev-mob');
-
-    function switchDemo(num) {
-      activeDemo = num;
-      btnDemo1.classList.remove('active');
-      btnDemo2.classList.remove('active');
-      btnDemo3.classList.remove('active');
-
-      if (num === 1) {
-        btnDemo1.classList.add('active');
-        iframe.src = 'demo1.html';
-        directLink.href = 'demo1.html';
-        waBtn.href = 'https://wa.me/905314558585?text=' + encodeURIComponent('Merhaba, 3K Emir Yapı sunumundaki Demo 1 (3D Timelapse) tasarımını beğendim, detayları görüşmek istiyorum.');
-        waLabel.textContent = 'Demo 1\'i Onayla';
-        window.location.hash = 'demo=1';
-      } else if (num === 2) {
-        btnDemo2.classList.add('active');
-        iframe.src = 'demo2.html';
-        directLink.href = 'demo2.html';
-        waBtn.href = 'https://wa.me/905314558585?text=' + encodeURIComponent('Merhaba, 3K Emir Yapı sunumundaki Demo 2 (Lüks Atölye & Kat Planları) tasarımını beğendim, detayları görüşmek istiyorum.');
-        waLabel.textContent = 'Demo 2\'yi Onayla';
-        window.location.hash = 'demo=2';
-      } else if (num === 3) {
-        btnDemo3.classList.add('active');
-        iframe.src = '3k-modern/index.html';
-        directLink.href = '3k-modern/index.html';
-        waBtn.href = 'https://wa.me/905314558585?text=' + encodeURIComponent('Merhaba, 3K Emir Yapı sunumundaki Demo 3 (Modern Prefabrik Kurumsal) tasarımını beğendim, detayları görüşmek istiyorum.');
-        waLabel.textContent = 'Demo 3\'ü Onayla';
-        window.location.hash = 'demo=3';
-      }
-    }
-
-    function setDeviceMode(mode) {
-      activeDevice = mode;
-      if (mode === 'mobile') {
-        stage.classList.add('mobile-mode');
-        btnDevMob.classList.add('active');
-        btnDevDesk.classList.remove('active');
-      } else {
-        stage.classList.remove('mobile-mode');
-        btnDevDesk.classList.add('active');
-        btnDevMob.classList.remove('active');
-      }
-    }
-
-    /* URL Hash detection on load */
-    window.addEventListener('DOMContentLoaded', () => {
-      const hash = window.location.hash.toLowerCase();
-      if (hash.includes('demo=3') || hash.includes('demo3')) {
-        switchDemo(3);
-      } else if (hash.includes('demo=2') || hash.includes('demo2')) {
-        switchDemo(2);
-      } else {
-        switchDemo(1);
-      }
-    });
-
-    /* Auto hide hint bar after 10s */
-    setTimeout(() => {
-      const hb = document.getElementById('hint-bar');
-      if (hb) {
-        hb.style.opacity = '0';
-        setTimeout(() => hb.style.display = 'none', 300);
-      }
-    }, 10000);
-  </script>
-
 </body>
 </html>

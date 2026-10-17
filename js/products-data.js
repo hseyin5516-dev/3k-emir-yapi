@@ -1,0 +1,832 @@
+window.PRODUCTS_DATA = [
+  {
+    "code": "PE-120",
+    "slug": "pe-120",
+    "name": "2+1 Lüks Taş & Ahşap Kaplamalı Çelik Villa 120 m²",
+    "category": "celik-villa",
+    "rootCategory": "celik-villa",
+    "area": 120,
+    "floors": 1,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "veranda": 22,
+    "livingArea": 36,
+    "bedroomArea": 18,
+    "bathroomArea": 7,
+    "price": "840.000 ₺",
+    "image": "images/products/wp_stone_wood_120.webp",
+    "real_image": "images/products/wp_stone_wood_120.jpg",
+    "gallery": [
+      "images/products/wp_stone_wood_120.webp",
+      "images/products/m1_02.webp",
+      "images/products/m1_03.webp",
+      "images/products/m1_04.webp",
+      "images/products/m1_05.webp",
+      "images/products/m1_06.webp"
+    ],
+    "plans": [
+      {
+        "title": "Mimari Kat Planı (120 m²)",
+        "image": "images/products/m1_06.webp",
+        "desc": "Geniş açık mutfaklı salon, 2 ebeveyn yatak odası, lüks banyo ve 22 m² kapalı veranda."
+      }
+    ],
+    "tagline": "Doğal taş ve termo ahşap kaplama, geniş teraslı tek katlı lüks çelik villa",
+    "description": "3K Yapı kalitesiyle üretilen PE-120 modeli; hafif çelik konstrüksiyon karkası üzerine doğal taş ve termowood ahşap kompozit giydirme cephesiyle doğayla tam uyum sağlar. 1. sınıf ses ve ısı yalıtımına sahip 10 cm taş yünü duvar panelleri, antrasit PVC ısıcam pencereler ve geniş teras alanıyla dört mevsim konfor sunar.",
+    "highlights": [
+      "Statik hesaplı galvaniz hafif çelik taşıyıcı karkas (Depreme %100 dayanıklı)",
+      "A1 sınıfı yanmaz taş yünü duvar ve çatı ısı yalıtımı",
+      "Doğal kayrak taş kaplama ve fırınlanmış ahşap detaylar",
+      "22 m² geniş bahçe verandası ve çevre peyzaj aydınlatması",
+      "Çift cam konfor serisi antrasit alüminyum/PVC doğramalar"
+    ],
+    "plan": "PE-120 Kat Planı (120 m²)",
+    "badge": "Öne Çıkan"
+  },
+  {
+    "code": "AE-90",
+    "slug": "ae-90",
+    "name": "2+1 Çift Katlı Taş & Ahşap Dağ Evi 90 m²",
+    "category": "cift-kat-celik",
+    "rootCategory": "cift-kat-celik",
+    "area": 90,
+    "floors": 2,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "veranda": 16,
+    "livingArea": 26,
+    "bedroomArea": 20,
+    "bathroomArea": 6,
+    "price": "790.000 ₺",
+    "image": "images/products/wp_cube_90.webp",
+    "real_image": "images/products/wp_cube_90.jpg",
+    "gallery": [
+      "images/products/wp_cube_90.webp",
+      "images/products/wp_brochure_90.webp",
+      "images/products/wp_brochure_alt_90.webp",
+      "images/products/wp_rooms_90.webp",
+      "images/products/wp_plan_90.webp"
+    ],
+    "plans": [
+      {
+        "title": "AE-90 Alt & Üst Kat Planı (45 m² + 45 m²)",
+        "image": "images/products/wp_plan_90.webp",
+        "desc": "Alt Kat 45 m²: Salon & Açık Mutfak (26 m²), Yatak Odası (12 m²), Banyo (5 m²). Üst Kat 45 m²: Ebeveyn Odası (20 m²), Giyinme Odası (8 m²), Banyo (6 m²), Balkon (6 m²)."
+      }
+    ],
+    "tagline": "Küçük Alanda Büyük Konfor: 45 m² alt kat + 45 m² üst kat taş kaplamalı modern dağ evi",
+    "description": "AE-90 modeli, 3K Yapı'nın en beğenilen çift katlı mimari projelerinden biridir. Alt katta 26 m² ferah salon, açık mutfak, misafir odası ve banyo yer alırken; üst katta 20 m² ebeveyn yatak odası, özel giyinme odası, ebeveyn banyosu ve muhteşem manzaralı 6 m² balkon bulunmaktadır.",
+    "highlights": [
+      "45 m² + 45 m² optimize edilmiş iki katlı çelik karkas mimari",
+      "Ebeveyn süiti: Özel giyinme odası + ebeveyn banyosu + balkon",
+      "Doğal kesme taş duvar kaplaması ve dış cephe aplik aydınlatmaları",
+      "Lamine parke zemin, antrasit bataryalar ve lake iç kapılar",
+      "Enerji verimli yalıtımlı çatı ve zemin panelleri"
+    ],
+    "plan": "AE-90 Kat Planı (Alt 45 m² + Üst 45 m²)",
+    "badge": "En Çok Satan"
+  },
+  {
+    "code": "CV-110",
+    "slug": "cv-110",
+    "name": "3+1 Çift Katlı Göl Manzaralı Modern Çelik Villa 110 m²",
+    "category": "cift-kat-celik",
+    "rootCategory": "cift-kat-celik",
+    "area": 110,
+    "floors": 2,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "veranda": 15,
+    "livingArea": 28.5,
+    "bedroomArea": 16,
+    "bathroomArea": 6,
+    "price": "980.000 ₺",
+    "image": "images/products/wp_lake_110.webp",
+    "real_image": "images/products/wp_lake_110.jpg",
+    "gallery": [
+      "images/products/wp_lake_110.webp",
+      "images/products/wp_brochure_110.webp",
+      "images/products/wp_tech_brochure_110.webp",
+      "images/products/wp_rooms_110.webp",
+      "images/products/wp_plan_110.webp"
+    ],
+    "plans": [
+      {
+        "title": "CV-110 Kat Planı (55 m² + 55 m² | Yükseklik: 6.80 m)",
+        "image": "images/products/wp_plan_110.webp",
+        "desc": "Alt Kat 55 m²: Salon & Mutfak 28.5 m², Yatak Odası 12.5 m², Banyo 5 m², Çift Veranda 15 m². Üst Kat 55 m²: 2 Yatak Odası (16 m² ve 14 m²), Banyo 6 m², Hol 7.5 m², Çift Balkon 10 m²."
+      }
+    ],
+    "tagline": "Modern Yaşam Doğayla Buluştuğu Ev: 6.80 m tavan yüksekliği, çift balkon ve göl manzaralı çelik villa",
+    "description": "3K Yapı'nın amiral gemisi projelerinden CV-110; 55 m² alt kat ve 55 m² üst kat olmak üzere toplam 110 m² net kullanım alanına sahiptir. Alt katta geniş açık mutfaklı salon, bağımsız yatak odası, ön ve arka veradalar bulunurken, üst katta 2 adet geniş yatak odası, her iki odaya özel balkonlar ve merkezi hol yer alır.",
+    "highlights": [
+      "Toplam 6.80 m yapı yüksekliği ve ferah 2.80 m kat tavan yükseklikleri",
+      "3 Yatak Odası + 2 Lüks Banyo/WC + Salon & Açık Mutfak",
+      "Alt katta 15 m² veranda alanı, üst katta çift bağımsız 5 m² balkon",
+      "Doğal taş ve antrasit termowood dış cephe giydirme",
+      "Tüm iç mekan kaplama, zemin, vitrifiye ve armatürler dahil anahtar teslim"
+    ],
+    "plan": "CV-110 Kat Planı (Alt 55 m² + Üst 55 m²)",
+    "badge": "Mimari Ödüllü"
+  },
+  {
+    "code": "MV-165",
+    "slug": "mv-165",
+    "name": "3+1 Yamaç Manzaralı Modern Çelik Villa 165 m²",
+    "category": "celik-villa",
+    "rootCategory": "celik-villa",
+    "area": 165,
+    "floors": 2,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "veranda": 28,
+    "livingArea": 44,
+    "bedroomArea": 22,
+    "bathroomArea": 8,
+    "price": "1.450.000 ₺",
+    "image": "images/products/wp_hillside_165.webp",
+    "real_image": "images/products/wp_hillside_165.jpg",
+    "gallery": [
+      "images/products/wp_hillside_165.webp",
+      "images/products/m6_02.webp",
+      "images/products/m6_03.webp",
+      "images/products/m6_04.webp"
+    ],
+    "plans": [
+      {
+        "title": "MV-165 Çift Katlı Çelik Villa Kat Planı",
+        "image": "images/products/m6_04.webp",
+        "desc": "Panoramik cam cepheli yamaç konsepti, konsol teraslı üst kat, açık mutfak ve ebeveyn süiti."
+      }
+    ],
+    "tagline": "Eğimli arazilere özel konsol teraslı, ahşap ve taş cepheli modern çelik malikane",
+    "description": "3K Emir Yapı imzalı MV-165; yamaç ve dağ arazilerine kusursuz uyum sağlayan özel çelik taşıyıcı mühendisliğe sahiptir. Asimetrik tek eğimli çatısı, tabandan tavana kadar uzanan temperli ısıcam cephesi, geniş cam korkuluklu konsol balkonu ve doğal taş kaplı terasıyla ayrıcalıklı bir yaşam sunar.",
+    "highlights": [
+      "Konsol çelik kirişli geniş manzaralı teras ve balkon",
+      "Tabandan tavana ısıcamlı panoramik alüminyum doğramalar",
+      "Eğimli ve engebeli arazilere uygun özel statik çelik temel projesi",
+      "3K patentli ısı köprüsü kesicili çelik duvar panelleri",
+      "Akıllı ev otomasyonu ve yerden ısıtma altyapısı hazır"
+    ],
+    "plan": "MV-165 Kat Planı (165 m²)",
+    "badge": "Özel Tasarım"
+  },
+  {
+    "code": "PE-180",
+    "slug": "pe-180",
+    "name": "4+1 Kapalı Garajlı Ultra Lüks Çelik Malikane 180 m²",
+    "category": "celik-villa",
+    "rootCategory": "celik-villa",
+    "area": 180,
+    "floors": 2,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "veranda": 25,
+    "livingArea": 50,
+    "bedroomArea": 24,
+    "bathroomArea": 9,
+    "price": "1.750.000 ₺",
+    "image": "images/products/wp_luxury_steel_180.webp",
+    "real_image": "images/products/wp_luxury_steel_180.jpg",
+    "gallery": [
+      "images/products/wp_luxury_steel_180.webp",
+      "images/products/m8_02.webp",
+      "images/products/m8_03.webp",
+      "images/products/m1_06.webp"
+    ],
+    "plans": [
+      {
+        "title": "PE-180 Malikane Kat Planı (180 m²)",
+        "image": "images/products/m1_06.webp",
+        "desc": "Entegre otomatik kepenkli kapalı garaj, galeri boşluklu yüksek tavanlı salon, 4 süit yatak odası."
+      }
+    ],
+    "tagline": "Geniş aileler için kapalı garajlı, galeri boşluklu, ultra lüks 4+1 çelik villa",
+    "description": "Modern mimarinin zirvesi olan PE-180; doğal taş sütunları, yüksek tavanlı galeri boşluğu, entegre kapalı araç garajı ve özel tasarım ebeveyn süitleriyle prestijli bir yaşam vadeder. Üstün çelik mukavemeti ve lüks malzeme seçimiyle 3K Yapı kalitesini yansıtır.",
+    "highlights": [
+      "Entegre kapalı otomatik garaj ve atölye alanı",
+      "Galeri boşluklu 6.20 m tavan yüksekliğine sahip muazzam salon",
+      "4 bağımsız yatak odası (2 ebeveyn banyolu)",
+      "A++ enerji sınıfı yüksek yoğunluklu taş yünü yalıtım",
+      "Geniş peyzaj yürüyüş yolları ve bahçe oturma terası"
+    ],
+    "plan": "PE-180 Malikane Kat Planı (180 m²)",
+    "badge": "Prestij Seri"
+  },
+  {
+    "code": "CV-140",
+    "slug": "cv-140",
+    "name": "3+1 Taş Kuleli Ege & Toskana Konsept Çelik Villa 140 m²",
+    "category": "celik-villa",
+    "rootCategory": "celik-villa",
+    "area": 140,
+    "floors": 2,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "veranda": 20,
+    "livingArea": 35,
+    "bedroomArea": 18,
+    "bathroomArea": 7,
+    "price": "1.180.000 ₺",
+    "image": "images/products/wp_toskana_140.webp",
+    "real_image": "images/products/wp_toskana_140.jpg",
+    "gallery": [
+      "images/products/wp_toskana_140.webp",
+      "images/products/m4_02.webp",
+      "images/products/m4_03.webp",
+      "images/products/m4_04.webp"
+    ],
+    "plans": [
+      {
+        "title": "CV-140 Ege & Toskana Kat Planı (140 m²)",
+        "image": "images/products/m4_04.webp",
+        "desc": "Taş kule içi kemerli pencereli çalışma odası, çiçekli ferforje balkon, geniş salon ve 3 yatak odası."
+      }
+    ],
+    "tagline": "Kemerli pencereler, doğal taş kule ve çiçekli ferforje balkonlu Ege rüyası",
+    "description": "Toskana ve Ege mimarisinin sıcaklığını modern hafif çelik teknolojisiyle birleştiren CV-140; masalsı dış cephesi, doğal taş kule bölümü, kemer pencereleri ve ferforje çiçek balkonlarıyla dikkat çeker.",
+    "highlights": [
+      "El yapımı doğal kesme taş kule mimarisi",
+      "Özel tasarım kemerli ısıcamlı antrasit pencereler",
+      "Çiçek saksılıklarıyla donatılmış ferforje üst kat balkonu",
+      "Depreme dayanıklı hafif çelik taşıyıcı iskelet",
+      "Kapsamlı ısı ve ses yalıtım garantisi"
+    ],
+    "plan": "CV-140 Kat Planı (140 m²)",
+    "badge": "Romantik Seri"
+  },
+  {
+    "code": "PE-110",
+    "slug": "pe-110",
+    "name": "3+1 Ege Bahçe Evi Geniş Verandalı Prefabrik 110 m²",
+    "category": "tek-kat-prefabrik",
+    "rootCategory": "tek-kat-prefabrik",
+    "area": 110,
+    "floors": 1,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "veranda": 24,
+    "livingArea": 32,
+    "bedroomArea": 16,
+    "bathroomArea": 6,
+    "price": "740.000 ₺",
+    "image": "images/products/wp_bungalow_110.webp",
+    "real_image": "images/products/wp_bungalow_110.jpg",
+    "gallery": [
+      "images/products/wp_bungalow_110.webp",
+      "images/products/m5_02.webp",
+      "images/products/m5_03.webp",
+      "images/products/m5_04.webp"
+    ],
+    "plans": [
+      {
+        "title": "PE-110 Ege Bahçe Evi Kat Planı (110 m²)",
+        "image": "images/products/m5_04.webp",
+        "desc": "24 m² boydan boya uzanan ahşap tırabzanlı veranda, 3 ferah oda ve ebeveyn banyosu."
+      }
+    ],
+    "tagline": "24 m² boydan boya uzanan ahşap veranda, tek katlı konforlu müstakil yaşam",
+    "description": "PE-110 modeli; tek katta merdivensiz ve engelsiz yaşam arayan aileler için tasarlanmıştır. Boydan boya uzanan 24 m² ahşap verandası, bahçe keyfini yıl boyu sürmenizi sağlar. Geniş salonu ve 3 bağımsız yatak odasıyla her metrekaresi verimlidir.",
+    "highlights": [
+      "Tek katlı engelsiz ergonomik planlama",
+      "24 m² geniş ahşap tırabzanlı oturma verandası",
+      "Yüksek tavanlı ve ahşap alın kaplamalı beşik çatı mimarisi",
+      "Fabrikasyon hızlı montaj ve temiz kurulum (7 günde teslim)",
+      "Nem ve suya dayanıklı Betopan dış cephe kaplaması"
+    ],
+    "plan": "PE-110 Kat Planı (110 m²)",
+    "badge": "Aile Dostu"
+  },
+  {
+    "code": "CV-120",
+    "slug": "cv-120",
+    "name": "3+1 Beyaz Akdeniz Teraslı Çift Katlı Villa 120 m²",
+    "category": "cift-kat-celik",
+    "rootCategory": "cift-kat-celik",
+    "area": 120,
+    "floors": 2,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "veranda": 18,
+    "livingArea": 34,
+    "bedroomArea": 17,
+    "bathroomArea": 6.5,
+    "price": "920.000 ₺",
+    "image": "images/products/wp_mediterranean_120.webp",
+    "real_image": "images/products/wp_mediterranean_120.jpg",
+    "gallery": [
+      "images/products/wp_mediterranean_120.webp",
+      "images/products/wp_white_farmhouse_95.webp",
+      "images/products/wp_plan_110.webp"
+    ],
+    "plans": [
+      {
+        "title": "CV-120 Kat Planı (120 m²)",
+        "image": "images/products/wp_plan_110.webp",
+        "desc": "Geniş üst kat çatı terası, sürgülü boydan camlar, 3 yatak odası ve 2 banyo."
+      }
+    ],
+    "tagline": "Beyaz sıva cephe, kiremit çatı ve geniş üst kat manzaralı teras keyfi",
+    "description": "CV-120; Akdeniz ve Bodrum mimarisinden ilham alan saf beyaz cephesi, kiremit kaplı beşik çatısı ve üst katta yer alan 18 m² geniş açık terasıyla yaz-kış tatil konforunu evinize taşır.",
+    "highlights": [
+      "Üst kat 18 m² açık güneşlenme ve yemek terası",
+      "Geniş açılı sürgülü cam kapılar ve doğal aydınlık odalar",
+      "Deprem güvenliği yüksek çift katlı hafif çelik taşıyıcı",
+      "Kiremit çatı ve gizli dere yağmur oluk sistemi",
+      "Dört mevsim yüksek yalıtımlı duvar katmanları"
+    ],
+    "plan": "CV-120 Kat Planı (120 m²)",
+    "badge": "Akdeniz Esintisi"
+  },
+  {
+    "code": "CV-150",
+    "slug": "cv-150",
+    "name": "3+1 Döner Merdivenli Silindirik Teras Çelik Villa 150 m²",
+    "category": "celik-villa",
+    "rootCategory": "celik-villa",
+    "area": 150,
+    "floors": 3,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "veranda": 22,
+    "livingArea": 38,
+    "bedroomArea": 19,
+    "bathroomArea": 7,
+    "price": "1.380.000 ₺",
+    "image": "images/products/wp_curved_150.webp",
+    "real_image": "images/products/wp_curved_150.jpg",
+    "gallery": [
+      "images/products/wp_curved_150.webp",
+      "images/products/wp_hillside_165.webp",
+      "images/products/m6_04.webp"
+    ],
+    "plans": [
+      {
+        "title": "CV-150 3 Katlı Döner Teras Kat Planı",
+        "image": "images/products/m6_04.webp",
+        "desc": "Dıştan helezon döner merdivenli, 3 kademeli dairesel teraslı, taş baca kuleli çelik villa."
+      }
+    ],
+    "tagline": "Heykelsi kavisli hatlar, dıştan spiral merdivenli 3 katlı panoramik teras",
+    "description": "CV-150; sıradışı mimari formu, dış cepheden üst kat teraslarına bağlanan helezonik spiral merdiveni ve taş baca kulesiyle gerçek bir sanat eseri niteliğindedir. 3 katlı yapısı her katta farklı bir perspektif sunar.",
+    "highlights": [
+      "Özel imalat kavisli çelik ve dış spiral merdiven",
+      "3 kademeli 360 derece seyir ve dinlenme terasları",
+      "Doğal taş şömine bacası ve organik cephe sıvası",
+      "Yüksek tavanlı ve tabandan tavana dairesel cam cepheler",
+      "Ağır çelik ve hafif çelik hibrit taşıyıcı sistem"
+    ],
+    "plan": "CV-150 Kat Planı (150 m²)",
+    "badge": "İkonik Tasarım"
+  },
+  {
+    "code": "PE-85",
+    "slug": "pe-85",
+    "name": "2+1 Şömineli Amerikan Çiftlik Evi / Farmhouse 85 m²",
+    "category": "tek-kat-prefabrik",
+    "rootCategory": "tek-kat-prefabrik",
+    "area": 85,
+    "floors": 1,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "veranda": 18,
+    "livingArea": 30,
+    "bedroomArea": 15,
+    "bathroomArea": 6,
+    "price": "680.000 ₺",
+    "image": "images/products/wp_fireplace_85.webp",
+    "real_image": "images/products/wp_fireplace_85.jpg",
+    "gallery": [
+      "images/products/wp_fireplace_85.webp",
+      "images/products/wp_sunroom_80.webp",
+      "images/products/wp_bay_plan_35.webp"
+    ],
+    "plans": [
+      {
+        "title": "PE-85 Farmhouse Kat Planı (85 m²)",
+        "image": "images/products/wp_bay_plan_35.webp",
+        "desc": "Dış mekan açık hava şöminesi, ateş çukuru dinlenme avlusu, ahşap direkli veranda."
+      }
+    ],
+    "tagline": "Beyaz ahşap kaplama, antrasit kırma çatı ve dev dış mekan şömineli çiftlik evi",
+    "description": "PE-85; Amerikan modern farmhouse stilini hafif çelik kalitesiyle sunar. Evin dışına entegre edilen dev beyaz taş baca şöminesi ve bahçe ateş çukuru alanı sayesinde akşamları dostlarınızla unutulmaz anlar yaşatır.",
+    "highlights": [
+      "Dış mekan aktif baca ve taş kaplama bahçe şöminesi",
+      "Antrasit kenet metal çatı kaplaması ve beyaz lambri cephe",
+      "Geniş ahşap kolonlu kapalı sundurma veranda",
+      "Taş yünü yalıtımıyla kış aylarında sıcacık bir yuva",
+      "15 günde anahtar teslim kurulum"
+    ],
+    "plan": "PE-85 Kat Planı (85 m²)",
+    "badge": "Yeni Model"
+  },
+  {
+    "code": "TH-35",
+    "slug": "th-35",
+    "name": "1+1 Cumbalı Modüler Ahşap Bungalov 35 m²",
+    "category": "tiny-house",
+    "rootCategory": "tiny-house",
+    "area": 35,
+    "floors": 1,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "veranda": 12,
+    "livingArea": 18,
+    "bedroomArea": 10,
+    "bathroomArea": 4.5,
+    "price": "420.000 ₺",
+    "image": "images/products/wp_bay_bungalow_35.webp",
+    "real_image": "images/products/wp_bay_bungalow_35.jpg",
+    "gallery": [
+      "images/products/wp_bay_bungalow_35.webp",
+      "images/products/wp_bay_plan_35.webp",
+      "images/products/wp_tropical_loft_45.webp"
+    ],
+    "plans": [
+      {
+        "title": "TH-35 3D Kesit Kat Planı (35 m²)",
+        "image": "images/products/wp_bay_plan_35.webp",
+        "desc": "Dairesel cumbalı oturma köşesi, jakuzili banyo, çift kişilik yatak odası ve açık mutfak."
+      }
+    ],
+    "tagline": "3D Planlı Özel Model: Dairesel cumbalı cam köşe, şık ateş çukuru terası ve jakuzi banyosu",
+    "description": "TH-35; kompakt alanı en üst düzey lükse dönüştüren inovatif bir tasarımdır. Dairesel cumba cam köşesi manzarayı içeri alırken, jakuzi altyapılı banyosu ve açık terasıyla butik otel konseptini bahçenize getirir.",
+    "highlights": [
+      "3D mimari kesit planına sadık anahtar teslim imalat",
+      "Özel imalat kavisli dairesel cumba cam köşesi",
+      "Doğal meşe ahşap kaplama ve ısı yalıtımlı kenet çatı",
+      "Jakuzi ve duşakabin donanımlı banyo alanı",
+      "Mobil taşınabilir veya sabit temel üzerine monte edilebilir"
+    ],
+    "plan": "TH-35 3D Kat Planı (35 m²)",
+    "badge": "3D Planlı"
+  },
+  {
+    "code": "TH-45",
+    "slug": "th-45",
+    "name": "1+1 Katlanır Camlı Tropikal Loft Tiny House 45 m²",
+    "category": "tiny-house",
+    "rootCategory": "tiny-house",
+    "area": 45,
+    "floors": 2,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "veranda": 15,
+    "livingArea": 22,
+    "bedroomArea": 16,
+    "bathroomArea": 4.5,
+    "price": "490.000 ₺",
+    "image": "images/products/wp_tropical_loft_45.webp",
+    "real_image": "images/products/wp_tropical_loft_45.jpg",
+    "gallery": [
+      "images/products/wp_tropical_loft_45.webp",
+      "images/products/wp_bay_bungalow_35.webp",
+      "images/products/m3_04.webp"
+    ],
+    "plans": [
+      {
+        "title": "TH-45 Tropikal Loft Kat Planı (45 m²)",
+        "image": "images/products/m3_04.webp",
+        "desc": "Tamamen açılır katlanır akordeon cam cephe, ahşap güverte teras ve asma kat yatak odası."
+      }
+    ],
+    "tagline": "Katlanır akordeon cam cepheyle bahçeyle bütünleşen ahşap loft ev",
+    "description": "TH-45; sıcak yaz akşamlarında tüm salon cephesinin bahçeye açılabildiği katlanır cam teknolojisiyle doğayla sınırı kaldırır. Üst katındaki ferah balkonlu yatak odası ve ahşap güvertesiyle eşsizdir.",
+    "highlights": [
+      "Boydan boya tamamen katlanır ısıcamlı sürgü kapı sistemi",
+      "Doğal teak ve iroko ahşap güverte zemin kaplaması",
+      "İki katlı loft hacmiyle 4.5 m ferah iç tavan",
+      "Çelik karkas üzeri ahşap kütük kaplama detaylar",
+      "Güneş paneli ve su deposu entegrasyonuna hazır"
+    ],
+    "plan": "TH-45 Kat Planı (45 m²)",
+    "badge": "Tropikal Konsept"
+  },
+  {
+    "code": "AE-80",
+    "slug": "ae-80",
+    "name": "2+1 Kış Bahçeli Country Bahçe Evi 80 m²",
+    "category": "tek-kat-prefabrik",
+    "rootCategory": "tek-kat-prefabrik",
+    "area": 80,
+    "floors": 1,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "veranda": 16,
+    "livingArea": 26,
+    "bedroomArea": 14,
+    "bathroomArea": 5.5,
+    "price": "690.000 ₺",
+    "image": "images/products/wp_sunroom_80.webp",
+    "real_image": "images/products/wp_sunroom_80.jpg",
+    "gallery": [
+      "images/products/wp_sunroom_80.webp",
+      "images/products/wp_fireplace_85.webp",
+      "images/products/wp_bay_plan_35.webp"
+    ],
+    "plans": [
+      {
+        "title": "AE-80 Kış Bahçeli Ev Kat Planı (80 m²)",
+        "image": "images/products/wp_bay_plan_35.webp",
+        "desc": "Cam tavanlı ve cam duvarlı 16 m² kış bahçesi, 2 yatak odası, mutfak ve banyo."
+      }
+    ],
+    "tagline": "Güneş alan cam tavanlı kış bahçesi, organik tarım yatakları ve ahşap çitli country yaşam",
+    "description": "AE-80; evinizin bir parçası olarak tasarlanan cam tavanlı kış bahçesi (sunroom) ile kışın kar yağarken kahvenizi yudumlamanızı sağlar. Bahçenizdeki hobi tarımı için ideal bir kır konutudur.",
+    "highlights": [
+      "Entegre temperli ısıcamlı kış bahçesi ve cam tavan",
+      "Doğal ahşap taşıyıcı dikmeler ve beyaz yalıtımlı cephe",
+      "Kendi sebzenizi yetiştirebileceğiniz bahçe düzenlemesine uygun",
+      "Çelik iskeletli sağlam yapı ve uzun ömürlü çatı kaplaması",
+      "Çevre dostu yüksek ısı verimliliği"
+    ],
+    "plan": "AE-80 Kat Planı (80 m²)",
+    "badge": "Kış Bahçeli"
+  },
+  {
+    "code": "TH-25",
+    "slug": "th-25",
+    "name": "1+0 Çiçekli Butik Bahçe Tiny House 25 m²",
+    "category": "tiny-house",
+    "rootCategory": "tiny-house",
+    "area": 25,
+    "floors": 1,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "veranda": 8,
+    "livingArea": 14,
+    "bedroomArea": 8,
+    "bathroomArea": 3.5,
+    "price": "310.000 ₺",
+    "image": "images/products/wp_white_tiny_25.webp",
+    "real_image": "images/products/wp_white_tiny_25.jpg",
+    "gallery": [
+      "images/products/wp_white_tiny_25.webp",
+      "images/products/wp_tropical_loft_45.webp",
+      "images/products/m3_04.webp"
+    ],
+    "plans": [
+      {
+        "title": "TH-25 Butik Tiny House Kat Planı (25 m²)",
+        "image": "images/products/m3_04.webp",
+        "desc": "Verandalı giriş, açık mutfak, kompakt lüks banyo ve konforlu yatak alanı."
+      }
+    ],
+    "tagline": "3K Emir Yapı Resmi Modeli: Beyaz tırabzanlı veranda, çiçek saksılıkları ve sevimli beşik çatı",
+    "description": "3K Emir Yapı'nın sosyal medyada en yüksek beğeni alan modellerinden biri olan TH-25; 25 metrekarelik alana sığdırılan kompakt lüksüyle bahçeler, arsalar ve bağ evleri için en şık çözümdür.",
+    "highlights": [
+      "Orijinal 3K Emir Yapı tasarımı ve imalatı",
+      "Beyaz boyalı ahşap veranda ve basamak korkulukları",
+      "Çift camlı antrasit pencereler ve fener aplik aydınlatması",
+      "Hızlı nakliye ve vinçle aynı gün kullanıma hazır teslimat",
+      "Ekonomik fiyat ve sıfır bakım maliyeti"
+    ],
+    "plan": "TH-25 Kat Planı (25 m²)",
+    "badge": "3K İmzalı"
+  },
+  {
+    "code": "CV-95",
+    "slug": "cv-95",
+    "name": "2+1 Sallanan Sandalyeli Beyaz Loft Villa 95 m²",
+    "category": "cift-kat-celik",
+    "rootCategory": "cift-kat-celik",
+    "area": 95,
+    "floors": 2,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "veranda": 16,
+    "livingArea": 28,
+    "bedroomArea": 18,
+    "bathroomArea": 6,
+    "price": "810.000 ₺",
+    "image": "images/products/wp_white_farmhouse_95.webp",
+    "real_image": "images/products/wp_white_farmhouse_95.jpg",
+    "gallery": [
+      "images/products/wp_white_farmhouse_95.webp",
+      "images/products/wp_mediterranean_120.webp",
+      "images/products/wp_plan_90.webp"
+    ],
+    "plans": [
+      {
+        "title": "CV-95 Loft Villa Kat Planı (95 m²)",
+        "image": "images/products/wp_plan_90.webp",
+        "desc": "Çift katlı beyaz ahşap cepheli loft, geniş veranda ve üst kat balkon."
+      }
+    ],
+    "tagline": "Geniş ahşap veranda, sallanan sandalyeler, üst kat balkon ve beşik çatı zarafeti",
+    "description": "CV-95; nostaljik Amerikan güney çiftlik evlerinin sıcaklığını sunar. Beyaz ahşap kaplama cephesi, üst kat balkonu, giriş verandası ve geniş çatı pencereleriyle ferah bir yaşam ortamı yaratır.",
+    "highlights": [
+      "İki katlı geniş ahşap veranda ve üst seyir balkonu",
+      "Yüksek tavanlı ve üçgen çatı pencereli ebeveyn yatak odası",
+      "Hafif çelik statik iskelet güvencesi",
+      "Ses ve ısı geçirmeyen 10 cm taş yünlü dış duvarlar",
+      "Geniş kapı açıklıkları ve çift kanatlı fransız kapılar"
+    ],
+    "plan": "CV-95 Kat Planı (95 m²)",
+    "badge": "Popüler"
+  },
+  {
+    "code": "AE-75",
+    "slug": "ae-75",
+    "name": "2+1 İskandinav Taş Şömineli Karaçam Dağ Evi 75 m²",
+    "category": "cift-kat-celik",
+    "rootCategory": "cift-kat-celik",
+    "area": 75,
+    "floors": 2,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "veranda": 14,
+    "livingArea": 26,
+    "bedroomArea": 16,
+    "bathroomArea": 5.5,
+    "price": "730.000 ₺",
+    "image": "images/products/wp_nordic_cabin_75.webp",
+    "real_image": "images/products/wp_nordic_cabin_75.jpg",
+    "gallery": [
+      "images/products/wp_nordic_cabin_75.webp",
+      "images/products/wp_fireplace_85.webp",
+      "images/products/wp_plan_90.webp"
+    ],
+    "plans": [
+      {
+        "title": "AE-75 İskandinav Dağ Evi Kat Planı (75 m²)",
+        "image": "images/products/wp_plan_90.webp",
+        "desc": "Taş şömine kulesi, açık hava terası, karaçam ahşap cephe ve asma kat yatak odası."
+      }
+    ],
+    "tagline": "Nordic siyah ahşap cephe, dev doğal taş açık hava şöminesi ve teras keyfi",
+    "description": "İskandinav mimarisinin dinginliğini yansıtan AE-75; siyah dikey ahşap panelleri ve verandaya entegre edilen devasa doğal taş şöminesiyle kış aylarında dışarıda oturma zevkini bambaşka bir boyuta taşır.",
+    "highlights": [
+      "Verandaya sıfır dev doğal taş açık şömine",
+      "İskandinav siyah ahşap koruyucu kaplama ve dik eğimli çatı",
+      "Kar yüküne ve fırtınaya dayanıklı çelik iskelet",
+      "Tabandan tavana uzanan 4 parçalı cam cephe kapısı",
+      "Ahşap kirişli sıcak iç dekorasyon"
+    ],
+    "plan": "AE-75 Kat Planı (75 m²)",
+    "badge": "Nordic Stil"
+  },
+  {
+    "code": "CV-125",
+    "slug": "cv-125",
+    "name": "3+1 Adaçayı Yeşili Çift Katlı Country Villa 125 m²",
+    "category": "cift-kat-celik",
+    "rootCategory": "cift-kat-celik",
+    "area": 125,
+    "floors": 2,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "veranda": 18,
+    "livingArea": 34,
+    "bedroomArea": 18,
+    "bathroomArea": 6.5,
+    "price": "960.000 ₺",
+    "image": "images/products/wp_sage_farmhouse_125.webp",
+    "real_image": "images/products/wp_sage_farmhouse_125.jpg",
+    "gallery": [
+      "images/products/wp_sage_farmhouse_125.webp",
+      "images/products/wp_white_farmhouse_95.webp",
+      "images/products/wp_plan_110.webp"
+    ],
+    "plans": [
+      {
+        "title": "CV-125 Adaçayı Yeşili Kat Planı (125 m²)",
+        "image": "images/products/wp_plan_110.webp",
+        "desc": "Çift katlı country planı, beyaz sütunlu giriş verandası, 3 yatak odası ve 2 banyo."
+      }
+    ],
+    "tagline": "Zarif adaçayı yeşili ahşap kaplama, beyaz sütunlu giriş sundurması ve geniş teras",
+    "description": "CV-125 modeli; huzur veren adaçayı yeşili dış cephesi, beyaz tırabzanlı sütunlu verandası ve çiçeklerle bezenmiş ön bahçesiyle seçkin bir zevke hitap eder. Geniş yaşam alanı ve 3 konforlu odasıyla mükemmel bir aile evidir.",
+    "highlights": [
+      "Doğayla uyumlu adaçayı yeşili ve beyaz çift renk dış cephe",
+      "Sütunlu geniş karşılama verandası ve dinlenme alanı",
+      "Hafif çelik galvaniz konstrüksiyonla ömür boyu dayanıklılık",
+      "Geniş mutfak tezgahı ve kiler dolap alanı",
+      "Yüksek tavanlı aydınlık odalar"
+    ],
+    "plan": "CV-125 Kat Planı (125 m²)",
+    "badge": "Country Seri"
+  },
+  {
+    "code": "AE-40",
+    "slug": "ae-40",
+    "name": "1+1 Çift Katlı Ahşap Kır Villası 40 m²",
+    "category": "tiny-house",
+    "rootCategory": "tiny-house",
+    "area": 40,
+    "floors": 2,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "veranda": 10,
+    "livingArea": 20,
+    "bedroomArea": 14,
+    "bathroomArea": 4,
+    "price": "480.000 ₺",
+    "image": "images/products/wp_gable_40.webp",
+    "real_image": "images/products/wp_gable_40.jpg",
+    "gallery": [
+      "images/products/wp_gable_40.webp",
+      "images/products/m7_01.webp",
+      "images/products/m2_02.webp",
+      "images/products/m2_04.webp"
+    ],
+    "plans": [
+      {
+        "title": "AE-40 Loft Kat Planı (40 m²)",
+        "image": "images/products/m2_04.webp",
+        "desc": "Geniş cam üçgen alınlı asma kat, açık mutfaklı salon ve taş kaideli veranda."
+      }
+    ],
+    "tagline": "Geniş alın camları, masif ahşap makaslar ve sıcak akşam aydınlatmalı kır evi",
+    "description": "AE-40; doğa arazileri için özel olarak tasarlanmış kompakt bir çift katlı kır konutudur. Çatı makaslarının estetik gücünü yansıtan beşik çatısı ve geniş cam cephesiyle iç mekana bol ışık alır.",
+    "highlights": [
+      "Masif ahşap çatı kirişleri ve doğal taş kaideler",
+      "Asma kat loft yatak odası ve çift yükseklikte salon",
+      "Hafif çelik statik iskelet güvencesi",
+      "Hızlı kurulum ve düşük bakım maliyeti"
+    ],
+    "plan": "AE-40 Kat Planı (40 m²)",
+    "badge": "Kompakt Lüks"
+  },
+  {
+    "code": "TH-37",
+    "slug": "th-37",
+    "name": "1+1 İki Katlı Teraslı Konteyner Loft 37.5 m²",
+    "category": "tiny-house",
+    "rootCategory": "tiny-house",
+    "area": 37.5,
+    "floors": 2,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "veranda": 12,
+    "livingArea": 18,
+    "bedroomArea": 12,
+    "bathroomArea": 4,
+    "price": "450.000 ₺",
+    "image": "images/products/m3_01.webp",
+    "real_image": "images/products/m3_01.jpg",
+    "gallery": [
+      "images/products/m3_01.webp",
+      "images/products/m3_02.webp",
+      "images/products/m3_03.webp",
+      "images/products/m3_04.webp"
+    ],
+    "plans": [
+      {
+        "title": "TH-37 Loft Konteyner Kat Planı (37.5 m²)",
+        "image": "images/products/m3_04.webp",
+        "desc": "Üst kat teraslı, içten merdivenli, açık mutfak ve modern banyolu modüler loft."
+      }
+    ],
+    "tagline": "Antrasit çelik karkas, üst kat çim teraslı akıllı modüler konteyner ev",
+    "description": "TH-37 modeli; modern konteyner mimarisinin en şık örneğidir. Üst katındaki geniş güneşlenme terası, antrasit kompozit dış kaplaması ve loft katı ile arsanızda az yer kaplar, maksimum keyif sunar.",
+    "highlights": [
+      "Güçlendirilmiş marin kalite çelik konteyner şasesi",
+      "Üst kat 12 m² ahşap zeminli seyir terası",
+      "Kompakt modüler mutfak ve duşakabinli Hilton banyo",
+      "Plakalı taşınabilir ruhsata uygun altyapı opsiyonu"
+    ],
+    "plan": "TH-37 Kat Planı (37.5 m²)",
+    "badge": "Modüler"
+  },
+  {
+    "code": "PE-135",
+    "slug": "pe-135",
+    "name": "3+1 Havuzlu Modern Çelik Villa 135 m²",
+    "category": "celik-villa",
+    "rootCategory": "celik-villa",
+    "area": 135,
+    "floors": 1,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "veranda": 20,
+    "livingArea": 38,
+    "bedroomArea": 20,
+    "bathroomArea": 7,
+    "price": "1.050.000 ₺",
+    "image": "images/products/m8_01.webp",
+    "real_image": "images/products/m8_01.jpg",
+    "gallery": [
+      "images/products/m8_01.webp",
+      "images/products/m8_02.webp",
+      "images/products/m8_03.webp"
+    ],
+    "plans": [
+      {
+        "title": "PE-135 Havuzlu Villa Kat Planı (135 m²)",
+        "image": "images/products/m8_03.webp",
+        "desc": "Geniş salon, havuz cepheli ebeveyn yatak odası, 2 çocuk odası ve çamaşır odası."
+      }
+    ],
+    "tagline": "Havuz başı güneşlenme verandası, düz çatı çizgisi ve antrasit kompozit cephe",
+    "description": "PE-135; havuzlu müstakil parsel planları için optimize edilmiştir. Boydan boya cam cepheleri doğrudan havuz terasına açılır. Ebeveyn odası ve salonundan kesintisiz havuz ve bahçe manzarası sunar.",
+    "highlights": [
+      "Doğrudan havuz platformuna açılan sürgülü geniş alüminyum camlar",
+      "Antrasit kompozit ve açık renk cephe fugası kombinasyonu",
+      "Ebeveyn banyosu ve giyinme nişi",
+      "Tamamen çelik karkas konstrüksiyon"
+    ],
+    "plan": "PE-135 Kat Planı (135 m²)",
+    "badge": "Havuzlu Seri"
+  }
+];
